@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{78C2C6AE-7559-4A21-8658-74727B82C0ED}</ProjectGuid>
+    <ProjectGuid>{B7339643-F6D6-4B53-963B-BE83DC045C4C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>EcoPura</RootNamespace>
     <AssemblyName>EcoPura</AssemblyName>
