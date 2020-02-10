@@ -20,8 +20,7 @@ namespace EcoPura
         private void Restaurar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Normal;
-            Restaurar.Visible = false;
-            Maximizar.Visible = true;
+            
         }
 
         private void MenuSidebar_Click(object sender, EventArgs e)
@@ -58,8 +57,7 @@ namespace EcoPura
         private void Maximizar_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-            Maximizar.Visible = false;
-            Restaurar.Visible = true;
+            
         }
 
         private void Minimizar_Click_1(object sender, EventArgs e)
@@ -94,6 +92,31 @@ namespace EcoPura
         }
 
         private void MenuTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
 
         }

@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\Downloads\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
       <Private>True</Private>
@@ -48,6 +51,7 @@
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,13 +100,20 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="img\back-icon-png-white-7.png" />
     <Content Include="img\close.png" />
+    <Content Include="img\cropped close.jpg" />
+    <Content Include="img\cropped Minimize %282%29.jpg" />
     <Content Include="img\edit.png" />
+    <Content Include="img\left-arrow.png" />
+    <Content Include="img\left-arrow1.png" />
     <Content Include="img\magnifying-glass.png" />
     <Content Include="img\maximize.png" />
     <Content Include="img\maximize1.png" />
     <Content Include="img\maximize2.png" />
     <Content Include="img\minimize.png" />
+    <Content Include="img\minimize2.png" />
+    <Content Include="img\minimize3.png" />
     <Content Include="img\plus.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />

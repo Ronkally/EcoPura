@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaProducto));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MenuTop = new System.Windows.Forms.Panel();
             this.MenuSidebar = new System.Windows.Forms.PictureBox();
-            this.Minimizar = new System.Windows.Forms.PictureBox();
-            this.Maximizar = new System.Windows.Forms.PictureBox();
-            this.Salir = new System.Windows.Forms.PictureBox();
             this.SidebarWrapper = new System.Windows.Forms.Panel();
             this.Sidebar = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -56,29 +54,26 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Restaurar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.MenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuSidebar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Maximizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
             this.SidebarWrapper.SuspendLayout();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.Wrapper.SuspendLayout();
             this.PanelChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuTop
             // 
             this.MenuTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.MenuTop.Controls.Add(this.button1);
+            this.MenuTop.Controls.Add(this.btnMinimizar);
+            this.MenuTop.Controls.Add(this.btnCerrar);
             this.MenuTop.Controls.Add(this.MenuSidebar);
-            this.MenuTop.Controls.Add(this.Restaurar);
-            this.MenuTop.Controls.Add(this.Minimizar);
-            this.MenuTop.Controls.Add(this.Maximizar);
-            this.MenuTop.Controls.Add(this.Salir);
             this.MenuTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.MenuTop.Location = new System.Drawing.Point(0, 0);
             this.MenuTop.Name = "MenuTop";
@@ -99,45 +94,6 @@
             this.MenuSidebar.TabStop = false;
             this.MenuSidebar.Click += new System.EventHandler(this.MenuSidebar_Click);
             // 
-            // Minimizar
-            // 
-            this.Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("Minimizar.Image")));
-            this.Minimizar.Location = new System.Drawing.Point(796, 12);
-            this.Minimizar.Name = "Minimizar";
-            this.Minimizar.Size = new System.Drawing.Size(25, 25);
-            this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Minimizar.TabIndex = 2;
-            this.Minimizar.TabStop = false;
-            this.Minimizar.Click += new System.EventHandler(this.Minimizar_Click_1);
-            // 
-            // Maximizar
-            // 
-            this.Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("Maximizar.Image")));
-            this.Maximizar.Location = new System.Drawing.Point(827, 12);
-            this.Maximizar.Name = "Maximizar";
-            this.Maximizar.Size = new System.Drawing.Size(25, 25);
-            this.Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Maximizar.TabIndex = 1;
-            this.Maximizar.TabStop = false;
-            this.Maximizar.Click += new System.EventHandler(this.Maximizar_Click_1);
-            // 
-            // Salir
-            // 
-            this.Salir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Salir.Image = ((System.Drawing.Image)(resources.GetObject("Salir.Image")));
-            this.Salir.Location = new System.Drawing.Point(858, 12);
-            this.Salir.Name = "Salir";
-            this.Salir.Size = new System.Drawing.Size(25, 25);
-            this.Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Salir.TabIndex = 0;
-            this.Salir.TabStop = false;
-            this.Salir.Click += new System.EventHandler(this.Salir_Click_1);
-            // 
             // SidebarWrapper
             // 
             this.SidebarWrapper.Controls.Add(this.Sidebar);
@@ -149,7 +105,7 @@
             // 
             // Sidebar
             // 
-            this.Sidebar.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.Sidebar.Controls.Add(this.btnRegresar);
             this.Sidebar.Controls.Add(this.Logo);
             this.Sidebar.Controls.Add(this.label2);
@@ -158,23 +114,25 @@
             this.Sidebar.Name = "Sidebar";
             this.Sidebar.Size = new System.Drawing.Size(188, 500);
             this.Sidebar.TabIndex = 0;
+            this.Sidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.Sidebar_Paint);
             // 
             // btnRegresar
             // 
-            this.btnRegresar.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
             this.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegresar.Location = new System.Drawing.Point(0, 113);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(188, 40);
+            this.btnRegresar.Size = new System.Drawing.Size(185, 43);
             this.btnRegresar.TabIndex = 10;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // Logo
             // 
@@ -232,7 +190,7 @@
             // 
             // PanelChart
             // 
-            this.PanelChart.BackColor = System.Drawing.Color.Gainsboro;
+            this.PanelChart.BackColor = System.Drawing.Color.Transparent;
             this.PanelChart.Controls.Add(this.btnEliminar);
             this.PanelChart.Controls.Add(this.btnModificar);
             this.PanelChart.Controls.Add(this.btnAgregar);
@@ -248,7 +206,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(42)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
@@ -263,7 +221,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
@@ -278,7 +236,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
@@ -293,7 +251,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.Location = new System.Drawing.Point(280, 63);
@@ -326,6 +284,15 @@
             // dataGridView1
             // 
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -334,8 +301,10 @@
             this.Column4,
             this.Column5,
             this.Column6});
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(70, 111);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(533, 333);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -369,19 +338,44 @@
             this.Column6.HeaderText = "Column6";
             this.Column6.Name = "Column6";
             // 
-            // Restaurar
+            // btnCerrar
             // 
-            this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
-            this.Restaurar.Location = new System.Drawing.Point(827, 12);
-            this.Restaurar.Name = "Restaurar";
-            this.Restaurar.Size = new System.Drawing.Size(25, 25);
-            this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Restaurar.TabIndex = 3;
-            this.Restaurar.TabStop = false;
-            this.Restaurar.Visible = false;
-            this.Restaurar.Click += new System.EventHandler(this.Restaurar_Click);
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(855, 9);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(33, 32);
+            this.btnCerrar.TabIndex = 5;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
+            this.btnMinimizar.Location = new System.Drawing.Point(777, 9);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(33, 32);
+            this.btnMinimizar.TabIndex = 6;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(816, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 32);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // VentanaProducto
             // 
@@ -396,9 +390,6 @@
             this.Text = "Form1";
             this.MenuTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MenuSidebar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Maximizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
             this.SidebarWrapper.ResumeLayout(false);
             this.Sidebar.ResumeLayout(false);
             this.Sidebar.PerformLayout();
@@ -407,7 +398,6 @@
             this.PanelChart.ResumeLayout(false);
             this.PanelChart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,9 +405,6 @@
         #endregion
 
         private System.Windows.Forms.Panel MenuTop;
-        private System.Windows.Forms.PictureBox Minimizar;
-        private System.Windows.Forms.PictureBox Maximizar;
-        private System.Windows.Forms.PictureBox Salir;
         private System.Windows.Forms.Panel SidebarWrapper;
         private System.Windows.Forms.Panel Wrapper;
         private System.Windows.Forms.Panel Sidebar;
@@ -441,7 +428,9 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.PictureBox Restaurar;
+        private System.Windows.Forms.Button btnMinimizar;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button button1;
     }
 }
 
