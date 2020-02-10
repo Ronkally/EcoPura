@@ -1,6 +1,6 @@
 ﻿namespace EcoPura
 {
-    partial class Form1
+    partial class VentanaProducto
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,27 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaProducto));
             this.MenuTop = new System.Windows.Forms.Panel();
             this.MenuSidebar = new System.Windows.Forms.PictureBox();
-            this.Restaurar = new System.Windows.Forms.PictureBox();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Maximizar = new System.Windows.Forms.PictureBox();
             this.Salir = new System.Windows.Forms.PictureBox();
             this.SidebarWrapper = new System.Windows.Forms.Panel();
             this.Sidebar = new System.Windows.Forms.Panel();
-            this.Retroceso = new System.Windows.Forms.PictureBox();
-            this.BackButton = new System.Windows.Forms.Button();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.Separador = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.Wrapper = new System.Windows.Forms.Panel();
             this.PanelChart = new System.Windows.Forms.Panel();
-            this.Delete = new System.Windows.Forms.PictureBox();
-            this.Mod = new System.Windows.Forms.PictureBox();
-            this.Add = new System.Windows.Forms.PictureBox();
-            this.SearchButton = new System.Windows.Forms.PictureBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -58,23 +56,19 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Restaurar = new System.Windows.Forms.PictureBox();
             this.MenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuSidebar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).BeginInit();
             this.SidebarWrapper.SuspendLayout();
             this.Sidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Retroceso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.Wrapper.SuspendLayout();
             this.PanelChart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Delete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Mod)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Add)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuTop
@@ -90,6 +84,7 @@
             this.MenuTop.Name = "MenuTop";
             this.MenuTop.Size = new System.Drawing.Size(900, 50);
             this.MenuTop.TabIndex = 0;
+            this.MenuTop.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuTop_Paint);
             this.MenuTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MenuTop_MouseMove);
             // 
             // MenuSidebar
@@ -103,20 +98,6 @@
             this.MenuSidebar.TabIndex = 4;
             this.MenuSidebar.TabStop = false;
             this.MenuSidebar.Click += new System.EventHandler(this.MenuSidebar_Click);
-            // 
-            // Restaurar
-            // 
-            this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
-            this.Restaurar.Location = new System.Drawing.Point(827, 12);
-            this.Restaurar.Name = "Restaurar";
-            this.Restaurar.Size = new System.Drawing.Size(25, 25);
-            this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Restaurar.TabIndex = 3;
-            this.Restaurar.TabStop = false;
-            this.Restaurar.Visible = false;
-            this.Restaurar.Click += new System.EventHandler(this.Restaurar_Click);
             // 
             // Minimizar
             // 
@@ -169,50 +150,37 @@
             // Sidebar
             // 
             this.Sidebar.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.Sidebar.Controls.Add(this.Retroceso);
-            this.Sidebar.Controls.Add(this.BackButton);
+            this.Sidebar.Controls.Add(this.btnRegresar);
             this.Sidebar.Controls.Add(this.Logo);
             this.Sidebar.Controls.Add(this.label2);
             this.Sidebar.Controls.Add(this.shapeContainer1);
-            this.Sidebar.Location = new System.Drawing.Point(12, 15);
+            this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Size = new System.Drawing.Size(176, 473);
+            this.Sidebar.Size = new System.Drawing.Size(188, 500);
             this.Sidebar.TabIndex = 0;
             // 
-            // Retroceso
+            // btnRegresar
             // 
-            this.Retroceso.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Retroceso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Retroceso.Image = ((System.Drawing.Image)(resources.GetObject("Retroceso.Image")));
-            this.Retroceso.Location = new System.Drawing.Point(71, 178);
-            this.Retroceso.Name = "Retroceso";
-            this.Retroceso.Size = new System.Drawing.Size(35, 30);
-            this.Retroceso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Retroceso.TabIndex = 7;
-            this.Retroceso.TabStop = false;
-            // 
-            // BackButton
-            // 
-            this.BackButton.BackColor = System.Drawing.Color.Transparent;
-            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BackButton.FlatAppearance.BorderSize = 0;
-            this.BackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackButton.Font = new System.Drawing.Font("Swis721 Lt BT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.Location = new System.Drawing.Point(41, 169);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BackButton.Size = new System.Drawing.Size(101, 60);
-            this.BackButton.TabIndex = 10;
-            this.BackButton.Text = "Regresar";
-            this.BackButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.BackButton.UseVisualStyleBackColor = false;
+            this.btnRegresar.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnRegresar.FlatAppearance.BorderSize = 0;
+            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.ForestGreen;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegresar.Location = new System.Drawing.Point(0, 113);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(188, 40);
+            this.btnRegresar.TabIndex = 10;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = false;
             // 
             // Logo
             // 
             this.Logo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(67, 13);
+            this.Logo.Location = new System.Drawing.Point(69, 13);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(44, 46);
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,11 +192,11 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Swis721 BT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(37, 69);
+            this.label2.Location = new System.Drawing.Point(39, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 22);
+            this.label2.Size = new System.Drawing.Size(109, 24);
             this.label2.TabIndex = 7;
             this.label2.Text = "ECOPURA";
             // 
@@ -239,7 +207,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.Separador});
-            this.shapeContainer1.Size = new System.Drawing.Size(176, 473);
+            this.shapeContainer1.Size = new System.Drawing.Size(188, 500);
             this.shapeContainer1.TabIndex = 9;
             this.shapeContainer1.TabStop = false;
             // 
@@ -260,87 +228,98 @@
             this.Wrapper.Name = "Wrapper";
             this.Wrapper.Size = new System.Drawing.Size(700, 500);
             this.Wrapper.TabIndex = 2;
+            this.Wrapper.Paint += new System.Windows.Forms.PaintEventHandler(this.Wrapper_Paint);
             // 
             // PanelChart
             // 
             this.PanelChart.BackColor = System.Drawing.Color.Gainsboro;
-            this.PanelChart.Controls.Add(this.Delete);
-            this.PanelChart.Controls.Add(this.Mod);
-            this.PanelChart.Controls.Add(this.Add);
-            this.PanelChart.Controls.Add(this.SearchButton);
+            this.PanelChart.Controls.Add(this.btnEliminar);
+            this.PanelChart.Controls.Add(this.btnModificar);
+            this.PanelChart.Controls.Add(this.btnAgregar);
+            this.PanelChart.Controls.Add(this.btnBuscar);
             this.PanelChart.Controls.Add(this.SearchBox);
             this.PanelChart.Controls.Add(this.label1);
             this.PanelChart.Controls.Add(this.dataGridView1);
-            this.PanelChart.Location = new System.Drawing.Point(14, 15);
+            this.PanelChart.Location = new System.Drawing.Point(7, 15);
             this.PanelChart.Name = "PanelChart";
             this.PanelChart.Size = new System.Drawing.Size(674, 473);
             this.PanelChart.TabIndex = 0;
+            this.PanelChart.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelChart_Paint);
             // 
-            // Delete
+            // btnEliminar
             // 
-            this.Delete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
-            this.Delete.Location = new System.Drawing.Point(566, 56);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(35, 35);
-            this.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Delete.TabIndex = 9;
-            this.Delete.TabStop = false;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(522, 63);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(81, 29);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Borrar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // Mod
+            // btnModificar
             // 
-            this.Mod.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Mod.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Mod.Image = ((System.Drawing.Image)(resources.GetObject("Mod.Image")));
-            this.Mod.Location = new System.Drawing.Point(521, 56);
-            this.Mod.Name = "Mod";
-            this.Mod.Size = new System.Drawing.Size(35, 35);
-            this.Mod.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Mod.TabIndex = 8;
-            this.Mod.TabStop = false;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(435, 63);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(81, 29);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // Add
+            // btnAgregar
             // 
-            this.Add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Add.Image = ((System.Drawing.Image)(resources.GetObject("Add.Image")));
-            this.Add.Location = new System.Drawing.Point(475, 56);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(35, 35);
-            this.Add.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Add.TabIndex = 7;
-            this.Add.TabStop = false;
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(348, 63);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(81, 29);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // SearchButton
+            // btnBuscar
             // 
-            this.SearchButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.SearchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchButton.Image = ((System.Drawing.Image)(resources.GetObject("SearchButton.Image")));
-            this.SearchButton.Location = new System.Drawing.Point(280, 64);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(27, 27);
-            this.SearchButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.SearchButton.TabIndex = 3;
-            this.SearchButton.TabStop = false;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(280, 63);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
+            this.btnBuscar.TabIndex = 3;
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // SearchBox
             // 
             this.SearchBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SearchBox.Location = new System.Drawing.Point(70, 67);
+            this.SearchBox.Location = new System.Drawing.Point(70, 63);
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(204, 20);
+            this.SearchBox.Size = new System.Drawing.Size(204, 29);
             this.SearchBox.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Swis721 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(64, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(284, 32);
+            this.label1.Size = new System.Drawing.Size(284, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "Registro de productos";
             // 
@@ -390,7 +369,21 @@
             this.Column6.HeaderText = "Column6";
             this.Column6.Name = "Column6";
             // 
-            // Form1
+            // Restaurar
+            // 
+            this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
+            this.Restaurar.Location = new System.Drawing.Point(827, 12);
+            this.Restaurar.Name = "Restaurar";
+            this.Restaurar.Size = new System.Drawing.Size(25, 25);
+            this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Restaurar.TabIndex = 3;
+            this.Restaurar.TabStop = false;
+            this.Restaurar.Visible = false;
+            this.Restaurar.Click += new System.EventHandler(this.Restaurar_Click);
+            // 
+            // VentanaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -399,27 +392,22 @@
             this.Controls.Add(this.SidebarWrapper);
             this.Controls.Add(this.MenuTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "VentanaProducto";
             this.Text = "Form1";
             this.MenuTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MenuSidebar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Maximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Salir)).EndInit();
             this.SidebarWrapper.ResumeLayout(false);
             this.Sidebar.ResumeLayout(false);
             this.Sidebar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Retroceso)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.Wrapper.ResumeLayout(false);
             this.PanelChart.ResumeLayout(false);
             this.PanelChart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Delete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Mod)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Add)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SearchButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -427,7 +415,6 @@
         #endregion
 
         private System.Windows.Forms.Panel MenuTop;
-        private System.Windows.Forms.PictureBox Restaurar;
         private System.Windows.Forms.PictureBox Minimizar;
         private System.Windows.Forms.PictureBox Maximizar;
         private System.Windows.Forms.PictureBox Salir;
@@ -443,18 +430,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox SearchButton;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox Logo;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape Separador;
-        private System.Windows.Forms.PictureBox Retroceso;
-        private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.PictureBox MenuSidebar;
-        private System.Windows.Forms.PictureBox Delete;
-        private System.Windows.Forms.PictureBox Mod;
-        private System.Windows.Forms.PictureBox Add;
+        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.PictureBox Restaurar;
     }
 }
 

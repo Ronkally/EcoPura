@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class Form1 : Form
+    public partial class VentanaProducto : Form
     {
-        public Form1()
+        public VentanaProducto()
         {
             InitializeComponent();
         }
@@ -34,9 +34,7 @@ namespace EcoPura
                 PanelChart.Width = 750;
                 label2.Visible = false;
                 Separador.Visible = false;
-                Retroceso.Height = 46;
-                Retroceso.Width = 44;
-                BackButton.Visible = false;
+             
                
             }
             else
@@ -47,9 +45,7 @@ namespace EcoPura
                 PanelChart.Width = 668;
                 label2.Visible = true;
                 Separador.Visible = true;
-                Retroceso.Height = 30;
-                Retroceso.Width = 35;
-                BackButton.Visible = true;
+               
              
             }
         }
@@ -87,6 +83,19 @@ namespace EcoPura
             }
         }
 
+        private void PanelChart_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void Wrapper_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MenuTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
