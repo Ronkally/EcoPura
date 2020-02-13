@@ -118,6 +118,12 @@ namespace EcoPura
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            this.Close();
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
 
         }
     }

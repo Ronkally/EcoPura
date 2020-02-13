@@ -16,7 +16,7 @@ namespace EcoPura
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VentanaProducto());
+            Application.Run(new InicioVentana());
         }
     }
 }
