@@ -46,7 +46,9 @@
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
@@ -63,6 +65,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="altaProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="altaProducto.Designer.cs">
+      <DependentUpon>altaProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InicioVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InicioVentana.Designer.cs">
+      <DependentUpon>InicioVentana.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="altaProducto.resx">
+      <DependentUpon>altaProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InicioVentana.resx">
+      <DependentUpon>InicioVentana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentanaProducto.resx">
       <DependentUpon>VentanaProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,8 +135,10 @@
     <Content Include="img\minimize2.png" />
     <Content Include="img\minimize3.png" />
     <Content Include="img\plus.png" />
+    <Content Include="img\producto.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />
+    <None Include="Resources\producto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
