@@ -138,6 +138,10 @@
     <Content Include="img\producto.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />
+    <None Include="Resources\deleteChiquito.png" />
+    <None Include="Resources\addChiquito.png" />
+    <None Include="Resources\plusChiquito.png" />
+    <None Include="Resources\deleteCiquito.png" />
     <None Include="Resources\producto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
