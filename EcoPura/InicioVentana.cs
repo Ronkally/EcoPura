@@ -106,7 +106,8 @@ namespace EcoPura
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-
+            var inicio = new VentaVentana();
+            inicio.ShowDialog();
         }
 
         private void btnCaja_Click(object sender, EventArgs e)
