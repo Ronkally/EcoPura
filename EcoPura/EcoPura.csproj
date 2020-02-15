@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaVentana.Designer.cs">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="altaProducto.resx">
       <DependentUpon>altaProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +110,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VentaVentana.resx">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
