@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentaVentana));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MenuTop = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -39,15 +39,13 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.Sidebar = new System.Windows.Forms.Panel();
             this.panelSide = new System.Windows.Forms.Panel();
+            this.btnRegresar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.panelCentro = new System.Windows.Forms.Panel();
-            this.labelP = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnComodin = new System.Windows.Forms.Button();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.GridVentas = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,8 +54,11 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
+            this.labelP = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnComodin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.MenuTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Sidebar.SuspendLayout();
@@ -101,7 +102,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::EcoPura.Properties.Resources.IconoEco;
             this.pictureBox1.Location = new System.Drawing.Point(29, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 36);
@@ -189,6 +190,40 @@
             this.panelSide.Size = new System.Drawing.Size(244, 445);
             this.panelSide.TabIndex = 10;
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegresar.FlatAppearance.BorderSize = 0;
+            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegresar.Location = new System.Drawing.Point(62, 383);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(122, 43);
+            this.btnRegresar.TabIndex = 12;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.LightGray;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(195, 36);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
             // shapeContainer2
             // 
             this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
@@ -232,6 +267,7 @@
             // 
             // panelCentro
             // 
+            this.panelCentro.Controls.Add(this.button1);
             this.panelCentro.Controls.Add(this.panelGrid);
             this.panelCentro.Controls.Add(this.labelP);
             this.panelCentro.Controls.Add(this.button3);
@@ -242,60 +278,6 @@
             this.panelCentro.Name = "panelCentro";
             this.panelCentro.Size = new System.Drawing.Size(602, 500);
             this.panelCentro.TabIndex = 5;
-            // 
-            // labelP
-            // 
-            this.labelP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelP.AutoSize = true;
-            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelP.Location = new System.Drawing.Point(452, 418);
-            this.labelP.Name = "labelP";
-            this.labelP.Size = new System.Drawing.Size(119, 57);
-            this.labelP.TabIndex = 25;
-            this.labelP.Text = "$ 0.00";
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(506, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(65, 41);
-            this.button3.TabIndex = 24;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(421, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 41);
-            this.button2.TabIndex = 23;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnComodin
-            // 
-            this.btnComodin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnComodin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnComodin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComodin.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComodin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnComodin.Location = new System.Drawing.Point(32, 29);
-            this.btnComodin.Name = "btnComodin";
-            this.btnComodin.Size = new System.Drawing.Size(81, 40);
-            this.btnComodin.TabIndex = 22;
-            this.btnComodin.Text = "Comodin";
-            this.btnComodin.UseVisualStyleBackColor = true;
             // 
             // panelGrid
             // 
@@ -309,14 +291,14 @@
             // 
             this.GridVentas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridVentas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -363,39 +345,73 @@
             this.Column6.HeaderText = "Column6";
             this.Column6.Name = "Column6";
             // 
-            // btnBuscar
+            // labelP
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.LightGray;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(195, 36);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
-            this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.labelP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelP.AutoSize = true;
+            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelP.Location = new System.Drawing.Point(452, 418);
+            this.labelP.Name = "labelP";
+            this.labelP.Size = new System.Drawing.Size(119, 57);
+            this.labelP.TabIndex = 25;
+            this.labelP.Text = "$ 0.00";
             // 
-            // btnRegresar
+            // button3
             // 
-            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegresar.Location = new System.Drawing.Point(62, 383);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(122, 43);
-            this.btnRegresar.TabIndex = 12;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(423, 28);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(65, 41);
+            this.button3.TabIndex = 24;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(337, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(65, 41);
+            this.button2.TabIndex = 23;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnComodin
+            // 
+            this.btnComodin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnComodin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnComodin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComodin.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComodin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnComodin.Location = new System.Drawing.Point(32, 29);
+            this.btnComodin.Name = "btnComodin";
+            this.btnComodin.Size = new System.Drawing.Size(81, 40);
+            this.btnComodin.TabIndex = 22;
+            this.btnComodin.Text = "Comodin";
+            this.btnComodin.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(506, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 41);
+            this.button1.TabIndex = 27;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // VentaVentana
             // 
@@ -454,5 +470,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Button button1;
     }
 }

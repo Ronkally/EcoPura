@@ -71,6 +71,12 @@
     <Compile Include="altaProducto.Designer.cs">
       <DependentUpon>altaProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="CambioVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioVentana.Designer.cs">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioVentana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="altaProducto.resx">
       <DependentUpon>altaProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioVentana.resx">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioVentana.resx">
       <DependentUpon>InicioVentana.cs</DependentUpon>
@@ -134,6 +143,7 @@
     <Content Include="img\cropped close.jpg" />
     <Content Include="img\cropped Minimize %282%29.jpg" />
     <Content Include="img\edit.png" />
+    <None Include="img\IconoEco.png" />
     <Content Include="img\left-arrow.png" />
     <Content Include="img\left-arrow1.png" />
     <Content Include="img\magnifying-glass.png" />
@@ -147,6 +157,8 @@
     <Content Include="img\producto.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />
+    <None Include="Resources\retroceso.png" />
+    <None Include="Resources\entrar1.png" />
     <None Include="Resources\deleteChiquito.png" />
     <None Include="Resources\addChiquito.png" />
     <None Include="Resources\plusChiquito.png" />

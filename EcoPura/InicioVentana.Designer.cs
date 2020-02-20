@@ -30,11 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioVentana));
             this.MenuTop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.Wrapper = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelChart = new System.Windows.Forms.Panel();
@@ -45,11 +41,15 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnPuntoVenta = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.MenuTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Wrapper.SuspendLayout();
             this.PanelChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuTop
@@ -67,16 +67,6 @@
             this.MenuTop.TabIndex = 1;
             this.MenuTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MenuTop_MouseMove);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(29, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(29, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -87,45 +77,6 @@
             this.label10.Size = new System.Drawing.Size(159, 35);
             this.label10.TabIndex = 19;
             this.label10.Text = "Menú principal";
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(816, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 32);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(777, 9);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(33, 32);
-            this.btnMinimizar.TabIndex = 6;
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(855, 9);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(33, 32);
-            this.btnCerrar.TabIndex = 5;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // Wrapper
             // 
@@ -289,6 +240,55 @@
             this.btnProducto.UseVisualStyleBackColor = false;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::EcoPura.Properties.Resources.IconoEco;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(816, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 32);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
+            this.btnMinimizar.Location = new System.Drawing.Point(777, 9);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(33, 32);
+            this.btnMinimizar.TabIndex = 6;
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(855, 9);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(33, 32);
+            this.btnCerrar.TabIndex = 5;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // InicioVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,10 +303,10 @@
             this.Text = "InicioVentana";
             this.MenuTop.ResumeLayout(false);
             this.MenuTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Wrapper.ResumeLayout(false);
             this.PanelChart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
