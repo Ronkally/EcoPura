@@ -127,8 +127,14 @@
   <data name="addChiquito" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addChiquito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="entrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\entrar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\producto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="retroceso" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\retroceso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="regresar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Img\regresar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,10 +142,13 @@
   <data name="deleteCiquito" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deleteCiquito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="deleteChiquito" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deleteChiquito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="plusChiquito" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plusChiquito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="deleteChiquito" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\deleteChiquito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IconoEco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\IconoEco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
