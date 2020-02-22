@@ -98,6 +98,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 32);
             this.button1.TabIndex = 7;
+            this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // btnMinimizar
@@ -111,6 +112,7 @@
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(33, 32);
             this.btnMinimizar.TabIndex = 6;
+            this.btnMinimizar.TabStop = false;
             this.btnMinimizar.UseVisualStyleBackColor = true;
             // 
             // btnCerrar
@@ -124,6 +126,7 @@
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(33, 32);
             this.btnCerrar.TabIndex = 5;
+            this.btnCerrar.TabStop = false;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -245,7 +248,7 @@
             this.btnVentas.Location = new System.Drawing.Point(364, 101);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(141, 141);
-            this.btnVentas.TabIndex = 2;
+            this.btnVentas.TabIndex = 3;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVentas.UseVisualStyleBackColor = false;
@@ -264,7 +267,7 @@
             this.btnPuntoVenta.Location = new System.Drawing.Point(196, 101);
             this.btnPuntoVenta.Name = "btnPuntoVenta";
             this.btnPuntoVenta.Size = new System.Drawing.Size(141, 141);
-            this.btnPuntoVenta.TabIndex = 1;
+            this.btnPuntoVenta.TabIndex = 2;
             this.btnPuntoVenta.Text = "Punto de venta";
             this.btnPuntoVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPuntoVenta.UseVisualStyleBackColor = false;
@@ -283,7 +286,7 @@
             this.btnProducto.Location = new System.Drawing.Point(29, 101);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Size = new System.Drawing.Size(141, 141);
-            this.btnProducto.TabIndex = 0;
+            this.btnProducto.TabIndex = 1;
             this.btnProducto.Text = "Productos";
             this.btnProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProducto.UseVisualStyleBackColor = false;
