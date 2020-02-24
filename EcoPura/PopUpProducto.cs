@@ -50,9 +50,10 @@ namespace EcoPura
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(Actualizar)
+            if (!Actualizar)
                 GuardarProducto();
             else
+                ActualizarProducto();
 
             this.Close();
         }
@@ -86,6 +87,8 @@ namespace EcoPura
                 foreach (DataRow fila in Proveedores.Rows)
                 {
                     cbProveedor.Items.Add(fila["Proveedor"].ToString());
+                    if (cbProveedor.Text.Equals(fila["Proveedor"].ToString()))
+                        cbProveedor.SelectedIndex = cbProveedor.FindStringExact(cbProveedor.Text);
                 }
             }
         }
@@ -99,6 +102,8 @@ namespace EcoPura
                 foreach (DataRow fila in Clasificacion.Rows)
                 {
                     cbClasificacion.Items.Add(fila["Clasificacion"].ToString());
+                    if (cbClasificacion.Text.Equals(fila["Clasificacion"].ToString()))
+                        cbClasificacion.SelectedIndex = cbClasificacion.FindStringExact(cbClasificacion.Text);
                 }
             }
         }
@@ -124,6 +129,7 @@ namespace EcoPura
         }
         private void ActualizarProducto()
         {
+
             string getProveedorId = $@"(SELECT IdProveedor 
                                             FROM Proveedor
                                             WHERE Proveedor = '{cbProveedor.SelectedItem.ToString()}')";
@@ -134,7 +140,10 @@ namespace EcoPura
                                             WHERE Clasificacion = '{cbClasificacion.SelectedItem.ToString()}')";
 
             string query = $@"UPDATE Productos
-                              SET ";
+                              SET Descripcion = '{tbDescripcioon.Text}', Costo = {tbCosto.Text}, Precio = {tbPrecio.Text}, Existencia = {tbExistencia.Text}, IdClasificacion = {getClasificacionId}, IdProveedor = {getProveedorId}, Minimo = {tbMinimo.Text}, Maximo = {tbMaximo.Text}
+                              WHERE Codigo = {codigo}";
+
+            DatabaseAccess.EjecutarConsulta(query);
         }
 
         private void LlenarCampos(int codigo)
