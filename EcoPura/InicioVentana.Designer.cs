@@ -78,6 +78,7 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Menú principal";
             // 
+
             // Wrapper
             // 
             this.Wrapper.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -196,7 +197,7 @@
             this.btnVentas.Location = new System.Drawing.Point(364, 101);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(141, 141);
-            this.btnVentas.TabIndex = 2;
+            this.btnVentas.TabIndex = 3;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnVentas.UseVisualStyleBackColor = false;
@@ -215,7 +216,7 @@
             this.btnPuntoVenta.Location = new System.Drawing.Point(196, 101);
             this.btnPuntoVenta.Name = "btnPuntoVenta";
             this.btnPuntoVenta.Size = new System.Drawing.Size(141, 141);
-            this.btnPuntoVenta.TabIndex = 1;
+            this.btnPuntoVenta.TabIndex = 2;
             this.btnPuntoVenta.Text = "Punto de venta";
             this.btnPuntoVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPuntoVenta.UseVisualStyleBackColor = false;
@@ -234,7 +235,7 @@
             this.btnProducto.Location = new System.Drawing.Point(29, 101);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Size = new System.Drawing.Size(141, 141);
-            this.btnProducto.TabIndex = 0;
+            this.btnProducto.TabIndex = 1;
             this.btnProducto.Text = "Productos";
             this.btnProducto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProducto.UseVisualStyleBackColor = false;
