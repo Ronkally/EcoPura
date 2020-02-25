@@ -8,12 +8,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>EcoPura</RootNamespace>
     <AssemblyName>EcoPura</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +50,7 @@
     <Reference Include="System">
       <HintPath>..\..\..\..\..\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
@@ -65,11 +67,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="altaProducto.cs">
+    <Compile Include="Alerta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="altaProducto.Designer.cs">
-      <DependentUpon>altaProducto.cs</DependentUpon>
+    <Compile Include="Alerta.Designer.cs">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CambioVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioVentana.Designer.cs">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoAlerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoAlerta.Designer.cs">
+      <DependentUpon>InfoAlerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpProducto.Designer.cs">
+      <DependentUpon>PopUpProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioVentana.cs">
       <SubType>Form</SubType>
@@ -85,8 +105,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="altaProducto.resx">
-      <DependentUpon>altaProducto.cs</DependentUpon>
+    <Compile Include="VentaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaVentana.Designer.cs">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Alerta.resx">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioVentana.resx">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoAlerta.resx">
+      <DependentUpon>InfoAlerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpProducto.resx">
+      <DependentUpon>PopUpProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioVentana.resx">
       <DependentUpon>InicioVentana.cs</DependentUpon>
@@ -104,6 +139,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VentaVentana.resx">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="EcoPuraDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -118,7 +159,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="img\back-icon-png-white-7.png" />
     <Content Include="img\close.png" />
@@ -143,6 +183,12 @@
     <None Include="Resources\plusChiquito.png" />
     <None Include="Resources\deleteCiquito.png" />
     <None Include="Resources\producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EcoPuraLibreria\EcoPuraLibreria.csproj">
+      <Project>{2944198e-ef89-422d-9b47-17eb36e84213}</Project>
+      <Name>EcoPuraLibreria</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />

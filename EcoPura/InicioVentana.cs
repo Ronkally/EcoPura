@@ -90,8 +90,9 @@ namespace EcoPura
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            var inicio = new VentanaProducto();
-            inicio.ShowDialog();
+            var producto = new Productos();
+            producto.StartPosition = FormStartPosition.CenterParent;
+            producto.ShowDialog();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -101,7 +102,9 @@ namespace EcoPura
 
         private void btnPuntoVenta_Click(object sender, EventArgs e)
         {
-
+            var ventas = new VentaVentana();
+            ventas.StartPosition = FormStartPosition.CenterParent;
+            ventas.ShowDialog();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
