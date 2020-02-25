@@ -67,6 +67,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerta.Designer.cs">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CambioVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioVentana.Designer.cs">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoAlerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoAlerta.Designer.cs">
+      <DependentUpon>InfoAlerta.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopUpProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +105,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaVentana.Designer.cs">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Alerta.resx">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioVentana.resx">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoAlerta.resx">
+      <DependentUpon>InfoAlerta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PopUpProducto.resx">
       <DependentUpon>PopUpProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VentaVentana.resx">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="EcoPuraDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
