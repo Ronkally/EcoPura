@@ -57,5 +57,11 @@ namespace EcoPura
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Esta accion no esta definida", "Alerta", MessageBoxButtons.OKCancel, 
+                MessageBoxIcon.Exclamation);
+        }
     }
 }
