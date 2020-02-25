@@ -1,57 +1,72 @@
 ﻿using System;
-using System.Configuration;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
-using System.Globalization;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using EcoPuraLibreria;
 
 namespace EcoPura
 {
-    public partial class Productos : Form
+    public partial class VentanaProducto : Form
     {
-
-        int posY = 0;
-        int posX = 0;
-        public Productos()
+        public VentanaProducto()
         {
             InitializeComponent();
         }
-        private void VentanaProducto_Load(object sender, EventArgs e)
-        {
-            CargarGridView();
-        }
-        private void CargarGridView()
-        {
-            string query = @"SELECT Descripcion as Descripción, Costo, Precio, Existencia, Clasificacion.Clasificacion As Clasificación, Proveedor.Proveedor, Codigo as CódigoDeBarras
-                             FROM Productos
-                             INNER JOIN Proveedor
-                             ON Productos.IdProveedor = Proveedor.IdProveedor
-                             INNER JOIN Clasificacion
-                             ON Productos.IdClasificacion = Clasificacion.IdClasificacion";
 
-            this.dataGridView1.DataSource = DatabaseAccess.CargarTabla(query);
-            dataGridView1.ClearSelection();
-        }
-        private void Busqueda()
+        private void Restaurar_Click(object sender, EventArgs e)
         {
-            //where nombre like '% variable %'
-            string query = $@"SELECT Descripcion as Descripción, Costo, Precio, Existencia, Clasificacion.Clasificacion As Clasificación, Proveedor.Proveedor, Codigo as CódigoDeBarras
-                             FROM Productos
-                             INNER JOIN Proveedor
-                             ON Productos.IdProveedor = Proveedor.IdProveedor
-                             INNER JOIN Clasificacion
-                             ON Productos.IdClasificacion = Clasificacion.IdClasificacion
-                             WHERE Descripcion LIKE '%{SearchBox.Text}%'";
-
-            dataGridView1.DataSource = DatabaseAccess.CargarTabla(query);
-            dataGridView1.ClearSelection();
+            WindowState = FormWindowState.Normal;
+            
         }
+
+        private void MenuSidebar_Click(object sender, EventArgs e)
+        {
+            if (Sidebar.Width == 176)
+            {
+                Sidebar.Visible = true;
+                Sidebar.Width = 68;
+                SidebarWrapper.Width = 90;
+                PanelChart.Width = 750;
+                label2.Visible = false;
+                Separador.Visible = false;
+             
+               
+            }
+            else
+            {
+                Sidebar.Visible = true;
+                Sidebar.Width = 176;
+                SidebarWrapper.Width = 200;
+                PanelChart.Width = 668;
+                label2.Visible = true;
+                Separador.Visible = true;
+               
+             
+            }
+        }
+
+        private void Salir_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Maximizar_Click_1(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+            
+        }
+
         private void Minimizar_Click_1(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
+        int posY = 0;
+        int posX = 0;
         private void MenuTop_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -66,6 +81,26 @@ namespace EcoPura
             }
         }
 
+        private void PanelChart_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Wrapper_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MenuTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -73,10 +108,14 @@ namespace EcoPura
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -85,62 +124,7 @@ namespace EcoPura
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
-                int codigo = Convert.ToInt32(selectedRow.Cells["CódigoDeBarras"].Value);
-                string query = $@"DELETE FROM Productos WHERE Codigo = {codigo}";
-                DatabaseAccess.EjecutarConsulta(query);
-                dataGridView1.ClearSelection();
-                CargarGridView();
-            }   
-        }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            var popUpProducto = new PopUpProducto();
-            popUpProducto.StartPosition = FormStartPosition.CenterParent;
-            popUpProducto.ShowDialog();
-            dataGridView1.ClearSelection();
-            CargarGridView();
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            Busqueda();
-        }
-        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Busqueda();
-            }
-        }
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            Modificar();
-        }
-
-        private void Modificar()
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
-                int codigo = Convert.ToInt32(selectedRow.Cells["CódigoDeBarras"].Value);
-                var popUpProducto = new PopUpProducto(codigo);
-                popUpProducto.StartPosition = FormStartPosition.CenterParent;
-                popUpProducto.ShowDialog();
-                dataGridView1.ClearSelection();
-                CargarGridView();
-            }
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Modificar();
         }
     }
 }

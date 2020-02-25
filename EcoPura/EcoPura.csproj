@@ -8,13 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>EcoPura</RootNamespace>
     <AssemblyName>EcoPura</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,7 +49,6 @@
     <Reference Include="System">
       <HintPath>..\..\..\..\..\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
     </Reference>
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
@@ -76,8 +74,8 @@
     <Compile Include="altaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PopUpProducto.Designer.cs">
-      <DependentUpon>PopUpProducto.cs</DependentUpon>
+    <Compile Include="altaProducto.Designer.cs">
+      <DependentUpon>altaProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="CambioVentana.cs">
       <SubType>Form</SubType>
@@ -156,6 +154,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="img\back-icon-png-white-7.png" />
     <Content Include="img\close.png" />
@@ -187,12 +186,6 @@
     <None Include="Resources\plusChiquito.png" />
     <None Include="Resources\deleteCiquito.png" />
     <None Include="Resources\producto.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EcoPuraLibreria\EcoPuraLibreria.csproj">
-      <Project>{2944198e-ef89-422d-9b47-17eb36e84213}</Project>
-      <Name>EcoPuraLibreria</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />

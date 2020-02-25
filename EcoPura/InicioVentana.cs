@@ -90,9 +90,8 @@ namespace EcoPura
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            var producto = new Productos();
-            producto.StartPosition = FormStartPosition.CenterParent;
-            producto.ShowDialog();
+            var inicio = new VentanaProducto();
+            inicio.ShowDialog();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
