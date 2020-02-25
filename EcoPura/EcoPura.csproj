@@ -67,11 +67,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PopUpProducto.cs">
+    <Compile Include="Alerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alerta.Designer.cs">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="altaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PopUpProducto.Designer.cs">
       <DependentUpon>PopUpProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CambioVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioVentana.Designer.cs">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoAlerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoAlerta.Designer.cs">
+      <DependentUpon>InfoAlerta.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioVentana.cs">
       <SubType>Form</SubType>
@@ -87,8 +105,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PopUpProducto.resx">
-      <DependentUpon>PopUpProducto.cs</DependentUpon>
+    <Compile Include="VentaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentaVentana.Designer.cs">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Alerta.resx">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="altaProducto.resx">
+      <DependentUpon>altaProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioVentana.resx">
+      <DependentUpon>CambioVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoAlerta.resx">
+      <DependentUpon>InfoAlerta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioVentana.resx">
       <DependentUpon>InicioVentana.cs</DependentUpon>
@@ -106,9 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="EcoPuraDB.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="VentaVentana.resx">
+      <DependentUpon>VentaVentana.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,6 +162,11 @@
     <Content Include="img\cropped close.jpg" />
     <Content Include="img\cropped Minimize %282%29.jpg" />
     <Content Include="img\edit.png" />
+    <None Include="Resources\informacion %282%29.png" />
+    <None Include="Resources\informacion %281%29.png" />
+    <None Include="Resources\informacion.png" />
+    <None Include="Resources\advertencia.png" />
+    <None Include="img\IconoEco.png" />
     <Content Include="img\left-arrow.png" />
     <Content Include="img\left-arrow1.png" />
     <Content Include="img\magnifying-glass.png" />
@@ -142,6 +180,8 @@
     <Content Include="img\producto.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />
+    <None Include="Resources\retroceso.png" />
+    <None Include="Resources\entrar1.png" />
     <None Include="Resources\deleteChiquito.png" />
     <None Include="Resources\addChiquito.png" />
     <None Include="Resources\plusChiquito.png" />
