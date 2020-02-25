@@ -112,7 +112,8 @@ namespace EcoPura
 
         private void btnCaja_Click(object sender, EventArgs e)
         {
-
+            var inicio = new CambioVentana();
+            inicio.ShowDialog();
         }
 
         private void btnCotizaciones_Click(object sender, EventArgs e)
