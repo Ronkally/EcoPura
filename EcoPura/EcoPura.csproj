@@ -160,11 +160,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\alert.png" />
     <Content Include="img\back-icon-png-white-7.png" />
+    <Content Include="img\back.png" />
     <Content Include="img\close.png" />
     <Content Include="img\cropped close.jpg" />
     <Content Include="img\cropped Minimize %282%29.jpg" />
     <Content Include="img\edit.png" />
+    <Content Include="img\IconoEco.png" />
+    <Content Include="img\info.png" />
     <Content Include="img\left-arrow.png" />
     <Content Include="img\left-arrow1.png" />
     <Content Include="img\magnifying-glass.png" />
