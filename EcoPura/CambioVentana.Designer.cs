@@ -96,7 +96,7 @@
             // 
             // pictureBox1
             // 
-            //this.pictureBox1.Image = global::EcoPura.Properties.Resources.IconoEco;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(29, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(29, 36);
@@ -210,7 +210,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(37, 43);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 31);
+            this.textBox1.Size = new System.Drawing.Size(311, 31);
             this.textBox1.TabIndex = 37;
             // 
             // label3
@@ -329,7 +329,7 @@
             this.btnRetroceso.FlatAppearance.BorderSize = 2;
             this.btnRetroceso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnRetroceso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            //this.btnRetroceso.Image = global::EcoPura.Properties.Resources.entrar;
+            this.btnRetroceso.Image = ((System.Drawing.Image)(resources.GetObject("btnRetroceso.Image")));
             this.btnRetroceso.Location = new System.Drawing.Point(208, 262);
             this.btnRetroceso.Name = "btnRetroceso";
             this.btnRetroceso.Size = new System.Drawing.Size(103, 86);
@@ -343,7 +343,7 @@
             this.btnBorrar.FlatAppearance.BorderSize = 2;
             this.btnBorrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-           // this.btnBorrar.Image = global::EcoPura.Properties.Resources.retroceso;
+            this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
             this.btnBorrar.Location = new System.Drawing.Point(0, 262);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(103, 86);
