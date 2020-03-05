@@ -16,6 +16,14 @@ namespace EcoPura
         public Productos()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+            btnRestaurar.Visible = true;
+            btnMaximizar.Visible = false;
+            panelgrid.Width = 1000;
+            panelgrid.Height = 530;
+            gridview.Width = 720;
+            gridview.Height = 530;
+            gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void VentanaProducto_Load(object sender, EventArgs e)
         {
@@ -30,8 +38,8 @@ namespace EcoPura
                              INNER JOIN Clasificacion
                              ON Productos.IdClasificacion = Clasificacion.IdClasificacion";
 
-            this.dataGridView1.DataSource = DatabaseAccess.CargarTabla(query);
-            dataGridView1.ClearSelection();
+            this.gridview.DataSource = DatabaseAccess.CargarTabla(query);
+            gridview.ClearSelection();
         }
         private void Busqueda()
         {
@@ -44,8 +52,8 @@ namespace EcoPura
                              ON Productos.IdClasificacion = Clasificacion.IdClasificacion
                              WHERE Descripcion LIKE '%{SearchBox.Text}%'";
 
-            dataGridView1.DataSource = DatabaseAccess.CargarTabla(query);
-            dataGridView1.ClearSelection();
+            gridview.DataSource = DatabaseAccess.CargarTabla(query);
+            gridview.ClearSelection();
         }
         private void Minimizar_Click_1(object sender, EventArgs e)
         {
@@ -86,14 +94,14 @@ namespace EcoPura
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (gridview.SelectedRows.Count > 0)
             {
-                int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+                int selectedRowIndex = gridview.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = gridview.Rows[selectedRowIndex];
                 int codigo = Convert.ToInt32(selectedRow.Cells["CódigoDeBarras"].Value);
                 string query = $@"DELETE FROM Productos WHERE Codigo = {codigo}";
                 DatabaseAccess.EjecutarConsulta(query);
-                dataGridView1.ClearSelection();
+                gridview.ClearSelection();
                 CargarGridView();
             }   
         }
@@ -103,7 +111,7 @@ namespace EcoPura
             var popUpProducto = new PopUpProducto();
             popUpProducto.StartPosition = FormStartPosition.CenterParent;
             popUpProducto.ShowDialog();
-            dataGridView1.ClearSelection();
+            gridview.ClearSelection();
             CargarGridView();
         }
 
@@ -125,15 +133,15 @@ namespace EcoPura
 
         private void Modificar()
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (gridview.SelectedRows.Count > 0)
             {
-                int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+                int selectedRowIndex = gridview.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = gridview.Rows[selectedRowIndex];
                 int codigo = Convert.ToInt32(selectedRow.Cells["CódigoDeBarras"].Value);
                 var popUpProducto = new PopUpProducto(codigo);
                 popUpProducto.StartPosition = FormStartPosition.CenterParent;
                 popUpProducto.ShowDialog();
-                dataGridView1.ClearSelection();
+                gridview.ClearSelection();
                 CargarGridView();
             }
         }
@@ -142,5 +150,42 @@ namespace EcoPura
         {
             Modificar();
         }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            btnRestaurar.Visible = false;
+            btnMaximizar.Visible = true;
+            panelgrid.Width = 533;
+            gridview.Width = 533;
+            gridview.Height = 349;
+            panelgrid.Height = 349;
+            gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+            btnRestaurar.Visible = true;
+            btnMaximizar.Visible = false;
+            panelgrid.Width = 1000;
+            panelgrid.Height = 530;
+            gridview.Width = 720;
+            gridview.Height = 530;
+            gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+
+        private void btnHelp_MouseHover(object sender, EventArgs e)
+        {
+            HelpBox.Visible = true;
+        }
+
+        private void btnHelp_MouseLeave(object sender, EventArgs e)
+        {
+            HelpBox.Visible = false;
+        }
+
     }
 }

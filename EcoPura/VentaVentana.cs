@@ -15,6 +15,12 @@ namespace EcoPura
         public VentaVentana()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+            btnRestaurar.Visible = true;
+            btnMaximizar.Visible = false;
+            panelGrid.Width = 1005;
+            panelGrid.Height = 520;
+            panelSide.Height = 650;
         }
 
         int posY = 0;
