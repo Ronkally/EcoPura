@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class VentaVentana : Form
+    public partial class PuntoVentaVentana : Form
     {
-        public VentaVentana()
+        public PuntoVentaVentana()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;

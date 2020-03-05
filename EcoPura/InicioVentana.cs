@@ -102,7 +102,7 @@ namespace EcoPura
 
         private void btnPuntoVenta_Click(object sender, EventArgs e)
         {
-            var ventas = new VentaVentana();
+            var ventas = new PuntoVentaVentana();
             ventas.StartPosition = FormStartPosition.CenterParent;
             ventas.ShowDialog();
         }
