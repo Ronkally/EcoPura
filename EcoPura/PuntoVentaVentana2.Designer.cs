@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuntoVentaVentana2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuntoVentaVentana2));
             this.panelSide = new MetroFramework.Controls.MetroPanel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnGarrafon20L = new MetroFramework.Controls.MetroTile();
             this.labelP = new System.Windows.Forms.Label();
-            this.btnRealizarVenta = new System.Windows.Forms.Button();
-            this.btnBorrarTodo = new System.Windows.Forms.Button();
-            this.btnBorrarUltimo = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.gridview = new MetroFramework.Controls.MetroGrid();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDecrementar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnBorrarUltimo = new System.Windows.Forms.Button();
+            this.btnBorrarTodo = new System.Windows.Forms.Button();
+            this.btnRealizarVenta = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRegresar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnGarrafon20L = new MetroFramework.Controls.MetroTile();
             this.panelSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,23 +104,6 @@
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
             // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.Location = new System.Drawing.Point(0, 369);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(324, 98);
-            this.btnRegresar.TabIndex = 26;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
-            // 
             // tbSearchBox
             // 
             this.tbSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -134,119 +118,17 @@
             this.tbSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearchBox_KeyDown);
             this.tbSearchBox.Leave += new System.EventHandler(this.tbSearchBox_Leave);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Image = global::EcoPura.Properties.Resources.plus;
-            this.btnBuscar.Location = new System.Drawing.Point(273, 46);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
-            this.btnBuscar.TabIndex = 12;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnGarrafon20L
-            // 
-            this.btnGarrafon20L.ActiveControl = null;
-            this.btnGarrafon20L.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnGarrafon20L.Location = new System.Drawing.Point(27, 150);
-            this.btnGarrafon20L.Name = "btnGarrafon20L";
-            this.btnGarrafon20L.Size = new System.Drawing.Size(86, 102);
-            this.btnGarrafon20L.TabIndex = 3;
-            this.btnGarrafon20L.Text = "20L";
-            this.btnGarrafon20L.TileImage = ((System.Drawing.Image)(resources.GetObject("btnGarrafon20L.TileImage")));
-            this.btnGarrafon20L.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGarrafon20L.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
-            this.btnGarrafon20L.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnGarrafon20L.UseCustomBackColor = true;
-            this.btnGarrafon20L.UseSelectable = true;
-            this.btnGarrafon20L.UseTileImage = true;
-            this.btnGarrafon20L.Click += new System.EventHandler(this.btnGarrafon20L_Click);
-            // 
             // labelP
             // 
             this.labelP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelP.AutoSize = true;
-            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 35.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelP.Location = new System.Drawing.Point(742, 455);
+            this.labelP.Location = new System.Drawing.Point(786, 471);
             this.labelP.Name = "labelP";
-            this.labelP.Size = new System.Drawing.Size(119, 57);
+            this.labelP.Size = new System.Drawing.Size(91, 45);
             this.labelP.TabIndex = 26;
             this.labelP.Text = "$ 0.00";
-            // 
-            // btnRealizarVenta
-            // 
-            this.btnRealizarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRealizarVenta.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.btnRealizarVenta.FlatAppearance.BorderSize = 2;
-            this.btnRealizarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnRealizarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRealizarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRealizarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRealizarVenta.Location = new System.Drawing.Point(371, 60);
-            this.btnRealizarVenta.Name = "btnRealizarVenta";
-            this.btnRealizarVenta.Size = new System.Drawing.Size(93, 35);
-            this.btnRealizarVenta.TabIndex = 28;
-            this.btnRealizarVenta.Text = "Realizar venta";
-            this.btnRealizarVenta.UseVisualStyleBackColor = true;
-            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
-            // 
-            // btnBorrarTodo
-            // 
-            this.btnBorrarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBorrarTodo.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnBorrarTodo.FlatAppearance.BorderSize = 2;
-            this.btnBorrarTodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnBorrarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarTodo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrarTodo.Location = new System.Drawing.Point(470, 60);
-            this.btnBorrarTodo.Name = "btnBorrarTodo";
-            this.btnBorrarTodo.Size = new System.Drawing.Size(93, 35);
-            this.btnBorrarTodo.TabIndex = 29;
-            this.btnBorrarTodo.Text = "Borrar todo";
-            this.btnBorrarTodo.UseVisualStyleBackColor = true;
-            this.btnBorrarTodo.Click += new System.EventHandler(this.btnBorrarTodo_Click);
-            // 
-            // btnBorrarUltimo
-            // 
-            this.btnBorrarUltimo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBorrarUltimo.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
-            this.btnBorrarUltimo.FlatAppearance.BorderSize = 2;
-            this.btnBorrarUltimo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OrangeRed;
-            this.btnBorrarUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrarUltimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarUltimo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrarUltimo.Location = new System.Drawing.Point(569, 60);
-            this.btnBorrarUltimo.Name = "btnBorrarUltimo";
-            this.btnBorrarUltimo.Size = new System.Drawing.Size(93, 35);
-            this.btnBorrarUltimo.TabIndex = 30;
-            this.btnBorrarUltimo.Text = "Borrar";
-            this.btnBorrarUltimo.UseVisualStyleBackColor = true;
-            this.btnBorrarUltimo.Click += new System.EventHandler(this.btnBorrarUltimo_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnAgregar.FlatAppearance.BorderSize = 2;
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(768, 60);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(93, 35);
-            this.btnAgregar.TabIndex = 31;
-            this.btnAgregar.Text = "Incrementar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // gridview
             // 
@@ -282,7 +164,7 @@
             this.gridview.EnableHeadersVisualStyles = false;
             this.gridview.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridview.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridview.Location = new System.Drawing.Point(371, 117);
+            this.gridview.Location = new System.Drawing.Point(355, 60);
             this.gridview.Name = "gridview";
             this.gridview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -295,7 +177,7 @@
             this.gridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridview.Size = new System.Drawing.Size(490, 323);
+            this.gridview.Size = new System.Drawing.Size(506, 380);
             this.gridview.TabIndex = 32;
             this.gridview.UseStyleColors = true;
             // 
@@ -324,6 +206,106 @@
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
             // 
+            // btnDecrementar
+            // 
+            this.btnDecrementar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDecrementar.BackColor = System.Drawing.Color.LightCyan;
+            this.btnDecrementar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDecrementar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnDecrementar.FlatAppearance.BorderSize = 2;
+            this.btnDecrementar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.btnDecrementar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDecrementar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDecrementar.Image = global::EcoPura.Properties.Resources.decrementar;
+            this.btnDecrementar.Location = new System.Drawing.Point(663, 458);
+            this.btnDecrementar.Name = "btnDecrementar";
+            this.btnDecrementar.Size = new System.Drawing.Size(71, 73);
+            this.btnDecrementar.TabIndex = 33;
+            this.btnDecrementar.Text = "Decrementar";
+            this.btnDecrementar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDecrementar.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAgregar.BackColor = System.Drawing.Color.LightCyan;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnAgregar.FlatAppearance.BorderSize = 2;
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = global::EcoPura.Properties.Resources.incrementar;
+            this.btnAgregar.Location = new System.Drawing.Point(586, 458);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(71, 73);
+            this.btnAgregar.TabIndex = 31;
+            this.btnAgregar.Text = "Incrementar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnBorrarUltimo
+            // 
+            this.btnBorrarUltimo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBorrarUltimo.BackColor = System.Drawing.Color.LightCyan;
+            this.btnBorrarUltimo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBorrarUltimo.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnBorrarUltimo.FlatAppearance.BorderSize = 2;
+            this.btnBorrarUltimo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.OrangeRed;
+            this.btnBorrarUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarUltimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrarUltimo.Image = global::EcoPura.Properties.Resources.borrarUltimo;
+            this.btnBorrarUltimo.Location = new System.Drawing.Point(509, 458);
+            this.btnBorrarUltimo.Name = "btnBorrarUltimo";
+            this.btnBorrarUltimo.Size = new System.Drawing.Size(71, 73);
+            this.btnBorrarUltimo.TabIndex = 30;
+            this.btnBorrarUltimo.Text = "Borrar último";
+            this.btnBorrarUltimo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBorrarUltimo.UseVisualStyleBackColor = false;
+            this.btnBorrarUltimo.Click += new System.EventHandler(this.btnBorrarUltimo_Click);
+            // 
+            // btnBorrarTodo
+            // 
+            this.btnBorrarTodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBorrarTodo.BackColor = System.Drawing.Color.LightCyan;
+            this.btnBorrarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBorrarTodo.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnBorrarTodo.FlatAppearance.BorderSize = 2;
+            this.btnBorrarTodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnBorrarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrarTodo.Image = global::EcoPura.Properties.Resources.borrarTodo;
+            this.btnBorrarTodo.Location = new System.Drawing.Point(432, 458);
+            this.btnBorrarTodo.Name = "btnBorrarTodo";
+            this.btnBorrarTodo.Size = new System.Drawing.Size(71, 73);
+            this.btnBorrarTodo.TabIndex = 29;
+            this.btnBorrarTodo.Text = "Borrar todo";
+            this.btnBorrarTodo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBorrarTodo.UseVisualStyleBackColor = false;
+            this.btnBorrarTodo.Click += new System.EventHandler(this.btnBorrarTodo_Click);
+            // 
+            // btnRealizarVenta
+            // 
+            this.btnRealizarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRealizarVenta.BackColor = System.Drawing.Color.LightCyan;
+            this.btnRealizarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRealizarVenta.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnRealizarVenta.FlatAppearance.BorderSize = 2;
+            this.btnRealizarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnRealizarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRealizarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRealizarVenta.Image = global::EcoPura.Properties.Resources.realizarVenta;
+            this.btnRealizarVenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRealizarVenta.Location = new System.Drawing.Point(355, 458);
+            this.btnRealizarVenta.Name = "btnRealizarVenta";
+            this.btnRealizarVenta.Size = new System.Drawing.Size(71, 73);
+            this.btnRealizarVenta.TabIndex = 28;
+            this.btnRealizarVenta.Text = "Realizar venta";
+            this.btnRealizarVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRealizarVenta.UseVisualStyleBackColor = false;
+            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::EcoPura.Properties.Resources.IconoEco;
@@ -334,11 +316,62 @@
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegresar.FlatAppearance.BorderSize = 0;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.Location = new System.Drawing.Point(0, 369);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(324, 98);
+            this.btnRegresar.TabIndex = 26;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Image = global::EcoPura.Properties.Resources.plus;
+            this.btnBuscar.Location = new System.Drawing.Point(273, 46);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
+            this.btnBuscar.TabIndex = 12;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnGarrafon20L
+            // 
+            this.btnGarrafon20L.ActiveControl = null;
+            this.btnGarrafon20L.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGarrafon20L.Location = new System.Drawing.Point(27, 150);
+            this.btnGarrafon20L.Name = "btnGarrafon20L";
+            this.btnGarrafon20L.Size = new System.Drawing.Size(86, 102);
+            this.btnGarrafon20L.TabIndex = 3;
+            this.btnGarrafon20L.Text = "20L";
+            this.btnGarrafon20L.TileImage = ((System.Drawing.Image)(resources.GetObject("btnGarrafon20L.TileImage")));
+            this.btnGarrafon20L.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnGarrafon20L.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btnGarrafon20L.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnGarrafon20L.UseCustomBackColor = true;
+            this.btnGarrafon20L.UseSelectable = true;
+            this.btnGarrafon20L.UseTileImage = true;
+            this.btnGarrafon20L.Click += new System.EventHandler(this.btnGarrafon20L_Click);
+            // 
             // PuntoVentaVentana2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 550);
+            this.Controls.Add(this.btnDecrementar);
             this.Controls.Add(this.gridview);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnBorrarUltimo);
@@ -385,5 +418,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.Button btnDecrementar;
     }
 }
