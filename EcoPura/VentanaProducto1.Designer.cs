@@ -38,6 +38,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.gridview = new MetroFramework.Controls.MetroGrid();
             this.panelSide = new MetroFramework.Controls.MetroPanel();
+            this.btnClasificacion = new System.Windows.Forms.Button();
+            this.btnProveedor = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.panelSB = new System.Windows.Forms.Panel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -169,6 +171,8 @@
             // panelSide
             // 
             this.panelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelSide.Controls.Add(this.btnClasificacion);
+            this.panelSide.Controls.Add(this.btnProveedor);
             this.panelSide.Controls.Add(this.btnRegresar);
             this.panelSide.HorizontalScrollbarBarColor = true;
             this.panelSide.HorizontalScrollbarHighlightOnWheel = false;
@@ -181,6 +185,41 @@
             this.panelSide.VerticalScrollbarBarColor = true;
             this.panelSide.VerticalScrollbarHighlightOnWheel = false;
             this.panelSide.VerticalScrollbarSize = 10;
+            // 
+            // btnClasificacion
+            // 
+            this.btnClasificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClasificacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClasificacion.FlatAppearance.BorderSize = 0;
+            this.btnClasificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClasificacion.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClasificacion.Image = ((System.Drawing.Image)(resources.GetObject("btnClasificacion.Image")));
+            this.btnClasificacion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnClasificacion.Location = new System.Drawing.Point(0, 141);
+            this.btnClasificacion.Name = "btnClasificacion";
+            this.btnClasificacion.Size = new System.Drawing.Size(160, 84);
+            this.btnClasificacion.TabIndex = 3;
+            this.btnClasificacion.Text = "Agregar Clasificación";
+            this.btnClasificacion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClasificacion.UseVisualStyleBackColor = true;
+            this.btnClasificacion.Click += new System.EventHandler(this.btnClasificacion_Click);
+            // 
+            // btnProveedor
+            // 
+            this.btnProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProveedor.FlatAppearance.BorderSize = 0;
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedor.Image")));
+            this.btnProveedor.Location = new System.Drawing.Point(0, 60);
+            this.btnProveedor.Name = "btnProveedor";
+            this.btnProveedor.Size = new System.Drawing.Size(160, 75);
+            this.btnProveedor.TabIndex = 2;
+            this.btnProveedor.Text = "Agregar Proveedor";
+            this.btnProveedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProveedor.UseVisualStyleBackColor = true;
+            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // btnRegresar
             // 
@@ -285,5 +324,7 @@
         private MetroFramework.Controls.MetroPanel panelSide;
         private System.Windows.Forms.Panel panelSB;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.Button btnProveedor;
+        private System.Windows.Forms.Button btnClasificacion;
     }
 }

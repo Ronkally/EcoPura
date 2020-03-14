@@ -23,6 +23,8 @@ namespace EcoPura
             panelSide.Height = 680;
             panelSB.Width = 300;
             btnBuscar.Location = new Point(495, 123);
+            btnProveedor.Location = new Point(0, 110);
+            btnClasificacion.Location = new Point(0, 194);
         }
 
         private void VentanaProducto1_Load(object sender, EventArgs e)
@@ -165,5 +167,21 @@ namespace EcoPura
                 tbSearchBox.ForeColor = Color.Black;
             }
         }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            var PopUP = new Proveedores();
+            PopUP.StartPosition = FormStartPosition.CenterParent;
+            PopUP.ShowDialog();
+        }
+
+        private void btnClasificacion_Click(object sender, EventArgs e)
+        {
+            var PopUP = new PopUpClasificacion();
+            PopUP.StartPosition = FormStartPosition.CenterParent;
+            PopUP.ShowDialog();
+        }
+
+
     }
 }
