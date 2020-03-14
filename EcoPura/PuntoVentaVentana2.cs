@@ -17,7 +17,7 @@ namespace EcoPura
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             WindowState = FormWindowState.Maximized;
             gridview.Width = 955;
-            gridview.Height = 500;
+            gridview.Height = 556;
             panelSide.Height = 680;
             this.ActiveControl = labelP;
             
@@ -40,13 +40,13 @@ namespace EcoPura
                 if (WindowState == FormWindowState.Maximized)
                 {
                     gridview.Width = 955;
-                    gridview.Height = 500;
+                    gridview.Height = 556;
                     panelSide.Height = 680;
                 }
                 if (WindowState == FormWindowState.Normal)
                 {
                     gridview.Width = 490;
-                    gridview.Height = 324;
+                    gridview.Height = 380;
                     panelSide.Height = 490;
                 }
             }

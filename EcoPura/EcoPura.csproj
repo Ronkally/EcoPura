@@ -115,6 +115,12 @@
     </Compile>
     <Compile Include="PopUpClasificacion.Designer.cs">
       <DependentUpon>PopUpClasificacion.cs</DependentUpon>
+     </Compile>
+    <Compile Include="LoginVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginVentana.Designer.cs">
+      <DependentUpon>LoginVentana.cs</DependentUpon>
     </Compile>
     <Compile Include="PopUpProducto1.cs">
       <SubType>Form</SubType>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpClasificacion.resx">
       <DependentUpon>PopUpClasificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginVentana.resx">
+      <DependentUpon>LoginVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpProducto1.resx">
       <DependentUpon>PopUpProducto1.cs</DependentUpon>
@@ -235,6 +244,13 @@
     <Content Include="img\PV2.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />
+    <None Include="Resources\bloquear.png" />
+    <None Include="Resources\boton-de-cuenta-redonda-con-usuario-dentro.png" />
+    <None Include="Resources\decrementar.png" />
+    <None Include="Resources\incrementar.png" />
+    <None Include="Resources\borrarUltimo.png" />
+    <None Include="Resources\borrarTodo.png" />
+    <None Include="Resources\realizarVenta.png" />
     <None Include="Resources\deleteChiquito.png" />
     <None Include="Resources\addChiquito.png" />
     <None Include="Resources\plusChiquito.png" />
