@@ -51,6 +51,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Downloads\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
@@ -74,6 +80,7 @@
     <Reference Include="System">
       <HintPath>..\..\..\..\..\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -103,6 +110,12 @@
     <Compile Include="InicioVentana2.Designer.cs">
       <DependentUpon>InicioVentana2.cs</DependentUpon>
     </Compile>
+    <Compile Include="PopUpClasificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpClasificacion.Designer.cs">
+      <DependentUpon>PopUpClasificacion.cs</DependentUpon>
+     </Compile>
     <Compile Include="LoginVentana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +127,12 @@
     </Compile>
     <Compile Include="PopUpProducto1.Designer.cs">
       <DependentUpon>PopUpProducto1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpProveedores.Designer.cs">
+      <DependentUpon>PopUpProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="PuntoVentaVentana2.cs">
       <SubType>Form</SubType>
@@ -141,11 +160,17 @@
     <EmbeddedResource Include="InicioVentana2.resx">
       <DependentUpon>InicioVentana2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PopUpClasificacion.resx">
+      <DependentUpon>PopUpClasificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginVentana.resx">
       <DependentUpon>LoginVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpProducto1.resx">
       <DependentUpon>PopUpProducto1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpProveedores.resx">
+      <DependentUpon>PopUpProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PuntoVentaVentana2.resx">
       <DependentUpon>PuntoVentaVentana2.cs</DependentUpon>
