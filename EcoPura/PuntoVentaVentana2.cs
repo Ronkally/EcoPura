@@ -59,7 +59,13 @@ namespace EcoPura
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(gridview.SelectedRows.Count > 0)
+            AgregarCantidadProducto();
+        }
+
+
+        private void AgregarCantidadProducto()
+        {
+            if (gridview.SelectedRows.Count > 0)
             {
                 int cantidad = Int32.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value.ToString());
                 cantidad++;
@@ -74,7 +80,7 @@ namespace EcoPura
             else
             {
                 MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto para aumentar su cantidad", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            
+
             }
             Total();
         }
@@ -269,7 +275,9 @@ namespace EcoPura
                 var cambio = new CambioVentana1(total);
                 cambio.StartPosition = FormStartPosition.CenterParent;
                 cambio.ShowDialog();
-
+                gridview.Rows.Clear();
+                int cero = 0;
+                labelP.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("es-MX"));
 
             }
             else
@@ -279,6 +287,107 @@ namespace EcoPura
         private void tbSearchBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void gridview_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+            int rowIndex = gridview.CurrentCell.RowIndex;
+            float precio = float.Parse(gridview.Rows[rowIndex].Cells["Precio"].Value.ToString());
+
+            try
+            {
+                if (IsNumber(gridview.Rows[rowIndex].Cells[3].Value.ToString()))
+                {
+                    int cantidad = Int32.Parse(gridview.Rows[rowIndex].Cells["Cantidad"].Value.ToString());
+                    float importe = cantidad * precio;
+
+                    gridview.Rows[rowIndex].Cells["Cantidad"].Value = cantidad.ToString();
+                    gridview.Rows[rowIndex].Cells["Importe"].Value = importe.ToString();
+                }
+                else
+                {
+                    gridview.Rows[rowIndex].Cells["Cantidad"].Value = 1;
+                    gridview.Rows[rowIndex].Cells["Importe"].Value = 1 * precio;
+                }
+                Total();
+            }
+            catch(Exception s)
+            {
+                gridview.Rows[rowIndex].Cells["Cantidad"].Value = 1;
+                gridview.Rows[rowIndex].Cells["Importe"].Value = 1 * precio;
+            }
+        }
+
+        private bool IsNumber(string text)
+        {
+            float parsedValue;
+
+            if (!float.TryParse(text, out parsedValue))
+                return false;
+
+            return true;
+
+        }
+
+        private void btnDecrementar_Click(object sender, EventArgs e)
+        {
+            if (gridview.SelectedRows.Count > 0)
+            {
+                int cantidad = Int32.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value.ToString());
+                cantidad--;
+
+                if(cantidad == 0)
+                {
+                    gridview.Rows.Remove(gridview.Rows[gridview.CurrentRow.Index]);
+                }
+                else
+                {
+                    float precio = float.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Precio"].Value.ToString());
+
+                    float importe = cantidad * precio;
+
+                    gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value = cantidad.ToString();
+                    gridview.Rows[gridview.CurrentRow.Index].Cells["Importe"].Value = importe.ToString();
+                }
+
+                
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto para aumentar su cantidad", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+            }
+            Total();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            
+
+            if (keyData == Keys.D0 ||
+                keyData == Keys.D1 ||
+                keyData == Keys.D2 ||
+                keyData == Keys.D3 ||
+                keyData == Keys.D4 ||
+                keyData == Keys.D5 ||
+                keyData == Keys.D6 ||
+                keyData == Keys.D7 ||
+                keyData == Keys.D8 ||
+                keyData == Keys.D9)
+            {
+                
+                tbSearchBox.Focus();
+                
+
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);        
+        }
+
+        private void gridview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AgregarCantidadProducto();
         }
     }
 }

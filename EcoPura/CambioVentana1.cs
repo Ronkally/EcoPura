@@ -116,6 +116,7 @@ namespace EcoPura
                 {
                     float cambio = cantidadRecibida - total;
                     lblTotal.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+                    btnFinalizar.Visible = true;
                 }
                 else
                 {
@@ -130,6 +131,17 @@ namespace EcoPura
             }
                 
             
+        }
+
+        private void btnCero_Click(object sender, EventArgs e)
+        {
+            txtCodigo.Text += "0";
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            MetroFramework.MetroMessageBox.Show(this, "Gracias por su compra", "Gracias!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            this.Close();
         }
     }
 }

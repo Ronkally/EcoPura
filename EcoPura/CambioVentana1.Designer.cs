@@ -52,6 +52,7 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCambio = new MetroFramework.Controls.MetroLabel();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -146,6 +147,7 @@
             this.btnCero.TabIndex = 9;
             this.btnCero.Text = "0";
             this.btnCero.UseVisualStyleBackColor = false;
+            this.btnCero.Click += new System.EventHandler(this.btnCero_Click);
             // 
             // btnTres
             // 
@@ -404,11 +406,30 @@
             this.lblCambio.TabIndex = 58;
             this.lblCambio.Text = "Monto recibido:";
             // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFinalizar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFinalizar.FlatAppearance.BorderSize = 2;
+            this.btnFinalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnFinalizar.Location = new System.Drawing.Point(405, 305);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(240, 86);
+            this.btnFinalizar.TabIndex = 13;
+            this.btnFinalizar.Text = "Finalizar compra";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Visible = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            // 
             // CambioVentana1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 548);
+            this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.lblCambio);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel1);
@@ -454,5 +475,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel lblCambio;
+        private System.Windows.Forms.Button btnFinalizar;
     }
 }

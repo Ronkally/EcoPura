@@ -28,6 +28,16 @@ namespace EcoPuraLibreria
             }
          }
 
+        public static bool Existe(string query)
+        {
+
+            using (var db = new SQLiteConnection(LoadConnectionString()))
+            {
+                return db.ExecuteScalar<int>(query) > 0;
+            }
+
+        }
+
         public static void EjecutarConsulta(string query )
         {
             using(SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))

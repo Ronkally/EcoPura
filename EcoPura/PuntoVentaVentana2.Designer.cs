@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuntoVentaVentana2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuntoVentaVentana2));
             this.panelSide = new MetroFramework.Controls.MetroPanel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnGarrafon20L = new MetroFramework.Controls.MetroTile();
             this.labelP = new System.Windows.Forms.Label();
             this.gridview = new MetroFramework.Controls.MetroGrid();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,9 +52,6 @@
             this.btnBorrarTodo = new System.Windows.Forms.Button();
             this.btnRealizarVenta = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnGarrafon20L = new MetroFramework.Controls.MetroTile();
             this.panelSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,6 +104,23 @@
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegresar.FlatAppearance.BorderSize = 0;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.Location = new System.Drawing.Point(0, 369);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(324, 98);
+            this.btnRegresar.TabIndex = 26;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
             // tbSearchBox
             // 
             this.tbSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,13 +135,46 @@
             this.tbSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearchBox_KeyDown);
             this.tbSearchBox.Leave += new System.EventHandler(this.tbSearchBox_Leave);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscar.Image = global::EcoPura.Properties.Resources.plus;
+            this.btnBuscar.Location = new System.Drawing.Point(273, 46);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
+            this.btnBuscar.TabIndex = 12;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnGarrafon20L
+            // 
+            this.btnGarrafon20L.ActiveControl = null;
+            this.btnGarrafon20L.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGarrafon20L.Location = new System.Drawing.Point(27, 150);
+            this.btnGarrafon20L.Name = "btnGarrafon20L";
+            this.btnGarrafon20L.Size = new System.Drawing.Size(86, 102);
+            this.btnGarrafon20L.TabIndex = 3;
+            this.btnGarrafon20L.Text = "20L";
+            this.btnGarrafon20L.TileImage = ((System.Drawing.Image)(resources.GetObject("btnGarrafon20L.TileImage")));
+            this.btnGarrafon20L.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnGarrafon20L.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btnGarrafon20L.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnGarrafon20L.UseCustomBackColor = true;
+            this.btnGarrafon20L.UseSelectable = true;
+            this.btnGarrafon20L.UseTileImage = true;
+            this.btnGarrafon20L.Click += new System.EventHandler(this.btnGarrafon20L_Click);
+            // 
             // labelP
             // 
             this.labelP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelP.AutoSize = true;
             this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelP.Location = new System.Drawing.Point(786, 471);
+            this.labelP.Location = new System.Drawing.Point(770, 470);
             this.labelP.Name = "labelP";
             this.labelP.Size = new System.Drawing.Size(91, 45);
             this.labelP.TabIndex = 26;
@@ -134,13 +184,14 @@
             // 
             this.gridview.AllowUserToAddRows = false;
             this.gridview.AllowUserToResizeRows = false;
+            this.gridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gridview.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Cyan;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -155,8 +206,9 @@
             this.Importe});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -180,6 +232,8 @@
             this.gridview.Size = new System.Drawing.Size(506, 380);
             this.gridview.TabIndex = 32;
             this.gridview.UseStyleColors = true;
+            this.gridview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_CellDoubleClick);
+            this.gridview.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_CellEndEdit);
             // 
             // Código
             // 
@@ -224,6 +278,7 @@
             this.btnDecrementar.Text = "Decrementar";
             this.btnDecrementar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDecrementar.UseVisualStyleBackColor = false;
+            this.btnDecrementar.Click += new System.EventHandler(this.btnDecrementar_Click);
             // 
             // btnAgregar
             // 
@@ -260,7 +315,7 @@
             this.btnBorrarUltimo.Name = "btnBorrarUltimo";
             this.btnBorrarUltimo.Size = new System.Drawing.Size(71, 73);
             this.btnBorrarUltimo.TabIndex = 30;
-            this.btnBorrarUltimo.Text = "Borrar último";
+            this.btnBorrarUltimo.Text = "Borrar";
             this.btnBorrarUltimo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBorrarUltimo.UseVisualStyleBackColor = false;
             this.btnBorrarUltimo.Click += new System.EventHandler(this.btnBorrarUltimo_Click);
@@ -315,56 +370,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.Location = new System.Drawing.Point(0, 369);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(324, 98);
-            this.btnRegresar.TabIndex = 26;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Image = global::EcoPura.Properties.Resources.plus;
-            this.btnBuscar.Location = new System.Drawing.Point(273, 46);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
-            this.btnBuscar.TabIndex = 12;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnGarrafon20L
-            // 
-            this.btnGarrafon20L.ActiveControl = null;
-            this.btnGarrafon20L.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnGarrafon20L.Location = new System.Drawing.Point(27, 150);
-            this.btnGarrafon20L.Name = "btnGarrafon20L";
-            this.btnGarrafon20L.Size = new System.Drawing.Size(86, 102);
-            this.btnGarrafon20L.TabIndex = 3;
-            this.btnGarrafon20L.Text = "20L";
-            this.btnGarrafon20L.TileImage = ((System.Drawing.Image)(resources.GetObject("btnGarrafon20L.TileImage")));
-            this.btnGarrafon20L.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGarrafon20L.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
-            this.btnGarrafon20L.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnGarrafon20L.UseCustomBackColor = true;
-            this.btnGarrafon20L.UseSelectable = true;
-            this.btnGarrafon20L.UseTileImage = true;
-            this.btnGarrafon20L.Click += new System.EventHandler(this.btnGarrafon20L_Click);
             // 
             // PuntoVentaVentana2
             // 

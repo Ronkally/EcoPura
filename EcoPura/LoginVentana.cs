@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EcoPuraLibreria;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace EcoPura
         //Placeholders
         private void tbUsuario_Enter(object sender, EventArgs e)
         {
-            if (tbUsuario.Text.Equals("Usuario"))
+            if (tbUsuario.Text.Equals("Usuario") || tbUsuario.Text.Equals("Ingresa un usuario válido"))
             {
                 tbUsuario.Text = "";
                 tbUsuario.ForeColor = Color.Black;
@@ -30,7 +31,7 @@ namespace EcoPura
 
         private void tbUsuario_Leave(object sender, EventArgs e)
         {
-            if (tbUsuario.Text.Equals(""))
+            if (tbUsuario.Text.Equals("") || tbContrasena.Text.Equals("Ingresa una contraseña válida"))
             {
                 tbUsuario.Text = "Usuario";
                 tbUsuario.ForeColor = Color.Gray;
@@ -53,6 +54,54 @@ namespace EcoPura
                 tbContrasena.Text = "Contraseña";
                 tbContrasena.ForeColor = Color.Gray;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Validacion())
+            {
+                //select count(Id) from Project
+                string query = $"Select count(Usuario) FROM Usuarios WHERE Usuario = '{tbUsuario.Text}' AND Contrasena = '{tbContrasena.Text}' ";
+                bool DoesExist = DatabaseAccess.Existe(query);
+
+                if (DoesExist)
+                {
+                    var Ventana = new InicioVentana2();
+                    Ventana.StartPosition = FormStartPosition.CenterScreen;
+                    Ventana.Show();
+                    this.Close();
+                }
+                
+
+
+            }
+         
+
+        }
+
+        public bool Validacion()
+        {
+            bool bandera = true;
+
+
+            if (string.IsNullOrEmpty(tbUsuario.Text) || tbUsuario.Text.Equals("Ingresa un usuario válido"))
+            {
+                tbUsuario.Text = "Ingresa un usuario válido";
+                tbUsuario.ForeColor = Color.Red;
+                bandera = false;
+            }
+
+
+            if (string.IsNullOrEmpty(tbContrasena.Text) || tbContrasena.Text.Equals("Ingresa una contraseña válida") )
+            {
+                tbContrasena.Text = "Ingresa una contraseña válida";
+                tbContrasena.ForeColor = Color.Red;
+                bandera = false;
+            }
+
+
+            return bandera;
+
         }
     }
 }
