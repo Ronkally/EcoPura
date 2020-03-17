@@ -35,13 +35,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelSide = new MetroFramework.Controls.MetroPanel();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGarrafon20L = new MetroFramework.Controls.MetroTile();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnRegresar = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gridview = new MetroFramework.Controls.MetroGrid();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +50,7 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnVenta = new System.Windows.Forms.Button();
@@ -64,7 +66,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSide.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -94,22 +97,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.panelSide, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.gridview, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.39216F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.60784F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 470);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(882, 470);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // panelSide
             // 
             this.panelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelSide.Controls.Add(this.btnRegresar);
             this.panelSide.Controls.Add(this.metroLabel2);
             this.panelSide.Controls.Add(this.metroLabel1);
             this.panelSide.Controls.Add(this.tbSearchBox);
@@ -121,19 +121,36 @@
             this.panelSide.HorizontalScrollbarSize = 10;
             this.panelSide.Location = new System.Drawing.Point(3, 3);
             this.panelSide.Name = "panelSide";
-            this.panelSide.Size = new System.Drawing.Size(324, 371);
-            this.panelSide.TabIndex = 4;
+            this.panelSide.Size = new System.Drawing.Size(309, 464);
+            this.panelSide.TabIndex = 49;
             this.panelSide.UseCustomBackColor = true;
             this.panelSide.VerticalScrollbarBarColor = true;
             this.panelSide.VerticalScrollbarHighlightOnWheel = false;
             this.panelSide.VerticalScrollbarSize = 10;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegresar.FlatAppearance.BorderSize = 0;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.Location = new System.Drawing.Point(-3, 355);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(321, 87);
+            this.btnRegresar.TabIndex = 49;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegresar.UseVisualStyleBackColor = false;
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.Location = new System.Drawing.Point(82, 10);
+            this.metroLabel2.Location = new System.Drawing.Point(69, 9);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(166, 25);
             this.metroLabel2.TabIndex = 28;
@@ -146,7 +163,7 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.Location = new System.Drawing.Point(82, 106);
+            this.metroLabel1.Location = new System.Drawing.Point(70, 106);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(160, 25);
             this.metroLabel1.TabIndex = 27;
@@ -158,7 +175,7 @@
             // 
             this.tbSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSearchBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.tbSearchBox.Location = new System.Drawing.Point(27, 46);
+            this.tbSearchBox.Location = new System.Drawing.Point(13, 46);
             this.tbSearchBox.Name = "tbSearchBox";
             this.tbSearchBox.Size = new System.Drawing.Size(240, 29);
             this.tbSearchBox.TabIndex = 13;
@@ -172,12 +189,11 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.Black;
             this.btnBuscar.Image = global::EcoPura.Properties.Resources.plus;
-            this.btnBuscar.Location = new System.Drawing.Point(273, 46);
+            this.btnBuscar.Location = new System.Drawing.Point(259, 46);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(32, 29);
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnGarrafon20L
             // 
@@ -197,38 +213,37 @@
             this.btnGarrafon20L.UseSelectable = true;
             this.btnGarrafon20L.UseTileImage = true;
             // 
-            // flowLayoutPanel3
+            // tableLayoutPanel2
             // 
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.flowLayoutPanel3.Controls.Add(this.btnRegresar);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 380);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(324, 87);
-            this.flowLayoutPanel3.TabIndex = 2;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.splitContainer1, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(318, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.37259F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.62741F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(561, 464);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // btnRegresar
+            // panel1
             // 
-            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
-            this.btnRegresar.Location = new System.Drawing.Point(3, 3);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(321, 87);
-            this.btnRegresar.TabIndex = 27;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRegresar.UseVisualStyleBackColor = false;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click_2);
+            this.panel1.Controls.Add(this.gridview);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(555, 357);
+            this.panel1.TabIndex = 1;
             // 
             // gridview
             // 
             this.gridview.AllowUserToAddRows = false;
             this.gridview.AllowUserToResizeRows = false;
+            this.gridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridview.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -256,11 +271,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridview.DefaultCellStyle = dataGridViewCellStyle2;
-            this.gridview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridview.EnableHeadersVisualStyles = false;
             this.gridview.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridview.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridview.Location = new System.Drawing.Point(333, 3);
+            this.gridview.Location = new System.Drawing.Point(15, 0);
             this.gridview.Name = "gridview";
             this.gridview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -273,8 +287,8 @@
             this.gridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridview.Size = new System.Drawing.Size(524, 371);
-            this.gridview.TabIndex = 35;
+            this.gridview.Size = new System.Drawing.Size(540, 357);
+            this.gridview.TabIndex = 48;
             this.gridview.UseStyleColors = true;
             // 
             // Código
@@ -305,19 +319,28 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(333, 380);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 366);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel3);
             this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel3);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.labelP);
-            this.splitContainer1.Size = new System.Drawing.Size(524, 87);
-            this.splitContainer1.SplitterDistance = 433;
-            this.splitContainer1.TabIndex = 36;
+            this.splitContainer1.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splitContainer1.Size = new System.Drawing.Size(555, 95);
+            this.splitContainer1.SplitterDistance = 449;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(450, 8);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
@@ -332,12 +355,12 @@
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel4, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel9, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel10, 4, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(-3, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(9, 8);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.Size = new System.Drawing.Size(438, 81);
-            this.tableLayoutPanel3.TabIndex = 44;
+            this.tableLayoutPanel3.TabIndex = 50;
             // 
             // flowLayoutPanel1
             // 
@@ -473,7 +496,7 @@
             this.btnDecrementar.Image = ((System.Drawing.Image)(resources.GetObject("btnDecrementar.Image")));
             this.btnDecrementar.Location = new System.Drawing.Point(3, 3);
             this.btnDecrementar.Name = "btnDecrementar";
-            this.btnDecrementar.Size = new System.Drawing.Size(80, 72);
+            this.btnDecrementar.Size = new System.Drawing.Size(81, 72);
             this.btnDecrementar.TabIndex = 41;
             this.btnDecrementar.Text = "Decrementar";
             this.btnDecrementar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -485,18 +508,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelP.AutoSize = true;
-            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP.Location = new System.Drawing.Point(4, 18);
+            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 54.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP.Location = new System.Drawing.Point(-18, 7);
             this.labelP.Name = "labelP";
-            this.labelP.Size = new System.Drawing.Size(161, 77);
-            this.labelP.TabIndex = 0;
+            this.labelP.Size = new System.Drawing.Size(181, 88);
+            this.labelP.TabIndex = 3;
             this.labelP.Text = "$ 0.00";
             // 
             // PuntoVentaVentana2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 550);
+            this.ClientSize = new System.Drawing.Size(922, 550);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -511,7 +534,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelSide.ResumeLayout(false);
             this.panelSide.PerformLayout();
-            this.flowLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridview)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -531,14 +555,15 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private MetroFramework.Controls.MetroPanel panelSide;
+        private System.Windows.Forms.Button btnRegresar;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Button btnBuscar;
         private MetroFramework.Controls.MetroTile btnGarrafon20L;
-        private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroGrid gridview;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
@@ -557,6 +582,7 @@
         private System.Windows.Forms.Button btnIncrementar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
         private System.Windows.Forms.Button btnDecrementar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label labelP;
     }
 }

@@ -115,7 +115,7 @@
     </Compile>
     <Compile Include="PopUpClasificacion.Designer.cs">
       <DependentUpon>PopUpClasificacion.cs</DependentUpon>
-     </Compile>
+    </Compile>
     <Compile Include="LoginVentana.cs">
       <SubType>Form</SubType>
     </Compile>
