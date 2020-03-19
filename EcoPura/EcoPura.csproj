@@ -134,6 +134,12 @@
     <Compile Include="PopUpProveedores.Designer.cs">
       <DependentUpon>PopUpProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="prueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="prueba.Designer.cs">
+      <DependentUpon>prueba.cs</DependentUpon>
+    </Compile>
     <Compile Include="PuntoVentaVentana2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpProveedores.resx">
       <DependentUpon>PopUpProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prueba.resx">
+      <DependentUpon>prueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PuntoVentaVentana2.resx">
       <DependentUpon>PuntoVentaVentana2.cs</DependentUpon>
@@ -244,6 +253,19 @@
     <Content Include="img\PV2.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />
+    <Content Include="Resources\back.png" />
+    <Content Include="Resources\caja-registradora.png" />
+    <Content Include="Resources\caja.png" />
+    <Content Include="Resources\cotizacion.png" />
+    <Content Include="Resources\garrafa2.png" />
+    <Content Include="Resources\IconoEco.png" />
+    <Content Include="Resources\Logo con letras.png" />
+    <Content Include="Resources\magnifying-glass.png" />
+    <Content Include="Resources\plus.png" />
+    <Content Include="Resources\PV2.png" />
+    <Content Include="Resources\regresar.png" />
+    <Content Include="Resources\trash.png" />
+    <None Include="Resources\lavandería.png" />
     <None Include="Resources\bloquear.png" />
     <None Include="Resources\boton-de-cuenta-redonda-con-usuario-dentro.png" />
     <None Include="Resources\decrementar.png" />

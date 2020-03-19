@@ -37,6 +37,7 @@
             this.btnVentas = new MetroFramework.Controls.MetroTile();
             this.btnProductos = new MetroFramework.Controls.MetroTile();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +47,7 @@
             this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroPanel1.Controls.Add(this.metroTile1);
             this.metroPanel1.Controls.Add(this.btnPuntoVenta);
             this.metroPanel1.Controls.Add(this.btnSalir);
             this.metroPanel1.Controls.Add(this.btnCaja);
@@ -68,7 +70,7 @@
             this.btnPuntoVenta.ActiveControl = null;
             this.btnPuntoVenta.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPuntoVenta.Location = new System.Drawing.Point(415, 62);
+            this.btnPuntoVenta.Location = new System.Drawing.Point(502, 62);
             this.btnPuntoVenta.Name = "btnPuntoVenta";
             this.btnPuntoVenta.Size = new System.Drawing.Size(155, 316);
             this.btnPuntoVenta.TabIndex = 4;
@@ -87,7 +89,7 @@
             this.btnSalir.ActiveControl = null;
             this.btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.Location = new System.Drawing.Point(576, 62);
+            this.btnSalir.Location = new System.Drawing.Point(663, 62);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(155, 121);
             this.btnSalir.TabIndex = 6;
@@ -106,7 +108,7 @@
             this.btnCaja.ActiveControl = null;
             this.btnCaja.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCaja.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCaja.Location = new System.Drawing.Point(93, 223);
+            this.btnCaja.Location = new System.Drawing.Point(180, 223);
             this.btnCaja.Name = "btnCaja";
             this.btnCaja.Size = new System.Drawing.Size(316, 155);
             this.btnCaja.TabIndex = 2;
@@ -125,7 +127,7 @@
             this.btnCotizaciones.ActiveControl = null;
             this.btnCotizaciones.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCotizaciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCotizaciones.Location = new System.Drawing.Point(576, 189);
+            this.btnCotizaciones.Location = new System.Drawing.Point(663, 189);
             this.btnCotizaciones.Name = "btnCotizaciones";
             this.btnCotizaciones.Size = new System.Drawing.Size(155, 189);
             this.btnCotizaciones.TabIndex = 5;
@@ -143,7 +145,7 @@
             this.btnVentas.ActiveControl = null;
             this.btnVentas.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVentas.Location = new System.Drawing.Point(254, 62);
+            this.btnVentas.Location = new System.Drawing.Point(341, 62);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(155, 155);
             this.btnVentas.TabIndex = 3;
@@ -162,7 +164,7 @@
             this.btnProductos.ActiveControl = null;
             this.btnProductos.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductos.Location = new System.Drawing.Point(93, 62);
+            this.btnProductos.Location = new System.Drawing.Point(180, 62);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(155, 155);
             this.btnProductos.TabIndex = 1;
@@ -186,6 +188,24 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroTile1.Location = new System.Drawing.Point(19, 62);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(155, 316);
+            this.metroTile1.TabIndex = 7;
+            this.metroTile1.Text = "Lavandería";
+            this.metroTile1.TileImage = global::EcoPura.Properties.Resources.lavandería;
+            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.metroTile1.UseCustomBackColor = true;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseTileImage = true;
             // 
             // InicioVentana2
             // 
@@ -214,5 +234,6 @@
         private MetroFramework.Controls.MetroTile btnCotizaciones;
         private MetroFramework.Controls.MetroTile btnPuntoVenta;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private MetroFramework.Controls.MetroTile metroTile1;
     }
 }
