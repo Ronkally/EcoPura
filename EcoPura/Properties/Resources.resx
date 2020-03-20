@@ -151,8 +151,14 @@
   <data name="addChiquito" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addChiquito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\agregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="realizarVenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\realizarVenta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lavandería" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lavandería.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="boton-de-cuenta-redonda-con-usuario-dentro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton-de-cuenta-redonda-con-usuario-dentro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,7 +175,7 @@
   <data name="IconoEco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\IconoEco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lavandería" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lavandería.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Borrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Borrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

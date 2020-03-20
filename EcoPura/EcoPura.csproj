@@ -134,12 +134,6 @@
     <Compile Include="PopUpProveedores.Designer.cs">
       <DependentUpon>PopUpProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="prueba.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="prueba.Designer.cs">
-      <DependentUpon>prueba.cs</DependentUpon>
-    </Compile>
     <Compile Include="PuntoVentaVentana2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,9 +171,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpProveedores.resx">
       <DependentUpon>PopUpProveedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="prueba.resx">
-      <DependentUpon>prueba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PuntoVentaVentana2.resx">
       <DependentUpon>PuntoVentaVentana2.cs</DependentUpon>

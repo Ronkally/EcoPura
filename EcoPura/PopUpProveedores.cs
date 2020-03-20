@@ -137,5 +137,10 @@ namespace EcoPura
         {
             proveedor = GridProveedores.Rows[GridProveedores.CurrentCell.RowIndex].Cells[0].Value.ToString();
         }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
