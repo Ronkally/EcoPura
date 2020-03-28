@@ -16,11 +16,6 @@ namespace EcoPura
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            gridview.Width = 1130;
-            gridview.Height = 500;
-            panelSide.Height = 680;
-            panelSB.Width = 300;
-            btnBuscar.Location = new Point(490, 101);
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -28,31 +23,28 @@ namespace EcoPura
         {
             this.Close();
         }
-        FormWindowState LastWindowState = FormWindowState.Maximized;
-        private void VentaVentana1_Resize(object sender, EventArgs e)
-          {
-                if (WindowState != LastWindowState)
-                {
-                    LastWindowState = WindowState;
-
-                    if (WindowState == FormWindowState.Maximized)
-                    {
-                    gridview.Width = 1130;
-                    gridview.Height = 500;
-                    panelSide.Height = 680;
-                }
-                    if (WindowState == FormWindowState.Normal)
-                    {
-                        gridview.Width = 662;
-                        gridview.Height = 335;
-                        panelSide.Height = 491;
-                    }
-                }
-            }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tbSearchBox_Enter(object sender, EventArgs e)
+        {
+            if (tbSearchBox.Text.Equals("Busqueda"))
+            {
+                tbSearchBox.Text = "";
+                tbSearchBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbSearchBox_Leave(object sender, EventArgs e)
+        {
+            if (tbSearchBox.Text.Equals(""))
+            {
+                tbSearchBox.Text = "Busqueda";
+                tbSearchBox.ForeColor = Color.Gray;
+            }
         }
     }
     }

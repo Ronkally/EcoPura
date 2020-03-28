@@ -255,7 +255,5 @@ namespace EcoPura
         {
             this.Close();
         }
-
-       
     }
 }

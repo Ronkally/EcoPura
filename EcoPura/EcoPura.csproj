@@ -115,7 +115,7 @@
     </Compile>
     <Compile Include="PopUpClasificacion.Designer.cs">
       <DependentUpon>PopUpClasificacion.cs</DependentUpon>
-     </Compile>
+    </Compile>
     <Compile Include="LoginVentana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +244,19 @@
     <Content Include="img\PV2.png" />
     <Content Include="img\regresar.png" />
     <Content Include="img\trash.png" />
+    <Content Include="Resources\back.png" />
+    <Content Include="Resources\caja-registradora.png" />
+    <Content Include="Resources\caja.png" />
+    <Content Include="Resources\cotizacion.png" />
+    <Content Include="Resources\garrafa2.png" />
+    <Content Include="Resources\IconoEco.png" />
+    <Content Include="Resources\Logo con letras.png" />
+    <Content Include="Resources\magnifying-glass.png" />
+    <Content Include="Resources\plus.png" />
+    <Content Include="Resources\PV2.png" />
+    <Content Include="Resources\regresar.png" />
+    <Content Include="Resources\trash.png" />
+    <None Include="Resources\lavandería.png" />
     <None Include="Resources\bloquear.png" />
     <None Include="Resources\boton-de-cuenta-redonda-con-usuario-dentro.png" />
     <None Include="Resources\decrementar.png" />
