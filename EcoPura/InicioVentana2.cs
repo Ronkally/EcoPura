@@ -33,6 +33,9 @@ namespace EcoPura
 
         private void btnCaja_Click(object sender, EventArgs e)
         {
+            var caja = new CajaVentana();
+            caja.StartPosition = FormStartPosition.CenterParent;
+            caja.ShowDialog();
         }
 
         private void btnPuntoVenta_Click(object sender, EventArgs e)
