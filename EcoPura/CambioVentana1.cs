@@ -13,20 +13,19 @@ namespace EcoPura
 {
     public partial class CambioVentana1 : MetroFramework.Forms.MetroForm
     {
-        float total;
         int contador = 0 ;
         public CambioVentana1()
         {
             InitializeComponent();
         }
 
-        public CambioVentana1(float total)
+        public CambioVentana1(float total, DataGridViewRowCollection rows)
         {
             InitializeComponent();
-            this.total = total;
             txtCodigo.Focus();
             float settup = 0;
             lblTotal.Text = settup.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+            lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
         }
 
         private void btnUno_Click(object sender, EventArgs e)
@@ -107,14 +106,33 @@ namespace EcoPura
 
         private void Cambio()
         {
+
+            float cantidadRecibida = float.Parse(txtCodigo.Text);
+            float monto = float.Parse(lblMonto.Text);
+
+            float diferencia = monto - cantidadRecibida;
+
+            if (cantidadRecibida > monto)
+            {
+                float cambio = cantidadRecibida - Int32.Parse(lblTotal.Text);
+                lblTotal.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+                btnFinalizar.Visible = true;
+            }
+            else
+            {
+
+            }
+
+
+            /*
             contador++;
             float cantidadRecibida = float.Parse(txtCodigo.Text);
 
             if (contador != 2)
             {
-                if (cantidadRecibida >= total)
-                {
-                    float cambio = cantidadRecibida - total;
+                if ((Int32.Parse(lblTotal.Text) - cantidadRecibida) >= 0)
+               {
+                    float cambio = cantidadRecibida - Int32.Parse(lblTotal.Text);
                     lblTotal.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
                     btnFinalizar.Visible = true;
                 }
@@ -128,9 +146,9 @@ namespace EcoPura
             {
                 MetroFramework.MetroMessageBox.Show(this, "Gracias por su compra", "Gracias!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 this.Close();
-            }
-                
-            
+            }*/
+
+
         }
 
         private void btnCero_Click(object sender, EventArgs e)
@@ -142,6 +160,16 @@ namespace EcoPura
         {
             MetroFramework.MetroMessageBox.Show(this, "Gracias por su compra", "Gracias!", MessageBoxButtons.OK, MessageBoxIcon.Question);
             this.Close();
+        }
+
+        private void metroLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CambioVentana1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -74,7 +74,7 @@
             this.GridProveedores.EnableHeadersVisualStyles = false;
             this.GridProveedores.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridProveedores.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GridProveedores.Location = new System.Drawing.Point(210, 63);
+            this.GridProveedores.Location = new System.Drawing.Point(210, 72);
             this.GridProveedores.Name = "GridProveedores";
             this.GridProveedores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -87,7 +87,7 @@
             this.GridProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridProveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridProveedores.Size = new System.Drawing.Size(319, 383);
+            this.GridProveedores.Size = new System.Drawing.Size(319, 374);
             this.GridProveedores.TabIndex = 33;
             this.GridProveedores.TabStop = false;
             this.GridProveedores.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GridProveedores_CellBeginEdit);
@@ -98,7 +98,7 @@
             // 
             this.tbAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAgregar.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.tbAgregar.Location = new System.Drawing.Point(8, 36);
+            this.tbAgregar.Location = new System.Drawing.Point(8, 9);
             this.tbAgregar.Name = "tbAgregar";
             this.tbAgregar.Size = new System.Drawing.Size(183, 26);
             this.tbAgregar.TabIndex = 34;
@@ -132,7 +132,7 @@
             this.btnEliminar.ActiveControl = null;
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnEliminar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnEliminar.Location = new System.Drawing.Point(8, 91);
+            this.btnEliminar.Location = new System.Drawing.Point(8, 41);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(89, 127);
             this.btnEliminar.TabIndex = 37;
@@ -149,7 +149,7 @@
             // 
             this.btnRegresar.ActiveControl = null;
             this.btnRegresar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnRegresar.Location = new System.Drawing.Point(8, 224);
+            this.btnRegresar.Location = new System.Drawing.Point(8, 174);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(89, 123);
             this.btnRegresar.TabIndex = 38;
@@ -167,7 +167,7 @@
             this.btnAgregar.ActiveControl = null;
             this.btnAgregar.BackColor = System.Drawing.Color.PowderBlue;
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAgregar.Location = new System.Drawing.Point(103, 91);
+            this.btnAgregar.Location = new System.Drawing.Point(103, 41);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(88, 256);
             this.btnAgregar.TabIndex = 36;

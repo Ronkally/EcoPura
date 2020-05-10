@@ -19,9 +19,6 @@ namespace EcoPura
             this.ActiveControl = labelP;
         }
 
-       
-        
-
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -29,7 +26,12 @@ namespace EcoPura
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(gridview.SelectedRows.Count > 0)
+            AgregarCantidadProducto();
+        }
+
+        private void AgregarCantidadProducto()
+        {
+            if (gridview.SelectedRows.Count > 0)
             {
                 int cantidad = Int32.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value.ToString());
                 cantidad++;
@@ -44,26 +46,22 @@ namespace EcoPura
             else
             {
                 MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto para aumentar su cantidad", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            
+
             }
             Total();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            AgregarProducto();
-        }
 
         private void AgregarProducto()
         {
-            bool bandera = false; 
+            bool bandera = false;
 
-            for(int i = 0; i < Productos.Rows.Count; i++)
+            for (int i = 0; i < Productos.Rows.Count; i++)
             {
                 if (tbSearchBox.Text.Equals(Productos.Rows[i]["Código"].ToString()))
                 {
 
-                    for(int j = 0; j < gridview.Rows.Count; j++)
+                    for (int j = 0; j < gridview.Rows.Count; j++)
                     {
                         if (tbSearchBox.Text.Equals(gridview.Rows[j].Cells["Código"].Value.ToString()))
                         {
@@ -93,7 +91,7 @@ namespace EcoPura
                         gridview.Rows.Add(newRow);
                         break;
                     }
-                    
+
                 }
             }
             Total();
@@ -130,7 +128,7 @@ namespace EcoPura
 
         private void tbSearchBox_Enter(object sender, EventArgs e)
         {
-            if(tbSearchBox.Text.Equals("Código de barras"))
+            if (tbSearchBox.Text.Equals("Código de barras"))
             {
                 tbSearchBox.Text = "";
                 tbSearchBox.ForeColor = Color.Black;
@@ -178,12 +176,12 @@ namespace EcoPura
 
         private void PuntoVentaVentana2_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
         }
 
         private void btnGarrafon20L_Click(object sender, EventArgs e)
         {
-            if(!DoesRowExist("Garrafón 20L"))
+            if (!DoesRowExist("Garrafón 20L"))
             {
                 string[] garrafon = new string[] { "", "Garrafón 20L", "11", "1", "11" };
                 gridview.Rows.Add(garrafon);
@@ -194,7 +192,7 @@ namespace EcoPura
 
         private bool DoesRowExist(string descripcion)
         {
-            bool bandera = false; 
+            bool bandera = false;
             for (int j = 0; j < gridview.Rows.Count; j++)
             {
                 if (descripcion.Equals(gridview.Rows[j].Cells["Descripción"].Value.ToString()))
@@ -208,12 +206,12 @@ namespace EcoPura
 
                     gridview.Rows[j].Cells["Cantidad"].Value = cantidad.ToString();
                     gridview.Rows[j].Cells["Importe"].Value = importe.ToString();
-                    
+
                     bandera = true;
                     break;
                 }
             }
-            
+
             return bandera;
         }
 
@@ -231,29 +229,135 @@ namespace EcoPura
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            if(gridview.Rows.Count > 0)
+            if (gridview.Rows.Count > 0)
             {
                 string converter = labelP.Text;
-                float total = float.Parse(converter.Replace("$",""));
+                float total = float.Parse(converter.Replace("$", ""));
+                
 
-                var cambio = new CambioVentana1(total);
+                var cambio = new CambioVentana1(total, gridview.Rows);
                 cambio.StartPosition = FormStartPosition.CenterParent;
                 cambio.ShowDialog();
-
+                gridview.Rows.Clear();
+                int cero = 0;
+                labelP.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("es-MX"));
 
             }
             else
                 MetroFramework.MetroMessageBox.Show(this, "Agrega productos para realizar una venta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
-        private void tbSearchBox_TextChanged(object sender, EventArgs e)
+
+        private void gridview_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+
+            int rowIndex = gridview.CurrentCell.RowIndex;
+            float precio = float.Parse(gridview.Rows[rowIndex].Cells["Precio"].Value.ToString());
+
+            try
+            {
+                if (IsNumber(gridview.Rows[rowIndex].Cells[3].Value.ToString()))
+                {
+                    int cantidad = Int32.Parse(gridview.Rows[rowIndex].Cells["Cantidad"].Value.ToString());
+                    float importe = cantidad * precio;
+
+                    gridview.Rows[rowIndex].Cells["Cantidad"].Value = cantidad.ToString();
+                    gridview.Rows[rowIndex].Cells["Importe"].Value = importe.ToString();
+                }
+                else
+                {
+                    gridview.Rows[rowIndex].Cells["Cantidad"].Value = 1;
+                    gridview.Rows[rowIndex].Cells["Importe"].Value = 1 * precio;
+                }
+                Total();
+            }
+            catch (Exception s)
+            {
+                gridview.Rows[rowIndex].Cells["Cantidad"].Value = 1;
+                gridview.Rows[rowIndex].Cells["Importe"].Value = 1 * precio;
+            }
+        }
+
+        private bool IsNumber(string text)
+        {
+            float parsedValue;
+
+            if (!float.TryParse(text, out parsedValue))
+                return false;
+
+            return true;
 
         }
 
-        private void btnRegresar_Click_2(object sender, EventArgs e)
+        private void btnDecrementar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (gridview.SelectedRows.Count > 0)
+            {
+                int cantidad = Int32.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value.ToString());
+                cantidad--;
+
+                if (cantidad == 0)
+                {
+                    gridview.Rows.Remove(gridview.Rows[gridview.CurrentRow.Index]);
+                }
+                else
+                {
+                    float precio = float.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Precio"].Value.ToString());
+
+                    float importe = cantidad * precio;
+
+                    gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value = cantidad.ToString();
+                    gridview.Rows[gridview.CurrentRow.Index].Cells["Importe"].Value = importe.ToString();
+                }
+
+
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto para aumentar su cantidad", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+            }
+            Total();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+
+            if (keyData == Keys.D0 ||
+                keyData == Keys.D1 ||
+                keyData == Keys.D2 ||
+                keyData == Keys.D3 ||
+                keyData == Keys.D4 ||
+                keyData == Keys.D5 ||
+                keyData == Keys.D6 ||
+                keyData == Keys.D7 ||
+                keyData == Keys.D8 ||
+                keyData == Keys.D9)
+            {
+
+                tbSearchBox.Focus();
+
+
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void gridview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AgregarCantidadProducto();
+        }
+
+        private void btnIncrementar_Click(object sender, EventArgs e)
+        {
+            AgregarCantidadProducto();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            AgregarProducto();
         }
     }
 }
+
