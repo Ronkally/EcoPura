@@ -116,6 +116,12 @@
     <Compile Include="InicioVentana2.Designer.cs">
       <DependentUpon>InicioVentana2.cs</DependentUpon>
     </Compile>
+    <Compile Include="LavanderiaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LavanderiaVentana.Designer.cs">
+      <DependentUpon>LavanderiaVentana.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopUpClasificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InicioVentana2.resx">
       <DependentUpon>InicioVentana2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LavanderiaVentana.resx">
+      <DependentUpon>LavanderiaVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpClasificacion.resx">
       <DependentUpon>PopUpClasificacion.cs</DependentUpon>
