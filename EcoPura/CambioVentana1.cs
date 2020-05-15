@@ -8,22 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DespachaMas.UI.WinForms;
+using EcoPuraLibreria;
 
 namespace EcoPura
 {
     public partial class CambioVentana1 : MetroFramework.Forms.MetroForm
     {
-        int contador = 0 ;
+        float total = 0 ;
         public CambioVentana1()
         {
             InitializeComponent();
         }
 
-        public CambioVentana1(float total, DataGridViewRowCollection rows)
+        DataGridView gridview;
+
+        public CambioVentana1(float total, DataGridView rows)
         {
             InitializeComponent();
             txtCodigo.Focus();
             float settup = 0;
+            this.total = total;
+            this.gridview = rows;
             lblTotal.Text = settup.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
             lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
         }
@@ -99,7 +105,6 @@ namespace EcoPura
 
         private void button2_Click(object sender, EventArgs e)
         {
-            contador++;
             MetroFramework.MetroMessageBox.Show(this, "Gracias por su compra", "Gracias!", MessageBoxButtons.OK, MessageBoxIcon.Question);
             this.Close();
         }
@@ -108,13 +113,13 @@ namespace EcoPura
         {
 
             float cantidadRecibida = float.Parse(txtCodigo.Text);
-            float monto = float.Parse(lblMonto.Text);
+            float monto = this.total;
 
             float diferencia = monto - cantidadRecibida;
 
             if (cantidadRecibida > monto)
             {
-                float cambio = cantidadRecibida - Int32.Parse(lblTotal.Text);
+                float cambio = cantidadRecibida - total;
                 lblTotal.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
                 btnFinalizar.Visible = true;
             }
@@ -158,7 +163,66 @@ namespace EcoPura
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, "Gracias por su compra", "Gracias!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            if (MetroFramework.MetroMessageBox.Show(this, "¿Desea imprimir el Ticket de la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Ticket ticket = new Ticket();
+                //Cabecera
+                ticket.TextoCentro("EcoPura");
+                ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+                ticket.TextoIzquierda("DIREC: " + "");
+                ticket.TextoIzquierda("");
+                ticket.lineasAsteriscos();
+
+                //Sub cabecera.
+                ticket.TextoIzquierda("");
+                ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
+                ticket.TextoIzquierda("");
+                ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
+                ticket.lineasAsteriscos();
+
+                ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+                ticket.lineasAsteriscos();
+
+                foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
+                {
+
+                    ticket.AgregaArticulo(fila.Cells[1].Value.ToString(), Int32.Parse(fila.Cells[3].Value.ToString()), Decimal.Parse(fila.Cells[2].Value.ToString()), Decimal.Parse(fila.Cells[4].Value.ToString()));
+                    string query = $@"SELECT Descripcion, Costo, Precio, Existencia, Clasificacion.Clasificacion, Proveedor.Proveedor, Codigo, Minimo, Maximo
+                             FROM Productos
+                             LEFT JOIN Proveedor
+                             ON Productos.IdProveedor = Proveedor.IdProveedor
+                             LEFT JOIN Clasificacion
+                             ON Productos.IdClasificacion = Clasificacion.IdClasificacion
+                             WHERE Codigo = {codigo}";
+                    DatabaseAccess.
+                }
+                ticket.lineasGuio();
+
+                float total = 0;
+
+                foreach (DataGridViewRow rows in gridview.Rows)
+                {
+                    total += float.Parse(rows.Cells[4].Value.ToString());
+
+                }
+
+                //Resumen de la venta
+                ticket.AgregarTotales("         TOTAL.........$", (decimal)total);
+                ticket.TextoIzquierda("");
+
+                //Texto final del Ticket.
+                ticket.TextoIzquierda("");
+                ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + gridview.RowCount.ToString());
+                ticket.TextoIzquierda("");
+                ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+                ticket.CortaTicket();
+                try
+                {
+                   // ticket.ImprimirTicket(ConseguirImpresora());
+                }
+                catch (Exception s) { MessageBox.Show("Error en la impresión"); }
+
+            }
             this.Close();
         }
 

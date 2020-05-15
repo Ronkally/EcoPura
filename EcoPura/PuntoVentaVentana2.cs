@@ -235,7 +235,7 @@ namespace EcoPura
                 float total = float.Parse(converter.Replace("$", ""));
                 
 
-                var cambio = new CambioVentana1(total, gridview.Rows);
+                var cambio = new CambioVentana1(total, gridview);
                 cambio.StartPosition = FormStartPosition.CenterParent;
                 cambio.ShowDialog();
                 gridview.Rows.Clear();
