@@ -98,6 +98,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CajaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CajaVentana.Designer.cs">
+      <DependentUpon>CajaVentana.cs</DependentUpon>
+    </Compile>
     <Compile Include="CambioVentana1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     </Compile>
     <Compile Include="InicioVentana2.Designer.cs">
       <DependentUpon>InicioVentana2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LavanderiaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LavanderiaVentana.Designer.cs">
+      <DependentUpon>LavanderiaVentana.cs</DependentUpon>
     </Compile>
     <Compile Include="PopUpClasificacion.cs">
       <SubType>Form</SubType>
@@ -154,11 +166,17 @@
     <Compile Include="VentaVentana1.Designer.cs">
       <DependentUpon>VentaVentana1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CajaVentana.resx">
+      <DependentUpon>CajaVentana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CambioVentana1.resx">
       <DependentUpon>CambioVentana1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioVentana2.resx">
       <DependentUpon>InicioVentana2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LavanderiaVentana.resx">
+      <DependentUpon>LavanderiaVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpClasificacion.resx">
       <DependentUpon>PopUpClasificacion.cs</DependentUpon>

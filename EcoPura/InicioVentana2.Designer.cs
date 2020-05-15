@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioVentana2));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnLavanderia = new MetroFramework.Controls.MetroTile();
             this.btnPuntoVenta = new MetroFramework.Controls.MetroTile();
             this.btnSalir = new MetroFramework.Controls.MetroTile();
             this.btnCaja = new MetroFramework.Controls.MetroTile();
@@ -37,7 +38,6 @@
             this.btnVentas = new MetroFramework.Controls.MetroTile();
             this.btnProductos = new MetroFramework.Controls.MetroTile();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel1.Controls.Add(this.metroTile1);
+            this.metroPanel1.Controls.Add(this.btnLavanderia);
             this.metroPanel1.Controls.Add(this.btnPuntoVenta);
             this.metroPanel1.Controls.Add(this.btnSalir);
             this.metroPanel1.Controls.Add(this.btnCaja);
@@ -64,6 +64,25 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // btnLavanderia
+            // 
+            this.btnLavanderia.ActiveControl = null;
+            this.btnLavanderia.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLavanderia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLavanderia.Location = new System.Drawing.Point(19, 62);
+            this.btnLavanderia.Name = "btnLavanderia";
+            this.btnLavanderia.Size = new System.Drawing.Size(155, 316);
+            this.btnLavanderia.TabIndex = 7;
+            this.btnLavanderia.Text = "Lavandería";
+            this.btnLavanderia.TileImage = global::EcoPura.Properties.Resources.lavandería;
+            this.btnLavanderia.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnLavanderia.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnLavanderia.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnLavanderia.UseCustomBackColor = true;
+            this.btnLavanderia.UseSelectable = true;
+            this.btnLavanderia.UseTileImage = true;
+            this.btnLavanderia.Click += new System.EventHandler(this.btnLavanderia_Click);
             // 
             // btnPuntoVenta
             // 
@@ -189,24 +208,6 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTile1.Location = new System.Drawing.Point(19, 62);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(155, 316);
-            this.metroTile1.TabIndex = 7;
-            this.metroTile1.Text = "Lavandería";
-            this.metroTile1.TileImage = global::EcoPura.Properties.Resources.lavandería;
-            this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile1.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.metroTile1.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.metroTile1.UseCustomBackColor = true;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseTileImage = true;
-            // 
             // InicioVentana2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +235,6 @@
         private MetroFramework.Controls.MetroTile btnCotizaciones;
         private MetroFramework.Controls.MetroTile btnPuntoVenta;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile btnLavanderia;
     }
 }

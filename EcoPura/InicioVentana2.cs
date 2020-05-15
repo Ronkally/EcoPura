@@ -33,6 +33,9 @@ namespace EcoPura
 
         private void btnCaja_Click(object sender, EventArgs e)
         {
+            var caja = new CajaVentana();
+            caja.StartPosition = FormStartPosition.CenterParent;
+            caja.ShowDialog();
         }
 
         private void btnPuntoVenta_Click(object sender, EventArgs e)
@@ -45,6 +48,13 @@ namespace EcoPura
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnLavanderia_Click(object sender, EventArgs e)
+        {
+            var lavanderia = new LavanderiaVentana();
+            lavanderia.StartPosition = FormStartPosition.CenterParent;
+            lavanderia.ShowDialog();
         }
     }
 }
