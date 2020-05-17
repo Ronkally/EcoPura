@@ -385,11 +385,6 @@ namespace EcoPura
             tbSearchBox.Focus();
             tbSearchBox.Select();
         }
-
-        private void labelP_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
