@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class PopUpProducto1 : MetroFramework.Forms.MetroForm 
+    public partial class PopUpProducto1 : MetroFramework.Forms.MetroForm
     {
 
         Boolean Actualizar = false;
@@ -111,8 +111,8 @@ namespace EcoPura
 
 
             string query = $@"Insert into Productos 
-                             (Codigo, Descripcion, IdClasificacion, IdProveedor, Costo, Precio, Existencia, Minimo, Maximo)
-                             Values ({tbBarras.Text}, '{tbDescripcioon.Text}',{getClasificacionId}, {getProveedorId}, {tbCosto.Text}, {tbPrecio.Text}, {tbExistencia.Text}, {tbMinimo.Text}, {tbMaximo.Text} )";
+                             (Codigo, Descripcion, IdClasificacion, IdProveedor, Costo, Precio, Existencia, Minimo, Maximo, PorcentajeDescuento, CantidadDescuento)
+                             Values ({tbBarras.Text}, '{tbDescripcioon.Text}',{getClasificacionId}, {getProveedorId}, {tbCosto.Text}, {tbPrecio.Text}, {tbExistencia.Text}, {tbMinimo.Text}, {tbMaximo.Text}, {tbPorcentajeD.Text}, {tbCantidadD.Text})";
 
 
 
@@ -130,7 +130,7 @@ namespace EcoPura
                                             WHERE Clasificacion = '{cbClasificacion.SelectedItem.ToString()}')" : "null";
 
             string query = $@"UPDATE Productos
-                              SET Descripcion = '{tbDescripcioon.Text}', Costo = {tbCosto.Text}, Precio = {tbPrecio.Text}, Existencia = {tbExistencia.Text}, IdClasificacion = {getClasificacionId}, IdProveedor = {getProveedorId}, Minimo = {tbMinimo.Text}, Maximo = {tbMaximo.Text}
+                              SET Descripcion = '{tbDescripcioon.Text}', Costo = {tbCosto.Text}, Precio = {tbPrecio.Text}, Existencia = {tbExistencia.Text}, IdClasificacion = {getClasificacionId}, IdProveedor = {getProveedorId}, Minimo = {tbMinimo.Text}, Maximo = {tbMaximo.Text}, PorcentajeDescuento = {tbPorcentajeD.Text}, CantidadDescuento = {tbCantidadD.Text}
                               WHERE Codigo = {codigo}";
 
             DatabaseAccess.EjecutarConsulta(query);
@@ -138,7 +138,7 @@ namespace EcoPura
 
         private void LlenarCampos(int codigo)
         {
-            string query = $@"SELECT Descripcion, Costo, Precio, Existencia, Clasificacion.Clasificacion, Proveedor.Proveedor, Codigo, Minimo, Maximo
+            string query = $@"SELECT Descripcion, Costo, Precio, Existencia, Clasificacion.Clasificacion, Proveedor.Proveedor, Codigo, Minimo, Maximo, PorcentajeDescuento, CantidadDescuento
                              FROM Productos
                              LEFT JOIN Proveedor
                              ON Productos.IdProveedor = Proveedor.IdProveedor
@@ -157,6 +157,8 @@ namespace EcoPura
             tbBarras.Text = da.Rows[0][6].ToString();
             tbMinimo.Text = da.Rows[0][7].ToString();
             tbMaximo.Text = da.Rows[0][8].ToString();
+            tbPorcentajeD.Text = da.Rows[0][9].ToString();
+            tbCantidadD.Text = da.Rows[0][10].ToString();
         }
 
 
@@ -241,7 +243,7 @@ namespace EcoPura
         //Ej. 50
         private void tbExistencia_Enter(object sender, EventArgs e)
         {
-            if (tbExistencia.Text.Equals("Ej. 50"))
+            if (tbExistencia.Text.Equals("Ej. 50") || tbExistencia.Text.Equals("Ingresa una existencia, solo números"))
             {
                 tbExistencia.ForeColor = Color.Black;
                 tbExistencia.Text = "";
@@ -295,7 +297,7 @@ namespace EcoPura
 
         private void tbPrecio_Enter(object sender, EventArgs e)
         {
-            if(tbPrecio.Text.Equals("Ingresa un precio, solo números") || tbPrecio.Text.Equals("Ej. 15"))
+            if (tbPrecio.Text.Equals("Ingresa un precio, solo números") || tbPrecio.Text.Equals("Ej. 15"))
             {
                 tbPrecio.ForeColor = Color.Black;
                 tbPrecio.Text = "";
@@ -328,6 +330,44 @@ namespace EcoPura
                 tbCosto.Text = "Ej. 10";
             }
         }
+
+        private void tbPorcentajeD_Enter(object sender, EventArgs e)
+        {
+            if (tbPorcentajeD.Text.Equals("0"))
+            {
+                tbPorcentajeD.ForeColor = Color.Black;
+                tbPorcentajeD.Text = "";
+            }
+        }
+
+        private void tbPorcentajeD_Leave(object sender, EventArgs e)
+        {
+            if (tbPorcentajeD.Text.Equals(""))
+            {
+                tbPorcentajeD.ForeColor = Color.Black;
+                tbPorcentajeD.Text = "0";
+            }
+        }
+
+        private void tbCantidadD_Enter(object sender, EventArgs e)
+        {
+            if (tbCantidadD.Text.Equals("1"))
+            {
+                tbCantidadD.ForeColor = Color.Black;
+                tbCantidadD.Text = "";
+            }
+        }
+
+        private void tbCantidadD_Leave(object sender, EventArgs e)
+        {
+            if (tbCantidadD.Text.Equals(""))
+            {
+                tbCantidadD.ForeColor = Color.Black;
+                tbCantidadD.Text = "1";
+            }
+        }
+
+
         #endregion
 
         private bool Validacion()
@@ -355,6 +395,27 @@ namespace EcoPura
                 bandera = false;
             }
 
+            if (!IsNumber(tbCantidadD.Text) || tbCantidadD.Text.Equals("Ingresa solo números"))
+            {
+                tbCantidadD.Text = "Ingresa solo números";
+                tbCantidadD.ForeColor = Color.Red;
+                bandera = false;
+            }
+
+            if (!IsNumber(tbPorcentajeD.Text) || tbPorcentajeD.Text.Equals("Ingresa solo números"))
+            {
+                tbPorcentajeD.Text = "Ingresa solo números";
+                tbPorcentajeD.ForeColor = Color.Red;
+                bandera = false;
+            }
+
+            if (tbExistencia.Text.Equals("Ej. 50") || !IsNumber(tbExistencia.Text) || tbExistencia.Text.Equals("Ingresa una existencia, solo números"))
+            {
+                tbExistencia.Text = "Ingresa una existencia, solo números";
+                tbExistencia.ForeColor = Color.Red;
+                bandera = false;
+            }
+
 
             return bandera;
         }
@@ -372,6 +433,7 @@ namespace EcoPura
 
             if (tbExistencia.Text.Equals("Ej. 50") || tbExistencia.Text.Equals(""))
                 tbExistencia.Text = "null";
+
 
         }
 
@@ -392,7 +454,7 @@ namespace EcoPura
             CargarProveedores();
             //Para quitar el focus inicial
 
-           
+
         }
 
 

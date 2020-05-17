@@ -15,7 +15,7 @@ namespace EcoPura
 {
     public partial class CambioVentana1 : MetroFramework.Forms.MetroForm
     {
-        float total = 0 ;
+        float total = 0;
         public CambioVentana1()
         {
             InitializeComponent();
@@ -27,11 +27,16 @@ namespace EcoPura
         {
             InitializeComponent();
             txtCodigo.Focus();
+
             float settup = 0;
             this.total = total;
+            float dolares = total / 22;
+
             this.gridview = rows;
             lblTotal.Text = settup.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
             lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+            lblDolar.Text = settup.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+            lblDolarTotal.Text = dolares.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
         }
 
         private void btnUno_Click(object sender, EventArgs e)
@@ -72,7 +77,7 @@ namespace EcoPura
         private void btnOcho_Click(object sender, EventArgs e)
         {
             txtCodigo.Text += "8";
-         
+
         }
 
         private void btnNueve_Click(object sender, EventArgs e)
@@ -82,12 +87,12 @@ namespace EcoPura
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if(txtCodigo.Text.Length > 0)
+            if (txtCodigo.Text.Length > 0)
             {
                 txtCodigo.Text = txtCodigo.Text.Remove(txtCodigo.Text.Length - 1);
             }
-           
-           
+
+
         }
 
         private void btnRetroceso_Click(object sender, EventArgs e)
@@ -121,6 +126,8 @@ namespace EcoPura
             {
                 float cambio = cantidadRecibida - total;
                 lblTotal.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+                cambio = cambio / 22;
+                lblDolar.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
                 btnFinalizar.Visible = true;
             }
             else
@@ -187,14 +194,14 @@ namespace EcoPura
                 {
 
                     ticket.AgregaArticulo(fila.Cells[1].Value.ToString(), Int32.Parse(fila.Cells[3].Value.ToString()), Decimal.Parse(fila.Cells[2].Value.ToString()), Decimal.Parse(fila.Cells[4].Value.ToString()));
-                    string query = $@"SELECT Descripcion, Costo, Precio, Existencia, Clasificacion.Clasificacion, Proveedor.Proveedor, Codigo, Minimo, Maximo
-                             FROM Productos
-                             LEFT JOIN Proveedor
-                             ON Productos.IdProveedor = Proveedor.IdProveedor
-                             LEFT JOIN Clasificacion
-                             ON Productos.IdClasificacion = Clasificacion.IdClasificacion
-                             WHERE Codigo = {codigo}";
-                    DatabaseAccess.
+                    /*  string query = $@"SELECT Descripcion, Costo, Precio, Existencia, Clasificacion.Clasificacion, Proveedor.Proveedor, Codigo, Minimo, Maximo
+                               FROM Productos
+                               LEFT JOIN Proveedor
+                               ON Productos.IdProveedor = Proveedor.IdProveedor
+                               LEFT JOIN Clasificacion
+                               ON Productos.IdClasificacion = Clasificacion.IdClasificacion
+                               WHERE Codigo = {codigo}";*/
+                    // DatabaseAccess.
                 }
                 ticket.lineasGuio();
 
@@ -218,7 +225,7 @@ namespace EcoPura
                 ticket.CortaTicket();
                 try
                 {
-                   // ticket.ImprimirTicket(ConseguirImpresora());
+                    // ticket.ImprimirTicket(ConseguirImpresora());
                 }
                 catch (Exception s) { MessageBox.Show("Error en la impresión"); }
 

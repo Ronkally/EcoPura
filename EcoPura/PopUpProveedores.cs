@@ -11,15 +11,16 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class Proveedores : MetroFramework.Forms.MetroForm
+    public partial class PopUpProveedores : MetroFramework.Forms.MetroForm
     {
 
         string proveedor;
-        public Proveedores()
+        public PopUpProveedores()
         {
             InitializeComponent();
-            
-           
+
+            //GridProveedores.Rows.Add("Pepsico");
+
         }
 
 
@@ -27,7 +28,7 @@ namespace EcoPura
 
         private void tbAgregar_Enter(object sender, EventArgs e)
         {
-            if(tbAgregar.Text.Equals("Agrega un proveedor") || tbAgregar.Text.Equals("Proveedor ya existe"))
+            if (tbAgregar.Text.Equals("Agrega un proveedor") || tbAgregar.Text.Equals("Proveedor ya existe"))
             {
                 tbAgregar.Text = "";
                 tbAgregar.ForeColor = Color.Black;
@@ -54,7 +55,7 @@ namespace EcoPura
 
         private void Reload()
         {
-            string query = "Select Proveedor From Proveedor";
+            string query = "Select Proveedor  From Proveedor ";
             GridProveedores.DataSource = DatabaseAccess.CargarTabla(query);
             GridProveedores.ClearSelection();
         }
@@ -77,7 +78,7 @@ namespace EcoPura
                 tbAgregar.ForeColor = Color.Red;
             }
 
-            for(int i = 0; i < GridProveedores.RowCount; i++)
+            for (int i = 0; i < GridProveedores.RowCount; i++)
             {
                 if (tbAgregar.Text.Equals(GridProveedores.Rows[i].Cells[0].Value.ToString()))
                 {
@@ -129,8 +130,8 @@ namespace EcoPura
 
         private void GridProveedores_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-           /* if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
-                e.Cancel = true;*/
+            /* if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                 e.Cancel = true;*/
         }
 
         private void GridProveedores_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

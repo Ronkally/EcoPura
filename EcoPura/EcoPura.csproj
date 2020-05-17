@@ -122,12 +122,6 @@
     <Compile Include="LavanderiaVentana.Designer.cs">
       <DependentUpon>LavanderiaVentana.cs</DependentUpon>
     </Compile>
-    <Compile Include="PopUpClasificacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PopUpClasificacion.Designer.cs">
-      <DependentUpon>PopUpClasificacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoginVentana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +133,12 @@
     </Compile>
     <Compile Include="PopUpProducto1.Designer.cs">
       <DependentUpon>PopUpProducto1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpClasificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpClasificacion.Designer.cs">
+      <DependentUpon>PopUpClasificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="PopUpProveedores.cs">
       <SubType>Form</SubType>
@@ -178,14 +178,14 @@
     <EmbeddedResource Include="LavanderiaVentana.resx">
       <DependentUpon>LavanderiaVentana.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PopUpClasificacion.resx">
-      <DependentUpon>PopUpClasificacion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LoginVentana.resx">
       <DependentUpon>LoginVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpProducto1.resx">
       <DependentUpon>PopUpProducto1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpClasificacion.resx">
+      <DependentUpon>PopUpClasificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpProveedores.resx">
       <DependentUpon>PopUpProveedores.cs</DependentUpon>

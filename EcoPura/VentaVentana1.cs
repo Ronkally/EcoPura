@@ -46,6 +46,19 @@ namespace EcoPura
                 tbSearchBox.ForeColor = Color.Gray;
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas borrar esta venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void btnRegresar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
-    }
+}
 

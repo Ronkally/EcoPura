@@ -55,6 +55,7 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.lblMonto = new System.Windows.Forms.Label();
+            this.lblDolarTotal = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -431,7 +432,7 @@
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(481, 131);
+            this.metroLabel3.Location = new System.Drawing.Point(486, 124);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(130, 25);
             this.metroLabel3.TabIndex = 61;
@@ -445,17 +446,31 @@
             this.lblMonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblMonto.Font = new System.Drawing.Font("Bahnschrift Condensed", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonto.ForeColor = System.Drawing.Color.Black;
-            this.lblMonto.Location = new System.Drawing.Point(465, 147);
+            this.lblMonto.Location = new System.Drawing.Point(382, 145);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(147, 96);
             this.lblMonto.TabIndex = 60;
             this.lblMonto.Text = "0.00";
+            // 
+            // lblDolarTotal
+            // 
+            this.lblDolarTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDolarTotal.AutoSize = true;
+            this.lblDolarTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblDolarTotal.Font = new System.Drawing.Font("Bahnschrift Condensed", 60F);
+            this.lblDolarTotal.ForeColor = System.Drawing.Color.Green;
+            this.lblDolarTotal.Location = new System.Drawing.Point(583, 145);
+            this.lblDolarTotal.Name = "lblDolarTotal";
+            this.lblDolarTotal.Size = new System.Drawing.Size(147, 96);
+            this.lblDolarTotal.TabIndex = 62;
+            this.lblDolarTotal.Text = "0.00";
             // 
             // CambioVentana1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 544);
+            this.Controls.Add(this.lblDolarTotal);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.lblMonto);
             this.Controls.Add(this.metroLabel2);
@@ -508,5 +523,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private System.Windows.Forms.Label lblMonto;
+        private System.Windows.Forms.Label lblDolarTotal;
     }
 }

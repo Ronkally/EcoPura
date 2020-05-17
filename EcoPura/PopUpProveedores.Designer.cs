@@ -1,6 +1,6 @@
 ﻿namespace EcoPura
 {
-    partial class Proveedores
+    partial class PopUpProveedores
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedores));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopUpProveedores));
             this.GridProveedores = new MetroFramework.Controls.MetroGrid();
             this.tbAgregar = new System.Windows.Forms.TextBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
@@ -87,7 +87,7 @@
             this.GridProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridProveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridProveedores.Size = new System.Drawing.Size(319, 374);
+            this.GridProveedores.Size = new System.Drawing.Size(319, 297);
             this.GridProveedores.TabIndex = 33;
             this.GridProveedores.TabStop = false;
             this.GridProveedores.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GridProveedores_CellBeginEdit);
@@ -118,7 +118,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(3, 63);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(201, 383);
+            this.metroPanel1.Size = new System.Drawing.Size(201, 306);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroPanel1.TabIndex = 42;
             this.metroPanel1.UseCustomBackColor = true;
@@ -144,6 +144,7 @@
             this.btnEliminar.UseCustomForeColor = true;
             this.btnEliminar.UseSelectable = true;
             this.btnEliminar.UseTileImage = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnRegresar
             // 
@@ -179,6 +180,7 @@
             this.btnAgregar.UseCustomForeColor = true;
             this.btnAgregar.UseSelectable = true;
             this.btnAgregar.UseTileImage = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // pictureBox1
             // 
@@ -190,16 +192,16 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
-            // Proveedores
+            // PopUpProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 460);
+            this.ClientSize = new System.Drawing.Size(544, 376);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.GridProveedores);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
-            this.Name = "Proveedores";
+            this.Name = "PopUpProveedores";
             this.Resizable = false;
             this.Text = "    Alta Proveedor";
             this.Load += new System.EventHandler(this.Proveedores_Load);

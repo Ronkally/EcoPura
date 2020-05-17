@@ -63,6 +63,7 @@
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDecrementar = new System.Windows.Forms.Button();
             this.labelP = new System.Windows.Forms.Label();
+            this.lblDolar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSide.SuspendLayout();
@@ -180,9 +181,7 @@
             this.tbSearchBox.Name = "tbSearchBox";
             this.tbSearchBox.Size = new System.Drawing.Size(240, 29);
             this.tbSearchBox.TabIndex = 13;
-            this.tbSearchBox.Text = "Código de barras";
             this.tbSearchBox.Enter += new System.EventHandler(this.tbSearchBox_Enter);
-            this.tbSearchBox.Leave += new System.EventHandler(this.tbSearchBox_Leave);
             // 
             // btnBuscar
             // 
@@ -337,6 +336,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.lblDolar);
             this.splitContainer1.Panel2.Controls.Add(this.labelP);
             this.splitContainer1.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.splitContainer1.Size = new System.Drawing.Size(555, 95);
@@ -385,7 +385,7 @@
             this.btnVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVenta.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnVenta.FlatAppearance.BorderSize = 2;
-            this.btnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnVenta.Image")));
@@ -502,7 +502,7 @@
             this.btnDecrementar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDecrementar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnDecrementar.FlatAppearance.BorderSize = 2;
-            this.btnDecrementar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnDecrementar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnDecrementar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDecrementar.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDecrementar.Image = ((System.Drawing.Image)(resources.GetObject("btnDecrementar.Image")));
@@ -521,12 +521,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelP.AutoSize = true;
-            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP.Location = new System.Drawing.Point(13, 23);
+            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 34F);
+            this.labelP.Location = new System.Drawing.Point(0, 14);
             this.labelP.Name = "labelP";
-            this.labelP.Size = new System.Drawing.Size(75, 48);
+            this.labelP.Size = new System.Drawing.Size(86, 55);
             this.labelP.TabIndex = 3;
             this.labelP.Text = "0.00";
+            this.labelP.Click += new System.EventHandler(this.labelP_Click);
+            // 
+            // lblDolar
+            // 
+            this.lblDolar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDolar.AutoSize = true;
+            this.lblDolar.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDolar.ForeColor = System.Drawing.Color.Green;
+            this.lblDolar.Location = new System.Drawing.Point(45, 62);
+            this.lblDolar.Name = "lblDolar";
+            this.lblDolar.Size = new System.Drawing.Size(41, 27);
+            this.lblDolar.TabIndex = 4;
+            this.lblDolar.Text = "0.00";
             // 
             // PuntoVentaVentana2
             // 
@@ -597,5 +612,6 @@
         private System.Windows.Forms.Button btnDecrementar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label labelP;
+        private System.Windows.Forms.Label lblDolar;
     }
 }

@@ -9,14 +9,15 @@ namespace EcoPura
 {
     public partial class PuntoVentaVentana2 : MetroFramework.Forms.MetroForm
     {
-        
-        DataTable Productos ;
+
+        DataTable Productos;
         public PuntoVentaVentana2()
         {
             InitializeComponent();
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             WindowState = FormWindowState.Maximized;
             this.ActiveControl = labelP;
+            SelectTextBox();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -27,6 +28,7 @@ namespace EcoPura
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             AgregarCantidadProducto();
+            SelectTextBox();
         }
 
         private void AgregarCantidadProducto()
@@ -94,6 +96,7 @@ namespace EcoPura
 
                 }
             }
+
             Total();
             gridview.ClearSelection();
         }
@@ -104,6 +107,7 @@ namespace EcoPura
             {
                 AgregarProducto();
             }
+
         }
 
         private void PuntoVentaVentana2_Load(object sender, EventArgs e)
@@ -124,6 +128,7 @@ namespace EcoPura
             gridview.Columns[4].ReadOnly = true;
             int cero = 0;
             labelP.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("es-MX"));
+            lblDolar.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("en-US"));
         }
 
         private void tbSearchBox_Enter(object sender, EventArgs e)
@@ -137,11 +142,7 @@ namespace EcoPura
 
         private void tbSearchBox_Leave(object sender, EventArgs e)
         {
-            if (tbSearchBox.Text.Equals(""))
-            {
-                tbSearchBox.Text = "Código de barras";
-                tbSearchBox.ForeColor = Color.Gray;
-            }
+
         }
 
         private void btnBorrarTodo_Click(object sender, EventArgs e)
@@ -149,6 +150,8 @@ namespace EcoPura
 
             gridview.Rows.Clear();
             Total();
+            SelectTextBox();
+
         }
 
         private void btnBorrarUltimo_Click(object sender, EventArgs e)
@@ -163,6 +166,7 @@ namespace EcoPura
             else
                 MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto para borrar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
+            SelectTextBox();
         }
 
         private void PuntoVentaVentana2_KeyPress(object sender, KeyPressEventArgs e)
@@ -188,6 +192,7 @@ namespace EcoPura
             }
             Total();
             gridview.ClearSelection();
+            SelectTextBox();
         }
 
         private bool DoesRowExist(string descripcion)
@@ -218,13 +223,22 @@ namespace EcoPura
         public void Total()
         {
             float total = 0;
+            float dolar = 0;
 
             foreach (DataGridViewRow rows in gridview.Rows)
             {
                 total += float.Parse(rows.Cells[4].Value.ToString());
 
+
             }
+
+            dolar = total / 22;
+
             labelP.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+            lblDolar.Text = dolar.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"));
+
+
+            SelectTextBox();
         }
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
@@ -233,7 +247,7 @@ namespace EcoPura
             {
                 string converter = labelP.Text;
                 float total = float.Parse(converter.Replace("$", ""));
-                
+
 
                 var cambio = new CambioVentana1(total, gridview);
                 cambio.StartPosition = FormStartPosition.CenterParent;
@@ -245,6 +259,8 @@ namespace EcoPura
             }
             else
                 MetroFramework.MetroMessageBox.Show(this, "Agrega productos para realizar una venta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+            SelectTextBox();
         }
 
 
@@ -276,6 +292,7 @@ namespace EcoPura
                 gridview.Rows[rowIndex].Cells["Cantidad"].Value = 1;
                 gridview.Rows[rowIndex].Cells["Importe"].Value = 1 * precio;
             }
+            SelectTextBox();
         }
 
         private bool IsNumber(string text)
@@ -317,6 +334,7 @@ namespace EcoPura
                 MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto para aumentar su cantidad", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
             }
+            SelectTextBox();
             Total();
         }
 
@@ -347,16 +365,30 @@ namespace EcoPura
         private void gridview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AgregarCantidadProducto();
+            SelectTextBox();
         }
 
         private void btnIncrementar_Click(object sender, EventArgs e)
         {
             AgregarCantidadProducto();
+            SelectTextBox();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             AgregarProducto();
+            SelectTextBox();
+        }
+
+        private void SelectTextBox()
+        {
+            tbSearchBox.Focus();
+            tbSearchBox.Select();
+        }
+
+        private void labelP_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,10 +63,10 @@ namespace EcoPura
             popUpProducto1.StartPosition = FormStartPosition.CenterParent;
             popUpProducto1.ShowDialog();
             gridview.ClearSelection();
-            CargarGridView(); 
+            CargarGridView();
         }
 
-       
+
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -142,6 +142,24 @@ namespace EcoPura
         private void btnRegresar_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            PopUpProveedores proveedores = new PopUpProveedores();
+            proveedores.StartPosition = FormStartPosition.CenterParent;
+            proveedores.ShowDialog();
+            gridview.ClearSelection();
+            CargarGridView();
+        }
+
+        private void btnClasificación_Click(object sender, EventArgs e)
+        {
+            PopUpClasificacion clasificacion = new PopUpClasificacion();
+            clasificacion.StartPosition = FormStartPosition.CenterParent;
+            clasificacion.ShowDialog();
+            gridview.ClearSelection();
+            CargarGridView();
         }
     }
 }

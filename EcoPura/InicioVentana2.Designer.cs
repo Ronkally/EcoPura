@@ -74,7 +74,7 @@
             this.btnLavanderia.Name = "btnLavanderia";
             this.btnLavanderia.Size = new System.Drawing.Size(155, 316);
             this.btnLavanderia.TabIndex = 7;
-            this.btnLavanderia.Text = "Lavandería";
+            this.btnLavanderia.Text = "Tintorería";
             this.btnLavanderia.TileImage = global::EcoPura.Properties.Resources.lavandería;
             this.btnLavanderia.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnLavanderia.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;

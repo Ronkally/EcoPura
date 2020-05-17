@@ -50,11 +50,21 @@
             this.tbBarras = new System.Windows.Forms.TextBox();
             this.tbDescripcioon = new System.Windows.Forms.TextBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.tbCantidadD = new System.Windows.Forms.TextBox();
+            this.tbPorcentajeD = new System.Windows.Forms.TextBox();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.tbIEPS = new MetroFramework.Controls.MetroTextBox();
+            this.tbIVA = new MetroFramework.Controls.MetroTextBox();
+            this.cbIEPS = new MetroFramework.Controls.MetroCheckBox();
+            this.cbIVA = new MetroFramework.Controls.MetroCheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
+            this.metroTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +74,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(64, 71);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(422, 363);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -286,6 +296,15 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.tbCantidadD);
+            this.metroTabPage2.Controls.Add(this.tbPorcentajeD);
+            this.metroTabPage2.Controls.Add(this.metroLabel12);
+            this.metroTabPage2.Controls.Add(this.metroLabel11);
+            this.metroTabPage2.Controls.Add(this.metroLabel10);
+            this.metroTabPage2.Controls.Add(this.tbIEPS);
+            this.metroTabPage2.Controls.Add(this.tbIVA);
+            this.metroTabPage2.Controls.Add(this.cbIEPS);
+            this.metroTabPage2.Controls.Add(this.cbIVA);
             this.metroTabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
@@ -298,6 +317,144 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // tbCantidadD
+            // 
+            this.tbCantidadD.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.tbCantidadD.Location = new System.Drawing.Point(7, 226);
+            this.tbCantidadD.Name = "tbCantidadD";
+            this.tbCantidadD.Size = new System.Drawing.Size(404, 21);
+            this.tbCantidadD.TabIndex = 13;
+            this.tbCantidadD.Text = "1";
+            this.tbCantidadD.Enter += new System.EventHandler(this.tbCantidadD_Enter);
+            this.tbCantidadD.Leave += new System.EventHandler(this.tbCantidadD_Leave);
+            // 
+            // tbPorcentajeD
+            // 
+            this.tbPorcentajeD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tbPorcentajeD.Location = new System.Drawing.Point(7, 160);
+            this.tbPorcentajeD.Name = "tbPorcentajeD";
+            this.tbPorcentajeD.Size = new System.Drawing.Size(407, 21);
+            this.tbPorcentajeD.TabIndex = 12;
+            this.tbPorcentajeD.Text = "0";
+            this.tbPorcentajeD.Enter += new System.EventHandler(this.tbPorcentajeD_Enter);
+            this.tbPorcentajeD.Leave += new System.EventHandler(this.tbPorcentajeD_Leave);
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(3, 204);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(260, 19);
+            this.metroLabel12.TabIndex = 10;
+            this.metroLabel12.Text = "Cantidad necesaria para aplicar descuento:";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(3, 138);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(155, 19);
+            this.metroLabel11.TabIndex = 8;
+            this.metroLabel11.Text = "Porcentaje de descuento:";
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel10.Location = new System.Drawing.Point(3, 109);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(77, 19);
+            this.metroLabel10.TabIndex = 7;
+            this.metroLabel10.Text = "Descuento:";
+            // 
+            // tbIEPS
+            // 
+            // 
+            // 
+            // 
+            this.tbIEPS.CustomButton.Image = null;
+            this.tbIEPS.CustomButton.Location = new System.Drawing.Point(324, 1);
+            this.tbIEPS.CustomButton.Name = "";
+            this.tbIEPS.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbIEPS.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbIEPS.CustomButton.TabIndex = 1;
+            this.tbIEPS.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbIEPS.CustomButton.UseSelectable = true;
+            this.tbIEPS.CustomButton.Visible = false;
+            this.tbIEPS.Lines = new string[] {
+        "Escriba porcentaje"};
+            this.tbIEPS.Location = new System.Drawing.Point(65, 70);
+            this.tbIEPS.MaxLength = 32767;
+            this.tbIEPS.Name = "tbIEPS";
+            this.tbIEPS.PasswordChar = '\0';
+            this.tbIEPS.ReadOnly = true;
+            this.tbIEPS.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbIEPS.SelectedText = "";
+            this.tbIEPS.SelectionLength = 0;
+            this.tbIEPS.SelectionStart = 0;
+            this.tbIEPS.ShortcutsEnabled = true;
+            this.tbIEPS.Size = new System.Drawing.Size(346, 23);
+            this.tbIEPS.TabIndex = 6;
+            this.tbIEPS.Text = "Escriba porcentaje";
+            this.tbIEPS.UseSelectable = true;
+            this.tbIEPS.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbIEPS.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // tbIVA
+            // 
+            // 
+            // 
+            // 
+            this.tbIVA.CustomButton.Image = null;
+            this.tbIVA.CustomButton.Location = new System.Drawing.Point(324, 1);
+            this.tbIVA.CustomButton.Name = "";
+            this.tbIVA.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbIVA.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbIVA.CustomButton.TabIndex = 1;
+            this.tbIVA.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbIVA.CustomButton.UseSelectable = true;
+            this.tbIVA.CustomButton.Visible = false;
+            this.tbIVA.Lines = new string[] {
+        "Escriba porcentaje"};
+            this.tbIVA.Location = new System.Drawing.Point(65, 34);
+            this.tbIVA.MaxLength = 32767;
+            this.tbIVA.Name = "tbIVA";
+            this.tbIVA.PasswordChar = '\0';
+            this.tbIVA.ReadOnly = true;
+            this.tbIVA.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbIVA.SelectedText = "";
+            this.tbIVA.SelectionLength = 0;
+            this.tbIVA.SelectionStart = 0;
+            this.tbIVA.ShortcutsEnabled = true;
+            this.tbIVA.Size = new System.Drawing.Size(346, 23);
+            this.tbIVA.TabIndex = 5;
+            this.tbIVA.Text = "Escriba porcentaje";
+            this.tbIVA.UseSelectable = true;
+            this.tbIVA.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbIVA.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // cbIEPS
+            // 
+            this.cbIEPS.AutoSize = true;
+            this.cbIEPS.Enabled = false;
+            this.cbIEPS.Location = new System.Drawing.Point(3, 73);
+            this.cbIEPS.Name = "cbIEPS";
+            this.cbIEPS.Size = new System.Drawing.Size(45, 15);
+            this.cbIEPS.TabIndex = 4;
+            this.cbIEPS.Text = "IEPS";
+            this.cbIEPS.UseSelectable = true;
+            // 
+            // cbIVA
+            // 
+            this.cbIVA.AutoSize = true;
+            this.cbIVA.Enabled = false;
+            this.cbIVA.Location = new System.Drawing.Point(3, 37);
+            this.cbIVA.Name = "cbIVA";
+            this.cbIVA.Size = new System.Drawing.Size(40, 15);
+            this.cbIVA.TabIndex = 3;
+            this.cbIVA.Text = "IVA";
+            this.cbIVA.UseSelectable = true;
             // 
             // btnCancelar
             // 
@@ -364,6 +521,8 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
+            this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -373,7 +532,6 @@
 
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage2;
         private System.Windows.Forms.ComboBox cbProveedor;
         private System.Windows.Forms.ComboBox cbClasificacion;
         private System.Windows.Forms.TextBox tbBarras;
@@ -395,5 +553,15 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MetroFramework.Controls.MetroTabPage metroTabPage2;
+        private System.Windows.Forms.TextBox tbCantidadD;
+        private System.Windows.Forms.TextBox tbPorcentajeD;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroTextBox tbIEPS;
+        private MetroFramework.Controls.MetroTextBox tbIVA;
+        private MetroFramework.Controls.MetroCheckBox cbIEPS;
+        private MetroFramework.Controls.MetroCheckBox cbIVA;
     }
 }
