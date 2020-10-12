@@ -15,7 +15,7 @@ namespace EcoPura
     {
 
         Boolean Actualizar = false;
-        int codigo;
+        string codigo;
         ErrorProvider validacion = new ErrorProvider();
 
         public PopUpProducto1()
@@ -23,7 +23,7 @@ namespace EcoPura
             InitializeComponent();
         }
 
-        public PopUpProducto1(int codigo)
+        public PopUpProducto1(string codigo)
         {
             InitializeComponent();
             LlenarCampos(codigo);
@@ -89,7 +89,9 @@ namespace EcoPura
             {
                 foreach (DataRow fila in Clasificacion.Rows)
                 {
-                    cbClasificacion.Items.Add(fila["Clasificacion"].ToString());
+                          if(fila[1].ToString() != "Agua")
+                            cbClasificacion.Items.Add(fila["Clasificacion"].ToString());
+
                     if (cbClasificacion.Text.Equals(fila["Clasificacion"].ToString()))
                         cbClasificacion.SelectedIndex = cbClasificacion.FindStringExact(cbClasificacion.Text);
                 }
@@ -112,7 +114,7 @@ namespace EcoPura
 
             string query = $@"Insert into Productos 
                              (Codigo, Descripcion, IdClasificacion, IdProveedor, Costo, Precio, Existencia, Minimo, Maximo, PorcentajeDescuento, CantidadDescuento)
-                             Values ({tbBarras.Text}, '{tbDescripcioon.Text}',{getClasificacionId}, {getProveedorId}, {tbCosto.Text}, {tbPrecio.Text}, {tbExistencia.Text}, {tbMinimo.Text}, {tbMaximo.Text}, {tbPorcentajeD.Text}, {tbCantidadD.Text})";
+                             Values ('{tbBarras.Text}', '{tbDescripcioon.Text}',{getClasificacionId}, {getProveedorId}, {tbCosto.Text}, {tbPrecio.Text}, {tbExistencia.Text}, {tbMinimo.Text}, {tbMaximo.Text}, {tbPorcentajeD.Text}, {tbCantidadD.Text})";
 
 
 
@@ -130,13 +132,13 @@ namespace EcoPura
                                             WHERE Clasificacion = '{cbClasificacion.SelectedItem.ToString()}')" : "null";
 
             string query = $@"UPDATE Productos
-                              SET Descripcion = '{tbDescripcioon.Text}', Costo = {tbCosto.Text}, Precio = {tbPrecio.Text}, Existencia = {tbExistencia.Text}, IdClasificacion = {getClasificacionId}, IdProveedor = {getProveedorId}, Minimo = {tbMinimo.Text}, Maximo = {tbMaximo.Text}, PorcentajeDescuento = {tbPorcentajeD.Text}, CantidadDescuento = {tbCantidadD.Text}
-                              WHERE Codigo = {codigo}";
+                              SET Codigo = '{tbBarras.Text}', Descripcion = '{tbDescripcioon.Text}', Costo = {tbCosto.Text}, Precio = {tbPrecio.Text}, Existencia = {tbExistencia.Text}, IdClasificacion = {getClasificacionId}, IdProveedor = {getProveedorId}, Minimo = {tbMinimo.Text}, Maximo = {tbMaximo.Text}, PorcentajeDescuento = {tbPorcentajeD.Text}, CantidadDescuento = {tbCantidadD.Text}
+                              WHERE Codigo = '{codigo}'";
 
             DatabaseAccess.EjecutarConsulta(query);
         }
 
-        private void LlenarCampos(int codigo)
+        private void LlenarCampos(string codigo)
         {
             string query = $@"SELECT Descripcion, Costo, Precio, Existencia, Clasificacion.Clasificacion, Proveedor.Proveedor, Codigo, Minimo, Maximo, PorcentajeDescuento, CantidadDescuento
                              FROM Productos
@@ -144,7 +146,7 @@ namespace EcoPura
                              ON Productos.IdProveedor = Proveedor.IdProveedor
                              LEFT JOIN Clasificacion
                              ON Productos.IdClasificacion = Clasificacion.IdClasificacion
-                             WHERE Codigo = {codigo}";
+                             WHERE Codigo = '{codigo}'";
 
             DataTable da = DatabaseAccess.CargarTabla(query);
 
@@ -415,6 +417,11 @@ namespace EcoPura
                 tbExistencia.ForeColor = Color.Red;
                 bandera = false;
             }
+            if(!(cbClasificacion.SelectedIndex > -1))
+            {
+                MessageBox.Show("Selecciona una clasificación");
+                bandera = false;
+            }
 
 
             return bandera;
@@ -433,8 +440,6 @@ namespace EcoPura
 
             if (tbExistencia.Text.Equals("Ej. 50") || tbExistencia.Text.Equals(""))
                 tbExistencia.Text = "null";
-
-
         }
 
         private bool IsNumber(string text)

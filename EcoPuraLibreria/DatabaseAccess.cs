@@ -38,6 +38,39 @@ namespace EcoPuraLibreria
 
         }
 
+        public static int Cantidad(string query)
+        {
+
+            using (var db = new SQLiteConnection(LoadConnectionString()))
+            {
+                return db.ExecuteScalar<int>(query) ;
+            }
+
+        }
+
+        public static string GetInfo(string query)
+        {
+
+            using (var db = new SQLiteConnection(LoadConnectionString()))
+            {
+                return db.ExecuteScalar<string>(query);
+            }
+
+        }
+
+        public static float PrecioTotal(string query)
+        {
+
+            using (var db = new SQLiteConnection(LoadConnectionString()))
+            {
+                return db.ExecuteScalar<float>(query);
+            }
+
+        }
+
+     
+
+
         public static void EjecutarConsulta(string query )
         {
             using(SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))

@@ -29,18 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuntoVentaVentana2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelSide = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.cbTipo = new MetroFramework.Controls.MetroComboBox();
+            this.btn20Litros = new MetroFramework.Controls.MetroTile();
+            this.btn5Galones = new MetroFramework.Controls.MetroTile();
+            this.btn3Galones = new MetroFramework.Controls.MetroTile();
+            this.btn56Litros = new MetroFramework.Controls.MetroTile();
+            this.btn1Galon = new MetroFramework.Controls.MetroTile();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tbSearchBox = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnGarrafon20L = new MetroFramework.Controls.MetroTile();
+            this.btn1Litro = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridview = new MetroFramework.Controls.MetroGrid();
@@ -62,9 +68,9 @@
             this.btnIncrementar = new System.Windows.Forms.Button();
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDecrementar = new System.Windows.Forms.Button();
-            this.lblDolar = new System.Windows.Forms.Label();
-            this.labelP = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.labelP = new System.Windows.Forms.Label();
+            this.lblDolar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSide.SuspendLayout();
@@ -115,12 +121,18 @@
             // panelSide
             // 
             this.panelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelSide.Controls.Add(this.metroLabel1);
+            this.panelSide.Controls.Add(this.cbTipo);
+            this.panelSide.Controls.Add(this.btn20Litros);
+            this.panelSide.Controls.Add(this.btn5Galones);
+            this.panelSide.Controls.Add(this.btn3Galones);
+            this.panelSide.Controls.Add(this.btn56Litros);
+            this.panelSide.Controls.Add(this.btn1Galon);
             this.panelSide.Controls.Add(this.btnRegresar);
             this.panelSide.Controls.Add(this.metroLabel2);
-            this.panelSide.Controls.Add(this.metroLabel1);
             this.panelSide.Controls.Add(this.tbSearchBox);
             this.panelSide.Controls.Add(this.btnBuscar);
-            this.panelSide.Controls.Add(this.btnGarrafon20L);
+            this.panelSide.Controls.Add(this.btn1Litro);
             this.panelSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSide.HorizontalScrollbarBarColor = true;
             this.panelSide.HorizontalScrollbarHighlightOnWheel = false;
@@ -133,6 +145,130 @@
             this.panelSide.VerticalScrollbarBarColor = true;
             this.panelSide.VerticalScrollbarHighlightOnWheel = false;
             this.panelSide.VerticalScrollbarSize = 10;
+            this.panelSide.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSide_Paint);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.Location = new System.Drawing.Point(103, 84);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(95, 25);
+            this.metroLabel1.TabIndex = 56;
+            this.metroLabel1.Text = "Garrafones";
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseCustomForeColor = true;
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.ItemHeight = 29;
+            this.cbTipo.Items.AddRange(new object[] {
+            "Purificada",
+            "Alcalina"});
+            this.cbTipo.Location = new System.Drawing.Point(13, 116);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(278, 35);
+            this.cbTipo.TabIndex = 55;
+            this.cbTipo.UseSelectable = true;
+            this.cbTipo.SelectedIndexChanged += new System.EventHandler(this.cbTipo_SelectedIndexChanged);
+            // 
+            // btn20Litros
+            // 
+            this.btn20Litros.ActiveControl = null;
+            this.btn20Litros.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn20Litros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn20Litros.Location = new System.Drawing.Point(205, 267);
+            this.btn20Litros.Name = "btn20Litros";
+            this.btn20Litros.Size = new System.Drawing.Size(86, 102);
+            this.btn20Litros.TabIndex = 54;
+            this.btn20Litros.Text = "20Litros";
+            this.btn20Litros.TileImage = ((System.Drawing.Image)(resources.GetObject("btn20Litros.TileImage")));
+            this.btn20Litros.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn20Litros.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btn20Litros.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btn20Litros.UseCustomBackColor = true;
+            this.btn20Litros.UseSelectable = true;
+            this.btn20Litros.UseTileImage = true;
+            this.btn20Litros.Click += new System.EventHandler(this.btn20Litros_Click);
+            // 
+            // btn5Galones
+            // 
+            this.btn5Galones.ActiveControl = null;
+            this.btn5Galones.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn5Galones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn5Galones.Location = new System.Drawing.Point(109, 267);
+            this.btn5Galones.Name = "btn5Galones";
+            this.btn5Galones.Size = new System.Drawing.Size(86, 102);
+            this.btn5Galones.TabIndex = 53;
+            this.btn5Galones.Text = "5Galones";
+            this.btn5Galones.TileImage = ((System.Drawing.Image)(resources.GetObject("btn5Galones.TileImage")));
+            this.btn5Galones.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn5Galones.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btn5Galones.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btn5Galones.UseCustomBackColor = true;
+            this.btn5Galones.UseSelectable = true;
+            this.btn5Galones.UseTileImage = true;
+            this.btn5Galones.Click += new System.EventHandler(this.btn5Galones_Click);
+            // 
+            // btn3Galones
+            // 
+            this.btn3Galones.ActiveControl = null;
+            this.btn3Galones.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn3Galones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn3Galones.Location = new System.Drawing.Point(13, 267);
+            this.btn3Galones.Name = "btn3Galones";
+            this.btn3Galones.Size = new System.Drawing.Size(86, 102);
+            this.btn3Galones.TabIndex = 52;
+            this.btn3Galones.Text = "3Galones";
+            this.btn3Galones.TileImage = ((System.Drawing.Image)(resources.GetObject("btn3Galones.TileImage")));
+            this.btn3Galones.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn3Galones.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btn3Galones.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btn3Galones.UseCustomBackColor = true;
+            this.btn3Galones.UseSelectable = true;
+            this.btn3Galones.UseTileImage = true;
+            this.btn3Galones.Click += new System.EventHandler(this.btn3Galones_Click);
+            // 
+            // btn56Litros
+            // 
+            this.btn56Litros.ActiveControl = null;
+            this.btn56Litros.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn56Litros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn56Litros.Location = new System.Drawing.Point(205, 157);
+            this.btn56Litros.Name = "btn56Litros";
+            this.btn56Litros.Size = new System.Drawing.Size(86, 102);
+            this.btn56Litros.TabIndex = 51;
+            this.btn56Litros.Text = "5/6Litros";
+            this.btn56Litros.TileImage = ((System.Drawing.Image)(resources.GetObject("btn56Litros.TileImage")));
+            this.btn56Litros.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn56Litros.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btn56Litros.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btn56Litros.UseCustomBackColor = true;
+            this.btn56Litros.UseSelectable = true;
+            this.btn56Litros.UseTileImage = true;
+            this.btn56Litros.Click += new System.EventHandler(this.btn56Litros_Click);
+            // 
+            // btn1Galon
+            // 
+            this.btn1Galon.ActiveControl = null;
+            this.btn1Galon.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn1Galon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn1Galon.Location = new System.Drawing.Point(109, 157);
+            this.btn1Galon.Name = "btn1Galon";
+            this.btn1Galon.Size = new System.Drawing.Size(86, 102);
+            this.btn1Galon.TabIndex = 50;
+            this.btn1Galon.Text = "1Galón";
+            this.btn1Galon.TileImage = ((System.Drawing.Image)(resources.GetObject("btn1Galon.TileImage")));
+            this.btn1Galon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn1Galon.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btn1Galon.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btn1Galon.UseCustomBackColor = true;
+            this.btn1Galon.UseSelectable = true;
+            this.btn1Galon.UseTileImage = true;
+            this.btn1Galon.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // btnRegresar
             // 
@@ -165,28 +301,18 @@
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseCustomForeColor = true;
             // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.Location = new System.Drawing.Point(70, 106);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(160, 25);
-            this.metroLabel1.TabIndex = 27;
-            this.metroLabel1.Text = "Garrafones/Botellas";
-            this.metroLabel1.UseCustomBackColor = true;
-            this.metroLabel1.UseCustomForeColor = true;
-            // 
             // tbSearchBox
             // 
-            this.tbSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearchBox.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tbSearchBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSearchBox.ForeColor = System.Drawing.Color.Silver;
             this.tbSearchBox.Location = new System.Drawing.Point(13, 46);
             this.tbSearchBox.Name = "tbSearchBox";
-            this.tbSearchBox.Size = new System.Drawing.Size(240, 29);
+            this.tbSearchBox.Size = new System.Drawing.Size(240, 33);
             this.tbSearchBox.TabIndex = 13;
+            this.tbSearchBox.Text = "Código de barras";
             this.tbSearchBox.Enter += new System.EventHandler(this.tbSearchBox_Enter);
+            this.tbSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearchBox_KeyDown);
+            this.tbSearchBox.Leave += new System.EventHandler(this.tbSearchBox_Leave);
             // 
             // btnBuscar
             // 
@@ -198,30 +324,30 @@
             this.btnBuscar.Image = global::EcoPura.Properties.Resources.plus;
             this.btnBuscar.Location = new System.Drawing.Point(259, 46);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(32, 29);
+            this.btnBuscar.Size = new System.Drawing.Size(32, 33);
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             this.btnBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearchBox_KeyDown);
             // 
-            // btnGarrafon20L
+            // btn1Litro
             // 
-            this.btnGarrafon20L.ActiveControl = null;
-            this.btnGarrafon20L.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnGarrafon20L.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGarrafon20L.Location = new System.Drawing.Point(27, 150);
-            this.btnGarrafon20L.Name = "btnGarrafon20L";
-            this.btnGarrafon20L.Size = new System.Drawing.Size(86, 102);
-            this.btnGarrafon20L.TabIndex = 3;
-            this.btnGarrafon20L.Text = "20L";
-            this.btnGarrafon20L.TileImage = ((System.Drawing.Image)(resources.GetObject("btnGarrafon20L.TileImage")));
-            this.btnGarrafon20L.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnGarrafon20L.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
-            this.btnGarrafon20L.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnGarrafon20L.UseCustomBackColor = true;
-            this.btnGarrafon20L.UseSelectable = true;
-            this.btnGarrafon20L.UseTileImage = true;
-            this.btnGarrafon20L.Click += new System.EventHandler(this.btnGarrafon20L_Click);
+            this.btn1Litro.ActiveControl = null;
+            this.btn1Litro.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn1Litro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn1Litro.Location = new System.Drawing.Point(13, 157);
+            this.btn1Litro.Name = "btn1Litro";
+            this.btn1Litro.Size = new System.Drawing.Size(86, 102);
+            this.btn1Litro.TabIndex = 3;
+            this.btn1Litro.Text = "1Litros";
+            this.btn1Litro.TileImage = ((System.Drawing.Image)(resources.GetObject("btn1Litro.TileImage")));
+            this.btn1Litro.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn1Litro.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btn1Litro.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btn1Litro.UseCustomBackColor = true;
+            this.btn1Litro.UseSelectable = true;
+            this.btn1Litro.UseTileImage = true;
+            this.btn1Litro.Click += new System.EventHandler(this.btnGarrafon20L_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -235,7 +361,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.37259F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.62741F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(561, 464);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(582, 464);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel1
@@ -244,7 +370,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(555, 357);
+            this.panel1.Size = new System.Drawing.Size(576, 357);
             this.panel1.TabIndex = 1;
             // 
             // gridview
@@ -258,14 +384,14 @@
             this.gridview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Código,
@@ -273,40 +399,43 @@
             this.Precio,
             this.Cantidad,
             this.Importe});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridview.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridview.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridview.EnableHeadersVisualStyles = false;
             this.gridview.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridview.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridview.Location = new System.Drawing.Point(15, 0);
             this.gridview.Name = "gridview";
             this.gridview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridview.Size = new System.Drawing.Size(540, 357);
+            this.gridview.Size = new System.Drawing.Size(561, 357);
             this.gridview.TabIndex = 48;
             this.gridview.UseStyleColors = true;
             this.gridview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_CellDoubleClick);
             this.gridview.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_CellEndEdit);
+            this.gridview.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gridview_RowsAdded);
             // 
             // Código
             // 
+            this.Código.FillWeight = 50F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
+            this.Código.Width = 50;
             // 
             // Descripción
             // 
@@ -343,8 +472,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.splitContainer1.Size = new System.Drawing.Size(555, 95);
-            this.splitContainer1.SplitterDistance = 449;
+            this.splitContainer1.Size = new System.Drawing.Size(576, 95);
+            this.splitContainer1.SplitterDistance = 465;
             this.splitContainer1.TabIndex = 2;
             // 
             // flowLayoutPanel3
@@ -456,7 +585,7 @@
             this.btnBorrarUltimo.Name = "btnBorrarUltimo";
             this.btnBorrarUltimo.Size = new System.Drawing.Size(78, 72);
             this.btnBorrarUltimo.TabIndex = 39;
-            this.btnBorrarUltimo.Text = "Borrar último";
+            this.btnBorrarUltimo.Text = "Borrar uno";
             this.btnBorrarUltimo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBorrarUltimo.UseVisualStyleBackColor = false;
             this.btnBorrarUltimo.Click += new System.EventHandler(this.btnBorrarUltimo_Click);
@@ -519,29 +648,6 @@
             this.btnDecrementar.UseVisualStyleBackColor = false;
             this.btnDecrementar.Click += new System.EventHandler(this.btnDecrementar_Click);
             // 
-            // lblDolar
-            // 
-            this.lblDolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblDolar.AutoSize = true;
-            this.lblDolar.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDolar.ForeColor = System.Drawing.Color.Green;
-            this.lblDolar.Location = new System.Drawing.Point(48, 1);
-            this.lblDolar.Name = "lblDolar";
-            this.lblDolar.Size = new System.Drawing.Size(41, 27);
-            this.lblDolar.TabIndex = 4;
-            this.lblDolar.Text = "0.00";
-            // 
-            // labelP
-            // 
-            this.labelP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.labelP.AutoSize = true;
-            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 34F);
-            this.labelP.Location = new System.Drawing.Point(13, 3);
-            this.labelP.Name = "labelP";
-            this.labelP.Size = new System.Drawing.Size(86, 55);
-            this.labelP.TabIndex = 3;
-            this.labelP.Text = "0.00";
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -557,9 +663,32 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.lblDolar);
-            this.splitContainer2.Size = new System.Drawing.Size(102, 95);
+            this.splitContainer2.Size = new System.Drawing.Size(112, 95);
             this.splitContainer2.SplitterDistance = 53;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // labelP
+            // 
+            this.labelP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelP.AutoSize = true;
+            this.labelP.Font = new System.Drawing.Font("Bahnschrift Condensed", 34F);
+            this.labelP.Location = new System.Drawing.Point(-10, 7);
+            this.labelP.Name = "labelP";
+            this.labelP.Size = new System.Drawing.Size(106, 55);
+            this.labelP.TabIndex = 3;
+            this.labelP.Text = "0.00";
+            // 
+            // lblDolar
+            // 
+            this.lblDolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblDolar.AutoSize = true;
+            this.lblDolar.Font = new System.Drawing.Font("Bahnschrift Condensed", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDolar.ForeColor = System.Drawing.Color.Green;
+            this.lblDolar.Location = new System.Drawing.Point(28, 5);
+            this.lblDolar.Name = "lblDolar";
+            this.lblDolar.Size = new System.Drawing.Size(51, 27);
+            this.lblDolar.TabIndex = 4;
+            this.lblDolar.Text = "0.00";
             // 
             // PuntoVentaVentana2
             // 
@@ -573,6 +702,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "    Punto de venta";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PuntoVentaVentana2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PuntoVentaVentana2_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PuntoVentaVentana2_KeyPress);
@@ -609,18 +739,12 @@
         private MetroFramework.Controls.MetroPanel panelSide;
         private System.Windows.Forms.Button btnRegresar;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.TextBox tbSearchBox;
         private System.Windows.Forms.Button btnBuscar;
-        private MetroFramework.Controls.MetroTile btnGarrafon20L;
+        private MetroFramework.Controls.MetroTile btn1Litro;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroGrid gridview;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -637,5 +761,17 @@
         private System.Windows.Forms.Label labelP;
         private System.Windows.Forms.Label lblDolar;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private MetroFramework.Controls.MetroTile btn1Galon;
+        private MetroFramework.Controls.MetroTile btn20Litros;
+        private MetroFramework.Controls.MetroTile btn5Galones;
+        private MetroFramework.Controls.MetroTile btn3Galones;
+        private MetroFramework.Controls.MetroTile btn56Litros;
+        private MetroFramework.Controls.MetroComboBox cbTipo;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
     }
 }

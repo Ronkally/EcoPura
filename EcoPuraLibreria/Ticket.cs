@@ -12,7 +12,7 @@ namespace DespachaMas.UI.WinForms
     public class Ticket
     {
         //Creamos un objeto de la clase StringBuilder, en este objeto agregaremos las lineas del ticket
-        StringBuilder linea = new StringBuilder();
+        public StringBuilder linea = new StringBuilder();
         //Creamos una variable para almacenar el numero maximo de caracteres que permitiremos en el ticket.
         int maxCar = 40, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
 
@@ -333,7 +333,7 @@ namespace DespachaMas.UI.WinForms
         public void CortaTicket()
         {
             linea.AppendLine("\x1B" + "m"); //Caracteres de corte. Estos comando varian segun el tipo de impresora
-            linea.AppendLine("\x1B" + "d" + "\x09"); //Avanza 9 renglones, Tambien varian
+            // linea.AppendLine("\x1B" + "d" + "\x09"); //Avanza 9 renglones, Tambien varian
         }
         //Para abrir el cajon
         public void AbreCajon()
@@ -343,13 +343,18 @@ namespace DespachaMas.UI.WinForms
             //linea.AppendLine("\x1B" + "p" + "\x01" + "\x0F" + "\x96"); //Caracteres de apertura cajon 1
         }
         //Para mandara a imprimir el texto a la impresora que le indiquemos.
-        public void ImprimirTicket(string impresora)
+        public void ImprimirTicket(string impresora,string nombre)
         {
             //Este metodo recibe el nombre de la impresora a la cual se mandara a imprimir y el texto que se imprimira.
             //Usaremos un código que nos proporciona Microsoft. https://support.microsoft.com/es-es/kb/322091
 
-            RawPrinterHelper.SendStringToPrinter(impresora, linea.ToString()); //Imprime texto.
-            linea.Clear();//Al cabar de imprimir limpia la linea de todo el texto agregado.
+            RawPrinterHelper.SendStringToPrinter(impresora, linea.ToString(),  nombre); //Imprime texto.         
+            //Al cabar de imprimir limpia la linea de todo el texto agregado.
+        }
+
+        public void ClearMethod()
+        {
+            linea.Clear();
         }
     }
 
@@ -393,14 +398,14 @@ namespace DespachaMas.UI.WinForms
         // When the function is given a printer name and an unmanaged array
         // of bytes, the function sends those bytes to the print queue.
         // Returns true on success, false on failure.
-        public static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount)
+        public static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount, string nombre)
         {
             Int32 dwError = 0, dwWritten = 0;
             IntPtr hPrinter = new IntPtr(0);
             DOCINFOA di = new DOCINFOA();
             bool bSuccess = false; // Assume failure unless you specifically succeed.
 
-            di.pDocName = "Ticket de Venta";//Este es el nombre con el que guarda el archivo en caso de no imprimir a la impresora fisica.
+            di.pDocName = nombre;//Este es el nombre con el que guarda el archivo en caso de no imprimir a la impresora fisica.
             di.pDataType = "RAW";//de tipo texto plano
 
             // Open the printer.
@@ -429,7 +434,7 @@ namespace DespachaMas.UI.WinForms
             return bSuccess;
         }
 
-        public static bool SendStringToPrinter(string szPrinterName, string szString)
+        public static bool SendStringToPrinter(string szPrinterName, string szString, string nombre)
         {
             IntPtr pBytes;
             Int32 dwCount;
@@ -439,7 +444,7 @@ namespace DespachaMas.UI.WinForms
             // the string to ANSI text.
             pBytes = Marshal.StringToCoTaskMemAnsi(szString);
             // Send the converted ANSI string to the printer.
-            SendBytesToPrinter(szPrinterName, pBytes, dwCount);
+            SendBytesToPrinter(szPrinterName, pBytes, dwCount, nombre);
             Marshal.FreeCoTaskMem(pBytes);
             return true;
         }

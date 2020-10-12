@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace EcoPura
@@ -11,12 +12,16 @@ namespace EcoPura
     {
 
         DataTable Productos;
+        bool Alcaline = false;
+        int contadorGarrafones = 0;
+        
         public PuntoVentaVentana2()
         {
             InitializeComponent();
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             WindowState = FormWindowState.Maximized;
             this.ActiveControl = labelP;
+            cbTipo.SelectedIndex = 0;
             SelectTextBox();
         }
 
@@ -42,8 +47,8 @@ namespace EcoPura
 
                 float importe = cantidad * precio;
 
-                gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value = cantidad.ToString();
-                gridview.Rows[gridview.CurrentRow.Index].Cells["Importe"].Value = importe.ToString();
+                gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value = cantidad;
+                gridview.Rows[gridview.CurrentRow.Index].Cells["Importe"].Value = importe;
             }
             else
             {
@@ -70,12 +75,25 @@ namespace EcoPura
                             int cantidad = Int32.Parse(gridview.Rows[j].Cells["Cantidad"].Value.ToString());
                             cantidad++;
 
-                            float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+                            float precio = 0;
+
+                            if (Productos.Rows[i]["CantidadDescuento"].ToString() == cantidad.ToString())
+                            {
+                                float porcentajeD = float.Parse(Productos.Rows[i]["PorcentajeDescuento"].ToString());
+                                float precioP = float.Parse(Productos.Rows[i]["Precio"].ToString());
+
+                                precio = precioP * (1 - (porcentajeD / 100));
+                                gridview.Rows[j].Cells["Precio"].Value = precio;
+                            }
+                            else
+                            {
+                                precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+                            }
 
                             float importe = cantidad * precio;
 
-                            gridview.Rows[j].Cells["Cantidad"].Value = cantidad.ToString();
-                            gridview.Rows[j].Cells["Importe"].Value = importe.ToString();
+                            gridview.Rows[j].Cells["Cantidad"].Value = cantidad;
+                            gridview.Rows[j].Cells["Importe"].Value = importe;
 
                             bandera = true;
                             break;
@@ -84,14 +102,32 @@ namespace EcoPura
 
                     if (!bandera)
                     {
-                        string[] newRow = new string[] {
-                        Productos.Rows[i]["Código"].ToString(),
-                        Productos.Rows[i]["Descripción"].ToString(),
-                        Productos.Rows[i]["Precio"].ToString(),
-                        "1",
-                        Productos.Rows[i]["Precio"].ToString()};
-                        gridview.Rows.Add(newRow);
-                        break;
+                        float precio = 0;
+
+                        if (Productos.Rows[i]["CantidadDescuento"].ToString() == "1")
+                        {
+                            float porcentajeD = float.Parse(Productos.Rows[i]["PorcentajeDescuento"].ToString());
+                            float precioP = float.Parse(Productos.Rows[i]["Precio"].ToString());
+
+                            precio = precioP * (1 - (porcentajeD / 100));
+                        }
+                        else
+                        {
+                            precio = float.Parse(Productos.Rows[i]["Precio"].ToString());
+                        }
+
+                        using (DataGridViewRow row = new DataGridViewRow())
+                        {
+                            row.CreateCells(gridview);
+
+                            row.Cells[gridview.Columns["Código"].Index].Value = Productos.Rows[i]["Código"].ToString();
+                            row.Cells[gridview.Columns["Descripción"].Index].Value = Productos.Rows[i]["Descripción"].ToString();
+                            row.Cells[gridview.Columns["Precio"].Index].Value = precio;
+                            row.Cells[gridview.Columns["Cantidad"].Index].Value = 1;
+                            row.Cells[gridview.Columns["Importe"].Index].Value = precio;
+                            gridview.Rows.Add(row);
+                            break;
+                        }
                     }
 
                 }
@@ -107,12 +143,13 @@ namespace EcoPura
             {
                 AgregarProducto();
             }
+          
 
         }
 
         private void PuntoVentaVentana2_Load(object sender, EventArgs e)
         {
-            string query = $@"Select codigo as Código, Descripcion as Descripción, Precio
+            string query = $@"Select codigo as Código, Descripcion as Descripción, Precio, CantidadDescuento, PorcentajeDescuento
                           FROM Productos";
             Productos = DatabaseAccess.CargarTabla(query);
 
@@ -142,12 +179,16 @@ namespace EcoPura
 
         private void tbSearchBox_Leave(object sender, EventArgs e)
         {
-
+            if (tbSearchBox.Text.Equals(""))
+            {
+                tbSearchBox.Text = "Código de barras";
+                tbSearchBox.ForeColor = Color.Gray;
+            }
         }
 
         private void btnBorrarTodo_Click(object sender, EventArgs e)
         {
-
+            contadorGarrafones = 0;
             gridview.Rows.Clear();
             Total();
             SelectTextBox();
@@ -159,6 +200,15 @@ namespace EcoPura
             if (gridview.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = gridview.Rows[gridview.CurrentRow.Index];
+
+                if (gridview.Rows[gridview.CurrentRow.Index].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada")
+                    || gridview.Rows[gridview.CurrentRow.Index].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
+                {
+                    int c = int.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value.ToString());
+                    contadorGarrafones = contadorGarrafones - c;
+                    QuitarDescuento();
+                }
+
 
                 gridview.Rows.Remove(row);
                 Total();
@@ -185,11 +235,21 @@ namespace EcoPura
 
         private void btnGarrafon20L_Click(object sender, EventArgs e)
         {
-            if (!DoesRowExist("Garrafón 20L"))
+            if(cbTipo.SelectedIndex == 0)
             {
-                string[] garrafon = new string[] { "", "Garrafón 20L", "11", "1", "11" };
-                gridview.Rows.Add(garrafon);
+                if (!DoesRowExist("1 Litro Purificada"))
+                {
+                    AddRowGarrafon("1 Litro Purificada", 2, 1, 2);
+                }
             }
+            else
+            {
+                if (!DoesRowExist("1 Litro Alcalina"))
+                {
+                    AddRowGarrafon("1 Litro Alcalina", 4, 1, 4);
+                }
+            }
+           // contadorGarrafones++;
             Total();
             gridview.ClearSelection();
             SelectTextBox();
@@ -209,8 +269,8 @@ namespace EcoPura
 
                     float importe = cantidad * precio;
 
-                    gridview.Rows[j].Cells["Cantidad"].Value = cantidad.ToString();
-                    gridview.Rows[j].Cells["Importe"].Value = importe.ToString();
+                    gridview.Rows[j].Cells["Cantidad"].Value = cantidad;
+                    gridview.Rows[j].Cells["Importe"].Value = importe;
 
                     bandera = true;
                     break;
@@ -232,11 +292,11 @@ namespace EcoPura
 
             }
 
-            dolar = total / 22;
+            dolar = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
 
             labelP.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
             lblDolar.Text = dolar.ToString("C2", CultureInfo.CreateSpecificCulture("en-US"));
-
+            tbSearchBox.Text = "";
 
             SelectTextBox();
         }
@@ -253,8 +313,10 @@ namespace EcoPura
                 cambio.StartPosition = FormStartPosition.CenterParent;
                 cambio.ShowDialog();
                 gridview.Rows.Clear();
+                contadorGarrafones = 0;
                 int cero = 0;
                 labelP.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("es-MX"));
+                lblDolar.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("es-MX"));
 
             }
             else
@@ -313,6 +375,13 @@ namespace EcoPura
                 int cantidad = Int32.Parse(gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value.ToString());
                 cantidad--;
 
+                if (gridview.Rows[gridview.CurrentRow.Index].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada")
+                    || gridview.Rows[gridview.CurrentRow.Index].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
+                {
+                    contadorGarrafones--;
+                    QuitarDescuento();
+                }
+
                 if (cantidad == 0)
                 {
                     gridview.Rows.Remove(gridview.Rows[gridview.CurrentRow.Index]);
@@ -323,8 +392,8 @@ namespace EcoPura
 
                     float importe = cantidad * precio;
 
-                    gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value = cantidad.ToString();
-                    gridview.Rows[gridview.CurrentRow.Index].Cells["Importe"].Value = importe.ToString();
+                    gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value = cantidad;
+                    gridview.Rows[gridview.CurrentRow.Index].Cells["Importe"].Value = importe;
                 }
 
 
@@ -337,6 +406,8 @@ namespace EcoPura
             SelectTextBox();
             Total();
         }
+
+ 
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -354,7 +425,7 @@ namespace EcoPura
                 keyData == Keys.D9)
             {
 
-                tbSearchBox.Focus();
+                SelectTextBox();
 
 
             }
@@ -365,12 +436,20 @@ namespace EcoPura
         private void gridview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AgregarCantidadProducto();
+            DescuentoGarrafon();
             SelectTextBox();
         }
 
         private void btnIncrementar_Click(object sender, EventArgs e)
         {
             AgregarCantidadProducto();
+
+            if (gridview.Rows[gridview.CurrentRow.Index].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada")
+                    || gridview.Rows[gridview.CurrentRow.Index].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
+            {
+                contadorGarrafones++;
+            }
+            DescuentoGarrafon();
             SelectTextBox();
         }
 
@@ -384,6 +463,341 @@ namespace EcoPura
         {
             tbSearchBox.Focus();
             tbSearchBox.Select();
+        }
+
+        private void panelSide_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedIndex == 0)
+            {
+                if (!DoesRowExist("1 Galón Purificada"))
+                {
+                    AddRowGarrafon("1 Galón Purificada", 5, 1, 5);
+                }
+            }
+            else
+            {
+                if (!DoesRowExist("1 Galón Alcalina"))
+                {
+                    AddRowGarrafon("1 Galón Alcalina", 10, 1, 10);
+                }
+            }
+
+           // contadorGarrafones++;
+            Total();
+            gridview.ClearSelection();
+            SelectTextBox();
+        }
+
+        private void AddRowGarrafon(String descripcion, float precio, int cantidad, float importe)
+        {
+            using (DataGridViewRow row = new DataGridViewRow())
+            {
+                row.CreateCells(gridview);
+
+                row.Cells[gridview.Columns["Código"].Index].Value = "";
+                row.Cells[gridview.Columns["Descripción"].Index].Value = descripcion;
+                row.Cells[gridview.Columns["Precio"].Index].Value = precio;
+                row.Cells[gridview.Columns["Cantidad"].Index].Value = cantidad; 
+                row.Cells[gridview.Columns["Importe"].Index].Value = importe;
+                gridview.Rows.Add(row);
+                
+            }
+        }
+
+        private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedIndex == 0)
+            {
+                Alcaline = false;
+                btn56Litros.Text = "5/6Litros";
+                btn3Galones.Text = "3Galones";
+                btn5Galones.Text = "5Galones";
+                btn20Litros.Text = "20Litros";
+            }
+            else
+            {
+                Alcaline = true;
+                btn56Litros.Text = "5Litros";
+                btn3Galones.Text = "6litros";
+                btn5Galones.Text = "3Galones";
+                btn20Litros.Text = "5Galones";
+            }
+        }
+
+        private void DescuentoGarrafon()
+        {
+            if (contadorGarrafones >= 4 && contadorGarrafones <= 6 )
+            {
+                for (int j = 0; j < gridview.Rows.Count; j++)
+                {
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada"))
+                    {
+
+                    
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+                        if(precio == 13.50)
+                            precio =  precio -1;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+                        int cantidad = int.Parse(gridview.Rows[j].Cells["Cantidad"].Value.ToString());
+
+                        float importe = precio * cantidad;
+
+                        gridview.Rows[j].Cells["Importe"].Value = importe;
+
+
+                    }
+
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
+                    {
+
+
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+                        if (precio == 14.00)
+                            precio = precio - 1;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+                        int cantidad = int.Parse(gridview.Rows[j].Cells["Cantidad"].Value.ToString());
+
+                        float importe = precio * cantidad;
+
+                        gridview.Rows[j].Cells["Importe"].Value = importe;
+
+
+                    }
+                }
+            }
+
+            if (contadorGarrafones >= 7 )
+            {
+                for (int j = 0; j < gridview.Rows.Count; j++)
+                {
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada"))
+                    {
+
+
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+
+                        if (precio == 12.50)
+                            precio = precio - 1;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+
+                        int cantidad = int.Parse(gridview.Rows[j].Cells["Cantidad"].Value.ToString());
+
+                        float importe = precio * cantidad;
+
+                        gridview.Rows[j].Cells["Importe"].Value = importe;
+
+
+                    }
+
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
+                    {
+
+      
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+                        if (precio == 13.00)
+                            precio = precio - 1;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+
+                        int cantidad = int.Parse(gridview.Rows[j].Cells["Cantidad"].Value.ToString());
+
+                        float importe = precio * cantidad;
+
+                        gridview.Rows[j].Cells["Importe"].Value = importe;
+
+
+                    }
+                }
+            }
+        }
+        private void QuitarDescuento()
+{
+            if (contadorGarrafones < 4 )
+            {
+                for (int j = 0; j < gridview.Rows.Count; j++)
+                {
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada"))
+                    {
+
+
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+                        precio = 13.50F;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+
+
+                    }
+
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
+                    {
+
+
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+                        
+                        precio = 14.00F;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+
+                        
+                    }
+                }
+            }
+
+            if (contadorGarrafones < 7)
+            {
+                for (int j = 0; j < gridview.Rows.Count; j++)
+                {
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada"))
+                    {
+
+
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+                        if(precio == 11.50F)
+                            precio = 12.50F;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+
+
+                    }
+
+                    if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
+                    {
+
+
+                        float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
+
+                        if (precio == 12.00F)
+                            precio = 14.00F;
+
+                        gridview.Rows[j].Cells["Precio"].Value = precio;
+
+                  
+                    }
+                }
+            }
+        }
+
+        private void gridview_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+
+        }
+
+        private void btn56Litros_Click(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedIndex == 0)
+            {
+                if (!DoesRowExist("5 y 6 Litros Purificada"))
+                {
+                    AddRowGarrafon("5 y 6 Litros Purificada", 6, 1, 6);
+                }
+            }
+            else
+            {
+                if (!DoesRowExist("5 Litros Alcalina"))
+                {
+                    AddRowGarrafon("5 Litros Alcalina", 12, 1, 12);
+                }
+            }
+
+            // contadorGarrafones++;
+            Total();
+            gridview.ClearSelection();
+            SelectTextBox();
+        }
+
+        private void btn3Galones_Click(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedIndex == 0)
+            {
+                if (!DoesRowExist("3 Galones Purificada"))
+                {
+                    AddRowGarrafon("3 Galones Purificada", (float)8.5, 1, (float)8.5);
+                }
+            }
+            else
+            {
+                if (!DoesRowExist("6 Litros Alcalina"))
+                {
+                    AddRowGarrafon("6 Litros Alcalina", 15, 1, 15);
+                }
+            }
+
+            // contadorGarrafones++;
+            Total();
+            gridview.ClearSelection();
+            SelectTextBox();
+        }
+
+        private void btn5Galones_Click(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedIndex == 0)
+            {
+                if (!DoesRowExist("5 Galones Purificada"))
+                {
+                    AddRowGarrafon("5 Galones Purificada", (float)13.5, 1, (float)13.5);
+                    contadorGarrafones++;
+                }
+                else
+                {
+                    contadorGarrafones++;
+                }
+            }
+            else
+            {
+                if (!DoesRowExist("3 Galones Alcalina"))
+                {
+                    AddRowGarrafon("3 Galones Alcalina", 25, 1, 25);
+                }
+            }
+            
+            DescuentoGarrafon();
+            
+            Total();
+            gridview.ClearSelection();
+            SelectTextBox();
+        }
+
+        private void btn20Litros_Click(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedIndex == 0)
+            {
+                if (!DoesRowExist("20 Litros Purificada"))
+                {
+                    AddRowGarrafon("20 Litros Purificada", (float)14.00, 1, (float)14.00);
+                    contadorGarrafones++;
+                }
+                else
+                {
+                    contadorGarrafones++;
+                }
+            }
+            else
+            {
+                if (!DoesRowExist("5 Galones Alcalina"))
+                {
+                    AddRowGarrafon("5 Galones Alcalina", 40, 1, 40);
+                }
+            }
+            DescuentoGarrafon();
+            
+            Total();
+            gridview.ClearSelection();
+            SelectTextBox();
         }
     }
 }

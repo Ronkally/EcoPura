@@ -74,7 +74,7 @@
             this.btnLavanderia.Name = "btnLavanderia";
             this.btnLavanderia.Size = new System.Drawing.Size(155, 316);
             this.btnLavanderia.TabIndex = 7;
-            this.btnLavanderia.Text = "Tintorería";
+            this.btnLavanderia.Text = "Limpiaduría";
             this.btnLavanderia.TileImage = global::EcoPura.Properties.Resources.lavandería;
             this.btnLavanderia.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnLavanderia.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -150,7 +150,7 @@
             this.btnCotizaciones.Name = "btnCotizaciones";
             this.btnCotizaciones.Size = new System.Drawing.Size(155, 189);
             this.btnCotizaciones.TabIndex = 5;
-            this.btnCotizaciones.Text = "Cotizaciones";
+            this.btnCotizaciones.Text = "Configuración";
             this.btnCotizaciones.TileImage = ((System.Drawing.Image)(resources.GetObject("btnCotizaciones.TileImage")));
             this.btnCotizaciones.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCotizaciones.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -158,6 +158,7 @@
             this.btnCotizaciones.UseCustomBackColor = true;
             this.btnCotizaciones.UseSelectable = true;
             this.btnCotizaciones.UseTileImage = true;
+            this.btnCotizaciones.Click += new System.EventHandler(this.btnCotizaciones_Click);
             // 
             // btnVentas
             // 
@@ -218,6 +219,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "InicioVentana2";
+            this.Resizable = false;
             this.Text = "                                                Menú principal";
             this.metroPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

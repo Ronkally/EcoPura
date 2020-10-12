@@ -56,5 +56,12 @@ namespace EcoPura
             lavanderia.StartPosition = FormStartPosition.CenterParent;
             lavanderia.ShowDialog();
         }
+
+        private void btnCotizaciones_Click(object sender, EventArgs e)
+        {
+            var configuracion = new ConfiguracionVentana();
+            configuracion.StartPosition = FormStartPosition.CenterParent;
+            configuracion.ShowDialog();
+        }
     }
 }

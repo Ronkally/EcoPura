@@ -18,14 +18,7 @@ namespace EcoPura
         public PopUpProveedores()
         {
             InitializeComponent();
-
-            //GridProveedores.Rows.Add("Pepsico");
-
         }
-
-
-
-
         private void tbAgregar_Enter(object sender, EventArgs e)
         {
             if (tbAgregar.Text.Equals("Agrega un proveedor") || tbAgregar.Text.Equals("Proveedor ya existe"))
@@ -58,6 +51,7 @@ namespace EcoPura
             string query = "Select Proveedor  From Proveedor ";
             GridProveedores.DataSource = DatabaseAccess.CargarTabla(query);
             GridProveedores.ClearSelection();
+            tbAgregar.Text = "";
         }
 
         private void AgregarProveedor()
@@ -88,11 +82,7 @@ namespace EcoPura
                     break;
                 }
             }
-
-
-
             return bandera;
-
         }
 
         private void Proveedores_Load(object sender, EventArgs e)
@@ -130,8 +120,6 @@ namespace EcoPura
 
         private void GridProveedores_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            /* if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
-                 e.Cancel = true;*/
         }
 
         private void GridProveedores_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)

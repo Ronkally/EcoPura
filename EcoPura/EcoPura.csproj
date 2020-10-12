@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>img\IconoEco.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -110,6 +113,12 @@
     <Compile Include="CambioVentana1.Designer.cs">
       <DependentUpon>CambioVentana1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfiguracionVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfiguracionVentana.Designer.cs">
+      <DependentUpon>ConfiguracionVentana.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioVentana2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +137,12 @@
     <Compile Include="LoginVentana.Designer.cs">
       <DependentUpon>LoginVentana.cs</DependentUpon>
     </Compile>
+    <Compile Include="PopUpAgregarFondo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpAgregarFondo.Designer.cs">
+      <DependentUpon>PopUpAgregarFondo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopUpProducto1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +160,30 @@
     </Compile>
     <Compile Include="PopUpProveedores.Designer.cs">
       <DependentUpon>PopUpProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpSacarMonto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpSacarMonto.Designer.cs">
+      <DependentUpon>PopUpSacarMonto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpLavanderiaModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpLavanderiaModificacion.Designer.cs">
+      <DependentUpon>PopUpLavanderiaModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpVentaLavanderia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpVentaLavanderia.Designer.cs">
+      <DependentUpon>PopUpVentaLavanderia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpVenta.Designer.cs">
+      <DependentUpon>PopUpVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="PuntoVentaVentana2.cs">
       <SubType>Form</SubType>
@@ -172,6 +211,9 @@
     <EmbeddedResource Include="CambioVentana1.resx">
       <DependentUpon>CambioVentana1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfiguracionVentana.resx">
+      <DependentUpon>ConfiguracionVentana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InicioVentana2.resx">
       <DependentUpon>InicioVentana2.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +223,9 @@
     <EmbeddedResource Include="LoginVentana.resx">
       <DependentUpon>LoginVentana.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PopUpAgregarFondo.resx">
+      <DependentUpon>PopUpAgregarFondo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PopUpProducto1.resx">
       <DependentUpon>PopUpProducto1.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +234,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PopUpProveedores.resx">
       <DependentUpon>PopUpProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpSacarMonto.resx">
+      <DependentUpon>PopUpSacarMonto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpLavanderiaModificacion.resx">
+      <DependentUpon>PopUpLavanderiaModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpVentaLavanderia.resx">
+      <DependentUpon>PopUpVentaLavanderia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpVenta.resx">
+      <DependentUpon>PopUpVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PuntoVentaVentana2.resx">
       <DependentUpon>PuntoVentaVentana2.cs</DependentUpon>
@@ -227,6 +284,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IconoEco.ico" />
     <Content Include="img\alert.png" />
     <Content Include="img\back-icon-png-white-6.png" />
     <Content Include="img\back-icon-png-white-7.png" />
@@ -242,6 +300,7 @@
     <Content Include="img\exit1.png" />
     <Content Include="img\garrafa2.png" />
     <Content Include="img\Icono.ico" />
+    <Content Include="img\IconoEco.ico" />
     <Content Include="img\IconoEco.png" />
     <Content Include="img\info.png" />
     <Content Include="img\left-arrow.png" />

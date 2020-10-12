@@ -74,7 +74,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(64, 71);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(422, 363);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -114,10 +114,11 @@
             // 
             // tbCosto
             // 
+            this.tbCosto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCosto.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbCosto.Location = new System.Drawing.Point(216, 288);
             this.tbCosto.Name = "tbCosto";
-            this.tbCosto.Size = new System.Drawing.Size(198, 21);
+            this.tbCosto.Size = new System.Drawing.Size(198, 23);
             this.tbCosto.TabIndex = 31;
             this.tbCosto.Text = "Ej. 10";
             this.tbCosto.Enter += new System.EventHandler(this.tbCosto_Enter);
@@ -125,10 +126,11 @@
             // 
             // tbPrecio
             // 
+            this.tbPrecio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPrecio.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbPrecio.Location = new System.Drawing.Point(3, 288);
             this.tbPrecio.Name = "tbPrecio";
-            this.tbPrecio.Size = new System.Drawing.Size(198, 21);
+            this.tbPrecio.Size = new System.Drawing.Size(198, 23);
             this.tbPrecio.TabIndex = 28;
             this.tbPrecio.Text = "Ej. 15";
             this.tbPrecio.Enter += new System.EventHandler(this.tbPrecio_Enter);
@@ -154,10 +156,11 @@
             // 
             // tbMaximo
             // 
+            this.tbMaximo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMaximo.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbMaximo.Location = new System.Drawing.Point(290, 229);
             this.tbMaximo.Name = "tbMaximo";
-            this.tbMaximo.Size = new System.Drawing.Size(124, 21);
+            this.tbMaximo.Size = new System.Drawing.Size(124, 23);
             this.tbMaximo.TabIndex = 26;
             this.tbMaximo.Text = "Ej. 100";
             this.tbMaximo.Enter += new System.EventHandler(this.tbMaximo_Enter);
@@ -183,10 +186,11 @@
             // 
             // tbMinimo
             // 
+            this.tbMinimo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMinimo.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbMinimo.Location = new System.Drawing.Point(147, 229);
             this.tbMinimo.Name = "tbMinimo";
-            this.tbMinimo.Size = new System.Drawing.Size(128, 21);
+            this.tbMinimo.Size = new System.Drawing.Size(128, 23);
             this.tbMinimo.TabIndex = 23;
             this.tbMinimo.Text = "Ej. 5";
             this.tbMinimo.Enter += new System.EventHandler(this.tbMinimo_Enter);
@@ -194,10 +198,11 @@
             // 
             // tbExistencia
             // 
+            this.tbExistencia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbExistencia.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbExistencia.Location = new System.Drawing.Point(4, 229);
             this.tbExistencia.Name = "tbExistencia";
-            this.tbExistencia.Size = new System.Drawing.Size(128, 21);
+            this.tbExistencia.Size = new System.Drawing.Size(128, 23);
             this.tbExistencia.TabIndex = 22;
             this.tbExistencia.Text = "Ej. 50";
             this.tbExistencia.Enter += new System.EventHandler(this.tbExistencia_Enter);
@@ -250,6 +255,7 @@
             // 
             // cbProveedor
             // 
+            this.cbProveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProveedor.ForeColor = System.Drawing.SystemColors.GrayText;
             this.cbProveedor.FormattingEnabled = true;
             this.cbProveedor.Location = new System.Drawing.Point(216, 164);
@@ -262,6 +268,7 @@
             // 
             // cbClasificacion
             // 
+            this.cbClasificacion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbClasificacion.ForeColor = System.Drawing.SystemColors.GrayText;
             this.cbClasificacion.FormattingEnabled = true;
             this.cbClasificacion.Location = new System.Drawing.Point(4, 164);
@@ -274,10 +281,11 @@
             // 
             // tbBarras
             // 
+            this.tbBarras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBarras.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbBarras.Location = new System.Drawing.Point(4, 105);
             this.tbBarras.Name = "tbBarras";
-            this.tbBarras.Size = new System.Drawing.Size(410, 21);
+            this.tbBarras.Size = new System.Drawing.Size(410, 23);
             this.tbBarras.TabIndex = 12;
             this.tbBarras.Text = "Ej. 5901234123";
             this.tbBarras.Enter += new System.EventHandler(this.tbBarras_Enter);
@@ -285,10 +293,11 @@
             // 
             // tbDescripcioon
             // 
+            this.tbDescripcioon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDescripcioon.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbDescripcioon.Location = new System.Drawing.Point(3, 47);
             this.tbDescripcioon.Name = "tbDescripcioon";
-            this.tbDescripcioon.Size = new System.Drawing.Size(411, 21);
+            this.tbDescripcioon.Size = new System.Drawing.Size(411, 23);
             this.tbDescripcioon.TabIndex = 11;
             this.tbDescripcioon.Text = "Ej. Doritos";
             this.tbDescripcioon.Enter += new System.EventHandler(this.tbDescripcioon_Enter);
@@ -464,7 +473,7 @@
             this.btnCancelar.FlatAppearance.BorderSize = 2;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(42)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(284, 447);
             this.btnCancelar.Name = "btnCancelar";
@@ -482,7 +491,7 @@
             this.btnAgregar.FlatAppearance.BorderSize = 2;
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar.Location = new System.Drawing.Point(188, 447);
             this.btnAgregar.Name = "btnAgregar";

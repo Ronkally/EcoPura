@@ -96,11 +96,11 @@
             // 
             // tbAgregar
             // 
-            this.tbAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAgregar.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbAgregar.Location = new System.Drawing.Point(8, 9);
             this.tbAgregar.Name = "tbAgregar";
-            this.tbAgregar.Size = new System.Drawing.Size(183, 26);
+            this.tbAgregar.Size = new System.Drawing.Size(183, 29);
             this.tbAgregar.TabIndex = 34;
             this.tbAgregar.Text = "Agrega un proveedor";
             this.tbAgregar.Enter += new System.EventHandler(this.tbAgregar_Enter);
@@ -200,6 +200,7 @@
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.GridProveedores);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PopUpProveedores";
             this.Resizable = false;

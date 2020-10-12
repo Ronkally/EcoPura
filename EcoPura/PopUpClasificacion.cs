@@ -55,9 +55,10 @@ namespace EcoPura
 
         private void Reload()
         {
-            string query = "Select Clasificacion as Clasificación From Clasificacion ";
+            string query = "Select Clasificacion as Clasificación From Clasificacion Where clasificacion != 'Agua'";
             GridClasificacion.DataSource = DatabaseAccess.CargarTabla(query);
             GridClasificacion.ClearSelection();
+            tbAgregar.Text = "";
         }
 
         private void AgregarProveedor()
@@ -107,7 +108,7 @@ namespace EcoPura
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas borrar esta Clasificación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
-                    string query = $"DELETE FROM Clasificacion WHERE Clasificacion = '{GridClasificacion.Rows[GridClasificacion.CurrentCell.RowIndex].Cells[0].Value.ToString()}'";
+                    string query = $"DELETE FROM Clasificacion WHERE Clasificacion = '{GridClasificacion.Rows[GridClasificacion.CurrentCell.RowIndex].Cells[0].Value.ToString()}' AND Clasificacion != 'Dulces' ";
                     DatabaseAccess.EjecutarConsulta(query);
                     Reload();
                 }

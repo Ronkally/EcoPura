@@ -16,6 +16,9 @@ namespace EcoPura
     public partial class CambioVentana1 : MetroFramework.Forms.MetroForm
     {
         float total = 0;
+        float totalrecibido = 0;
+        bool tieneDolar = false;
+        float cambioT = 0;
         public CambioVentana1()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace EcoPura
 
             float settup = 0;
             this.total = total;
-            float dolares = total / 22;
+            float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
 
             this.gridview = rows;
             lblTotal.Text = settup.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
@@ -106,60 +109,99 @@ namespace EcoPura
             {
                 Cambio();
             }
+            else if (e.KeyCode == Keys.F1)
+            {
+                if (tieneDolar)
+                {
+                    txtCodigo.ForeColor = Color.Black;
+                    tieneDolar = false;
+                    button2.Text = "Ingresar Dólares";
+                }
+                else
+                {
+                    txtCodigo.ForeColor = Color.Green;
+                    tieneDolar = true;
+                    button2.Text = "Ingresar pesos";
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, "Gracias por su compra", "Gracias!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            this.Close();
+            if (tieneDolar)
+            {
+                txtCodigo.ForeColor = Color.Black;
+                tieneDolar = false;
+                button2.Text = "Ingresar Dólares";
+            }
+            else
+            {
+                txtCodigo.ForeColor = Color.Green;
+                tieneDolar = true;
+                button2.Text = "Ingresar pesos";
+            }
+            txtCodigo.Text = "";
+            txtCodigo.Focus();
         }
 
         private void Cambio()
         {
+            float cantidadRecibida = 0;
 
-            float cantidadRecibida = float.Parse(txtCodigo.Text);
+            try
+            {
+                 cantidadRecibida = float.Parse(txtCodigo.Text);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Monto recibido erróneo ");
+            }
+            
+            if(tieneDolar)
+                cantidadRecibida = cantidadRecibida * DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
+
+            totalrecibido += cantidadRecibida;
             float monto = this.total;
 
             float diferencia = monto - cantidadRecibida;
 
-            if (cantidadRecibida > monto)
+            if (cantidadRecibida >= monto)
             {
                 float cambio = cantidadRecibida - total;
+                cambioT = cambio;
                 lblTotal.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
-                cambio = cambio / 22;
+                cambio = cambio / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
                 lblDolar.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+                lblDolarTotal.Text = "0.00";
+                lblMonto.Text = "0.00";
+
+
                 btnFinalizar.Visible = true;
             }
             else
             {
-
-            }
-
-
-            /*
-            contador++;
-            float cantidadRecibida = float.Parse(txtCodigo.Text);
-
-            if (contador != 2)
-            {
-                if ((Int32.Parse(lblTotal.Text) - cantidadRecibida) >= 0)
-               {
-                    float cambio = cantidadRecibida - Int32.Parse(lblTotal.Text);
-                    lblTotal.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
-                    btnFinalizar.Visible = true;
+                if (tieneDolar)
+                {
+                   
+                    total = total - cantidadRecibida;
+                    float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
+                    lblDolarTotal.Text = dolares.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+                    lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
                 }
                 else
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "No está recibiendo la cantidad suficiente para cubrir la venta", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
+                    total = total - cantidadRecibida;
+                    float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
+                    lblDolarTotal.Text = dolares.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+                    lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
+                    
                 }
 
-            }
-            else if (contador == 2)
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Gracias por su compra", "Gracias!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                this.Close();
-            }*/
 
+            }
+            txtCodigo.Text = "";
+            txtCodigo.Focus();
 
         }
 
@@ -170,66 +212,120 @@ namespace EcoPura
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            if (MetroFramework.MetroMessageBox.Show(this, "¿Desea imprimir el Ticket de la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            float total = 0;
+            string fechaHora = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+            foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
             {
-                Ticket ticket = new Ticket();
-                //Cabecera
-                ticket.TextoCentro("EcoPura");
-                ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                ticket.TextoIzquierda("DIREC: " + "");
-                ticket.TextoIzquierda("");
-                ticket.lineasAsteriscos();
 
-                //Sub cabecera.
-                ticket.TextoIzquierda("");
-                ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-                ticket.TextoIzquierda("");
-                ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
-                ticket.lineasAsteriscos();
-
-                ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                ticket.lineasAsteriscos();
-
-                foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
+                string clasificacion = DatabaseAccess.GetInfo($@"SELECT IdClasificacion FROM Productos WHERE Descripcion = '{fila.Cells[1].Value.ToString()}'");
+                if(String.IsNullOrEmpty(clasificacion))
                 {
-
-                    ticket.AgregaArticulo(fila.Cells[1].Value.ToString(), Int32.Parse(fila.Cells[3].Value.ToString()), Decimal.Parse(fila.Cells[2].Value.ToString()), Decimal.Parse(fila.Cells[4].Value.ToString()));
-                    /*  string query = $@"SELECT Descripcion, Costo, Precio, Existencia, Clasificacion.Clasificacion, Proveedor.Proveedor, Codigo, Minimo, Maximo
-                               FROM Productos
-                               LEFT JOIN Proveedor
-                               ON Productos.IdProveedor = Proveedor.IdProveedor
-                               LEFT JOIN Clasificacion
-                               ON Productos.IdClasificacion = Clasificacion.IdClasificacion
-                               WHERE Codigo = {codigo}";*/
-                    // DatabaseAccess.
-                }
-                ticket.lineasGuio();
-
-                float total = 0;
-
-                foreach (DataGridViewRow rows in gridview.Rows)
-                {
-                    total += float.Parse(rows.Cells[4].Value.ToString());
-
+                    clasificacion = "3";
                 }
 
-                //Resumen de la venta
-                ticket.AgregarTotales("         TOTAL.........$", (decimal)total);
-                ticket.TextoIzquierda("");
-
-                //Texto final del Ticket.
-                ticket.TextoIzquierda("");
-                ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + gridview.RowCount.ToString());
-                ticket.TextoIzquierda("");
-                ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                ticket.CortaTicket();
-                try
+                if (fila.Cells[1].Value.ToString().Contains("Alcalina"))
                 {
-                    // ticket.ImprimirTicket(ConseguirImpresora());
+                    clasificacion = "5";
                 }
-                catch (Exception s) { MessageBox.Show("Error en la impresión"); }
+
+
+                int tipoPago = 2;
+                if (RbEfectivo.Checked)
+                    tipoPago = 1;
+
+
+                string query = $@"Insert into Ventas (fechahora, producto, precio, cantidad, importe, idPago, IdClasificacion) values (
+                '{fechaHora}','{fila.Cells[1].Value.ToString()}',
+                {Decimal.Parse(fila.Cells[2].Value.ToString())},
+                {Int32.Parse(fila.Cells[3].Value.ToString())},
+                {Decimal.Parse(fila.Cells[4].Value.ToString())},
+                {tipoPago}, {clasificacion}
+                )";
+
+                string query1 = $@"Insert into VentasCorte (fechahora, producto, precio, cantidad, importe, idPago, IdClasificacion) values (
+                '{fechaHora}','{fila.Cells[1].Value.ToString()}',
+                {Decimal.Parse(fila.Cells[2].Value.ToString())},
+                {Int32.Parse(fila.Cells[3].Value.ToString())},
+                {Decimal.Parse(fila.Cells[4].Value.ToString())},
+                {tipoPago}, {clasificacion}
+                )";
+
+                total += float.Parse(fila.Cells[4].Value.ToString());
+
+                DatabaseAccess.EjecutarConsulta(query1);
+                DatabaseAccess.EjecutarConsulta(query);
+
+                
 
             }
+            Caja(total, fechaHora);
+
+
+
+            ControlarInventarios();
+            bool acepta = MetroFramework.MetroMessageBox.Show(this, "¿Desea imprimir el Ticket de la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            
+
+            Ticket ticket = new Ticket();
+            int noTicket = DatabaseAccess.Cantidad("select max(id) from caja");
+
+            //Cabecera
+            ticket.TextoCentro("EcoPura");
+            ticket.TextoIzquierda("No. Ticket: "+ noTicket.ToString());
+            ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+            ticket.TextoIzquierda("DIREC: Salvador Alvarado, Misión #4480, Soler, 22530 Tijuana, B.C.  ");
+            ticket.TextoIzquierda("TEL: 664 975 4148");
+            ticket.lineasAsteriscos();
+
+            //Sub cabecera.
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
+            ticket.TextoIzquierda("");
+            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
+            ticket.lineasAsteriscos();
+
+            ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+            ticket.lineasAsteriscos();
+
+            foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
+            {
+
+
+                ticket.AgregaArticulo(fila.Cells[1].Value.ToString(), Int32.Parse(fila.Cells[3].Value.ToString()), Decimal.Parse(fila.Cells[2].Value.ToString()), Decimal.Parse(fila.Cells[4].Value.ToString()));
+
+
+            }
+            ticket.lineasGuio();
+
+
+            //Resumen de la venta
+            ticket.AgregarTotales("         TOTAL.........$", (decimal)total);
+            ticket.AgregarTotales("         RECIBIDO......$", (decimal)totalrecibido);
+            ticket.AgregarTotales("         CAMBIO........$", (decimal)cambioT);
+           // ticket.TextoIzquierda("");
+
+            //Texto final del Ticket.
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + gridview.RowCount.ToString());
+           // ticket.TextoIzquierda("");
+            ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.CortaTicket();
+            try
+            {
+
+                ticket.ImprimirTicket("Microsoft XPS Document Writer", "No. Ticket: " + noTicket.ToString());
+
+                if (acepta)
+                  ticket.ImprimirTicket(DatabaseAccess.GetInfo("select impresora from configuracion where id = 1"), "No. Ticket: " + noTicket.ToString());
+
+                ticket.ClearMethod();
+            }
+            catch (Exception s) { MessageBox.Show("Error al imprimir"); }
+
             this.Close();
         }
 
@@ -241,6 +337,48 @@ namespace EcoPura
         private void CambioVentana1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void RbTarjeta_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RbEfectivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlarInventarios()
+        {
+            foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
+            {
+
+                if (!fila.Cells[0].Value.ToString().Equals(""))
+                {
+                    int cantidad = DatabaseAccess.Cantidad("SELECT existencia FROM PRODUCTOS WHERE Codigo = '" + fila.Cells[0].Value.ToString() + "'");
+             
+                    if (cantidad < Int32.Parse(fila.Cells[3].Value.ToString()))
+                        cantidad = 0;
+                    else
+                        cantidad -= Int32.Parse(fila.Cells[3].Value.ToString());
+
+
+                    DatabaseAccess.EjecutarConsulta("UPDATE PRODUCTOS SET existencia = " + cantidad.ToString() + " WHERE Codigo ='" + fila.Cells[0].Value.ToString()+"'");
+
+                }
+            }
+            
+        }
+
+        private void Caja(float total, string fechaHora)
+        {
+            int tipoPago = 2;
+            if (RbEfectivo.Checked)
+                tipoPago = 1;
+
+            string query = $@"Insert into caja (Ingreso, motivo, Fecha, idpago, tipo) values({total}, 'Venta', '{fechaHora}', {tipoPago},'Ingreso')";
+            DatabaseAccess.EjecutarConsulta(query);
         }
     }
 }

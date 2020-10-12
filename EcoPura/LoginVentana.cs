@@ -71,6 +71,14 @@ namespace EcoPura
                     Ventana.Show();
                     this.Close();
                 }
+                else
+                {
+                    tbUsuario.Text = "Ingresa un usuario válido";
+                    tbUsuario.ForeColor = Color.Red;
+
+                    tbContrasena.Text = "Ingresa una contraseña válida";
+                    tbContrasena.ForeColor = Color.Red;
+                }
                 
 
 

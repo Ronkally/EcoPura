@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,11 @@ namespace EcoPura
         private void VentanaProducto1_Load(object sender, EventArgs e)
         {
             CargarGridView();
+            gridview.Columns["Precio"].DefaultCellStyle.Format = "c";
+            gridview.Columns["Precio"].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("es-MX");
+
+            gridview.Columns["Costo"].DefaultCellStyle.Format = "c";
+            gridview.Columns["Costo"].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("es-MX");
         }
 
         private void CargarGridView()
@@ -76,8 +82,8 @@ namespace EcoPura
                 {
                     int selectedRowIndex = gridview.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = gridview.Rows[selectedRowIndex];
-                    int codigo = Convert.ToInt32(selectedRow.Cells["Código De Barras"].Value);
-                    string query = $@"DELETE FROM Productos WHERE Codigo = {codigo}";
+                    string codigo = selectedRow.Cells["Código De Barras"].Value.ToString();
+                    string query = $@"DELETE FROM Productos WHERE Codigo = '{codigo}'";
                     DatabaseAccess.EjecutarConsulta(query);
                     gridview.ClearSelection();
                     CargarGridView();
@@ -98,7 +104,7 @@ namespace EcoPura
             {
                 int selectedRowIndex = gridview.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = gridview.Rows[selectedRowIndex];
-                int codigo = Convert.ToInt32(selectedRow.Cells["Código De Barras"].Value);
+                string codigo = selectedRow.Cells["Código De Barras"].Value.ToString();
                 var popUpProducto = new PopUpProducto1(codigo);
                 popUpProducto.StartPosition = FormStartPosition.CenterParent;
                 popUpProducto.ShowDialog();
