@@ -61,9 +61,6 @@ namespace EcoPura
 
             float tipoDeCambio = DatabaseAccess.PrecioTotal("Select tipocambio from configuracion where id = 1");
             tbTipoCambio.Text = tipoDeCambio.ToString();
-
-
-
         }
     }
 }

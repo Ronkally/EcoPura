@@ -60,7 +60,6 @@ namespace EcoPura
             }
         }
 
-
         #region Metodos
         private void CargarProveedores()
         {
@@ -422,8 +421,6 @@ namespace EcoPura
                 MessageBox.Show("Selecciona una clasificación");
                 bandera = false;
             }
-
-
             return bandera;
         }
 
@@ -458,7 +455,5 @@ namespace EcoPura
             CargarClasificacion();
             CargarProveedores();
         }
-
-
     }
 }

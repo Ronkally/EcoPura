@@ -143,8 +143,6 @@ namespace EcoPura
             {
                 AgregarProducto();
             }
-
-
         }
 
         private void PuntoVentaVentana2_Load(object sender, EventArgs e)
@@ -192,7 +190,6 @@ namespace EcoPura
             gridview.Rows.Clear();
             Total();
             SelectTextBox();
-
         }
 
         private void btnBorrarUltimo_Click(object sender, EventArgs e)
@@ -208,8 +205,6 @@ namespace EcoPura
                     contadorGarrafones = contadorGarrafones - c;
                     QuitarDescuento();
                 }
-
-
                 gridview.Rows.Remove(row);
                 Total();
             }
@@ -226,11 +221,6 @@ namespace EcoPura
             {
                 tbSearchBox.Focus();
             }
-        }
-
-        private void PuntoVentaVentana2_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
 
         private void btnGarrafon20L_Click(object sender, EventArgs e)
@@ -276,7 +266,6 @@ namespace EcoPura
                     break;
                 }
             }
-
             return bandera;
         }
 
@@ -288,8 +277,6 @@ namespace EcoPura
             foreach (DataGridViewRow rows in gridview.Rows)
             {
                 total += float.Parse(rows.Cells[4].Value.ToString());
-
-
             }
 
             dolar = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
@@ -307,8 +294,6 @@ namespace EcoPura
             {
                 string converter = labelP.Text;
                 float total = float.Parse(converter.Replace("$", ""));
-
-
                 var cambio = new CambioVentana(total, gridview);
                 cambio.StartPosition = FormStartPosition.CenterParent;
                 cambio.ShowDialog();
@@ -317,7 +302,6 @@ namespace EcoPura
                 int cero = 0;
                 labelP.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("es-MX"));
                 lblDolar.Text = cero.ToString("C2", CultureInfo.GetCultureInfo("es-MX"));
-
             }
             else
                 MetroFramework.MetroMessageBox.Show(this, "Agrega productos para realizar una venta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
@@ -328,7 +312,6 @@ namespace EcoPura
 
         private void gridview_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
             int rowIndex = gridview.CurrentCell.RowIndex;
             float precio = float.Parse(gridview.Rows[rowIndex].Cells["Precio"].Value.ToString());
 
@@ -365,7 +348,6 @@ namespace EcoPura
                 return false;
 
             return true;
-
         }
 
         private void btnDecrementar_Click(object sender, EventArgs e)
@@ -395,8 +377,6 @@ namespace EcoPura
                     gridview.Rows[gridview.CurrentRow.Index].Cells["Cantidad"].Value = cantidad;
                     gridview.Rows[gridview.CurrentRow.Index].Cells["Importe"].Value = importe;
                 }
-
-
             }
             else
             {
@@ -411,8 +391,6 @@ namespace EcoPura
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-
-
             if (keyData == Keys.D0 ||
                 keyData == Keys.D1 ||
                 keyData == Keys.D2 ||
@@ -424,10 +402,7 @@ namespace EcoPura
                 keyData == Keys.D8 ||
                 keyData == Keys.D9)
             {
-
                 SelectTextBox();
-
-
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
@@ -463,11 +438,6 @@ namespace EcoPura
         {
             tbSearchBox.Focus();
             tbSearchBox.Select();
-        }
-
-        private void panelSide_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
@@ -537,8 +507,6 @@ namespace EcoPura
                 {
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada"))
                     {
-
-
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
                         if (precio == 13.50)
@@ -550,14 +518,10 @@ namespace EcoPura
                         float importe = precio * cantidad;
 
                         gridview.Rows[j].Cells["Importe"].Value = importe;
-
-
                     }
 
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
                     {
-
-
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
                         if (precio == 14.00)
@@ -569,8 +533,6 @@ namespace EcoPura
                         float importe = precio * cantidad;
 
                         gridview.Rows[j].Cells["Importe"].Value = importe;
-
-
                     }
                 }
             }
@@ -581,8 +543,6 @@ namespace EcoPura
                 {
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada"))
                     {
-
-
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
 
@@ -596,14 +556,10 @@ namespace EcoPura
                         float importe = precio * cantidad;
 
                         gridview.Rows[j].Cells["Importe"].Value = importe;
-
-
                     }
 
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
                     {
-
-
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
                         if (precio == 13.00)
@@ -616,8 +572,6 @@ namespace EcoPura
                         float importe = precio * cantidad;
 
                         gridview.Rows[j].Cells["Importe"].Value = importe;
-
-
                     }
                 }
             }
@@ -643,16 +597,12 @@ namespace EcoPura
 
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
                     {
-
-
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
 
                         precio = 14.00F;
 
                         gridview.Rows[j].Cells["Precio"].Value = precio;
-
-
                     }
                 }
             }
@@ -677,24 +627,15 @@ namespace EcoPura
 
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
                     {
-
-
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
                         if (precio == 12.00F)
                             precio = 14.00F;
 
                         gridview.Rows[j].Cells["Precio"].Value = precio;
-
-
                     }
                 }
             }
-        }
-
-        private void gridview_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-
         }
 
         private void btn56Litros_Click(object sender, EventArgs e)

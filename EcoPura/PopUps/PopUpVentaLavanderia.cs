@@ -148,7 +148,5 @@ namespace EcoPura
             }
         }
         #endregion
-
-
     }
 }

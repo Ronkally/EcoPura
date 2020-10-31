@@ -23,10 +23,9 @@ namespace EcoPura
 
         private void VentaVentana1_Load(object sender, EventArgs e)
         {
-            CargarGridView(0);      
+            CargarGridView(0);
             cbCategoria.SelectedIndex = 0;
         }
-
 
         private void CargarGridView(int i)
         {
@@ -34,15 +33,16 @@ namespace EcoPura
             string fecha = dtFecha.Value.ToString("MM/dd/yyyy");
             string query = "";
 
-            if( i == 0){
-                 query = @"SELECT  Producto, SUM(Precio) AS Precio , sum(Cantidad) As Cantidad, sum(Importe) As Importe
+            if (i == 0)
+            {
+                query = @"SELECT  Producto, SUM(Precio) AS Precio , sum(Cantidad) As Cantidad, sum(Importe) As Importe
                              FROM Ventas
                              WHERE FechaHora like '%" + fecha + "%' group by Producto, cantidad " +
-                             "Order By cantidad desc";
+                            "Order By cantidad desc";
             }
             else
             {
-                 query = @"SELECT FechaHora as 'Fecha', Producto, Precio, Cantidad, Importe, Pago.Pago
+                query = @"SELECT FechaHora as 'Fecha', Producto, Precio, Cantidad, Importe, Pago.Pago
                                FROM Ventas
                                LEFT JOIN Pago
                                ON Ventas.IdPago = Pago.IdPago
@@ -52,7 +52,7 @@ namespace EcoPura
 
             gridview.DataSource = null;
             this.gridview.DataSource = DatabaseAccess.CargarTabla(query);
-            if(i != 0)
+            if (i != 0)
             {
                 gridview.Columns["Producto"].Width = 230;
                 gridview.Columns["Fecha"].Width = 200;
@@ -78,15 +78,6 @@ namespace EcoPura
             this.Close();
         }
 
-        private void tbSearchBox_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void tbSearchBox_Leave(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas borrar esta venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
@@ -102,14 +93,14 @@ namespace EcoPura
 
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbCategoria.SelectedIndex ==1)
+            if (cbCategoria.SelectedIndex == 1)
                 CargarGridView(1);
             else
                 CargarGridView(0);
         }
 
         private void dtFecha_ValueChanged(object sender, EventArgs e)
-        { 
+        {
             if (cbCategoria.SelectedIndex == 1)
                 CargarGridView(1);
             else

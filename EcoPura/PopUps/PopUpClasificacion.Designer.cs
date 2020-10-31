@@ -92,7 +92,6 @@
             this.GridClasificacion.TabStop = false;
             this.GridClasificacion.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.GridProveedores_CellBeginEdit);
             this.GridClasificacion.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProveedores_CellEndEdit);
-            this.GridClasificacion.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.GridProveedores_CellValidating);
             // 
             // tbAgregar
             // 

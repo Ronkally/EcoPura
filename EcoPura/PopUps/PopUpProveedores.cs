@@ -118,10 +118,6 @@ namespace EcoPura
 
         }
 
-        private void GridProveedores_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-        }
-
         private void GridProveedores_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             proveedor = GridProveedores.Rows[GridProveedores.CurrentCell.RowIndex].Cells[0].Value.ToString();

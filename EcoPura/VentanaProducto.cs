@@ -72,8 +72,6 @@ namespace EcoPura
             CargarGridView();
         }
 
-
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (gridview.SelectedRows.Count > 0)

@@ -94,8 +94,6 @@ namespace EcoPura
             {
                 txtCodigo.Text = txtCodigo.Text.Remove(txtCodigo.Text.Length - 1);
             }
-
-
         }
 
         private void btnRetroceso_Click(object sender, EventArgs e)
@@ -178,15 +176,12 @@ namespace EcoPura
                 lblDolar.Text = cambio.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
                 lblDolarTotal.Text = "0.00";
                 lblMonto.Text = "0.00";
-
-
                 btnFinalizar.Visible = true;
             }
             else
             {
                 if (tieneDolar)
                 {
-
                     total = total - cantidadRecibida;
                     float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
                     lblDolarTotal.Text = dolares.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
@@ -199,14 +194,10 @@ namespace EcoPura
                     float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
                     lblDolarTotal.Text = dolares.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
                     lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
-
                 }
-
-
             }
             txtCodigo.Text = "";
             txtCodigo.Focus();
-
         }
 
         private void btnCero_Click(object sender, EventArgs e)

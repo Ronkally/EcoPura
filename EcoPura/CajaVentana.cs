@@ -28,11 +28,6 @@ namespace EcoPura
             this.Close();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CajaVentana_Load(object sender, EventArgs e)
         {
 
@@ -44,12 +39,6 @@ namespace EcoPura
 
 
         }
-
-        private void SumarIngresos()
-        {
-
-        }
-
 
         private void CargarGridView()
         {
@@ -136,7 +125,6 @@ namespace EcoPura
             CargarGridView();
         }
 
-
         private void TicketCorte()
         {
             if (DatabaseAccess.Existe("select count(producto) from VentasCorte"))
@@ -214,14 +202,6 @@ namespace EcoPura
             {
                 MetroFramework.MetroMessageBox.Show(this, "No se puede hacer corte de caja aún", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
-
-
-
-        }
-
-        private void gridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

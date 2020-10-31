@@ -23,9 +23,6 @@ namespace EcoPura
 
         }
 
-
-
-
         private void tbAgregar_Enter(object sender, EventArgs e)
         {
             if (tbAgregar.Text.Equals("Agrega una clasificación") || tbAgregar.Text.Equals("Clasificación ya existe"))
@@ -67,7 +64,6 @@ namespace EcoPura
             DatabaseAccess.EjecutarConsulta(query);
         }
 
-
         private bool Validacion()
         {
             bool bandera = true;
@@ -89,11 +85,7 @@ namespace EcoPura
                     break;
                 }
             }
-
-
-
             return bandera;
-
         }
 
         private void Proveedores_Load(object sender, EventArgs e)
@@ -127,12 +119,6 @@ namespace EcoPura
                 DatabaseAccess.EjecutarConsulta(query);
             }
 
-        }
-
-        private void GridProveedores_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            /* if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
-                 e.Cancel = true;*/
         }
 
         private void GridProveedores_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
