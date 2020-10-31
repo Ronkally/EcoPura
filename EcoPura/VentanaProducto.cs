@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class VentanaProducto1 : MetroFramework.Forms.MetroForm
+    public partial class VentanaProducto : MetroFramework.Forms.MetroForm
     {
-        public VentanaProducto1()
+        public VentanaProducto()
         {
             InitializeComponent();
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

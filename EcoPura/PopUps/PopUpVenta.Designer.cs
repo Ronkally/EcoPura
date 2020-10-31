@@ -1,6 +1,6 @@
 ﻿namespace EcoPura
 {
-    partial class PopUpLavanderiaModificacion
+    partial class PopUpVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopUpLavanderiaModificacion));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopUpVenta));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.cbEstado = new MetroFramework.Controls.MetroComboBox();
-            this.dtFechaEntrega = new MetroFramework.Controls.MetroDateTime();
-            this.lblFechaEntrega = new MetroFramework.Controls.MetroLabel();
-            this.lblTelefono = new MetroFramework.Controls.MetroLabel();
-            this.tbTelefono = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblTipodePago = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.cbTipoDePago = new MetroFramework.Controls.MetroComboBox();
             this.dtFecha = new MetroFramework.Controls.MetroDateTime();
-            this.lblCliente = new MetroFramework.Controls.MetroLabel();
-            this.lblFechaRecibido = new MetroFramework.Controls.MetroLabel();
-            this.tbCliente = new System.Windows.Forms.TextBox();
+            this.tbMaximo = new System.Windows.Forms.TextBox();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.tbMinimo = new System.Windows.Forms.TextBox();
+            this.tbPrecio = new System.Windows.Forms.TextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.tbBarras = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -73,20 +73,20 @@
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.metroLabel1);
-            this.metroTabPage1.Controls.Add(this.cbEstado);
-            this.metroTabPage1.Controls.Add(this.dtFechaEntrega);
-            this.metroTabPage1.Controls.Add(this.lblFechaEntrega);
-            this.metroTabPage1.Controls.Add(this.lblTelefono);
-            this.metroTabPage1.Controls.Add(this.tbTelefono);
             this.metroTabPage1.Controls.Add(this.btnCancelar);
-            this.metroTabPage1.Controls.Add(this.lblTipodePago);
+            this.metroTabPage1.Controls.Add(this.metroLabel3);
             this.metroTabPage1.Controls.Add(this.btnAgregar);
             this.metroTabPage1.Controls.Add(this.cbTipoDePago);
             this.metroTabPage1.Controls.Add(this.dtFecha);
-            this.metroTabPage1.Controls.Add(this.lblCliente);
-            this.metroTabPage1.Controls.Add(this.lblFechaRecibido);
-            this.metroTabPage1.Controls.Add(this.tbCliente);
+            this.metroTabPage1.Controls.Add(this.tbMaximo);
+            this.metroTabPage1.Controls.Add(this.metroLabel7);
+            this.metroTabPage1.Controls.Add(this.metroLabel6);
+            this.metroTabPage1.Controls.Add(this.tbMinimo);
+            this.metroTabPage1.Controls.Add(this.tbPrecio);
+            this.metroTabPage1.Controls.Add(this.metroLabel5);
+            this.metroTabPage1.Controls.Add(this.metroLabel2);
+            this.metroTabPage1.Controls.Add(this.metroLabel1);
+            this.metroTabPage1.Controls.Add(this.tbBarras);
             this.metroTabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
@@ -95,73 +95,10 @@
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(414, 321);
             this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "Pedido";
+            this.metroTabPage1.Text = "Venta";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 206);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(48, 19);
-            this.metroLabel1.TabIndex = 40;
-            this.metroLabel1.Text = "Estado";
-            // 
-            // cbEstado
-            // 
-            this.cbEstado.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.ItemHeight = 19;
-            this.cbEstado.Items.AddRange(new object[] {
-            "Recibido",
-            "En Proceso",
-            "Entregado"});
-            this.cbEstado.Location = new System.Drawing.Point(4, 228);
-            this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(203, 25);
-            this.cbEstado.TabIndex = 39;
-            this.cbEstado.UseSelectable = true;
-            // 
-            // dtFechaEntrega
-            // 
-            this.dtFechaEntrega.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.dtFechaEntrega.Location = new System.Drawing.Point(218, 166);
-            this.dtFechaEntrega.MinimumSize = new System.Drawing.Size(0, 25);
-            this.dtFechaEntrega.Name = "dtFechaEntrega";
-            this.dtFechaEntrega.Size = new System.Drawing.Size(196, 25);
-            this.dtFechaEntrega.TabIndex = 37;
-            // 
-            // lblFechaEntrega
-            // 
-            this.lblFechaEntrega.AutoSize = true;
-            this.lblFechaEntrega.Location = new System.Drawing.Point(217, 144);
-            this.lblFechaEntrega.Name = "lblFechaEntrega";
-            this.lblFechaEntrega.Size = new System.Drawing.Size(114, 19);
-            this.lblFechaEntrega.TabIndex = 38;
-            this.lblFechaEntrega.Text = "Fecha de entrega:";
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(0, 82);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(61, 19);
-            this.lblTelefono.TabIndex = 36;
-            this.lblTelefono.Text = "Teléfono:";
-            // 
-            // tbTelefono
-            // 
-            this.tbTelefono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelefono.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.tbTelefono.Location = new System.Drawing.Point(4, 104);
-            this.tbTelefono.Name = "tbTelefono";
-            this.tbTelefono.Size = new System.Drawing.Size(410, 25);
-            this.tbTelefono.TabIndex = 2;
-            this.tbTelefono.Text = "Ej. 6647523659";
-            this.tbTelefono.Enter += new System.EventHandler(this.tbTelefono_Enter);
-            this.tbTelefono.Leave += new System.EventHandler(this.tbTelefono_Leave);
             // 
             // btnCancelar
             // 
@@ -174,22 +111,22 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(218, 280);
+            this.btnCancelar.Location = new System.Drawing.Point(218, 224);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(81, 29);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.TabIndex = 32;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // lblTipodePago
+            // metroLabel3
             // 
-            this.lblTipodePago.AutoSize = true;
-            this.lblTipodePago.Location = new System.Drawing.Point(218, 206);
-            this.lblTipodePago.Name = "lblTipodePago";
-            this.lblTipodePago.Size = new System.Drawing.Size(89, 19);
-            this.lblTipodePago.TabIndex = 34;
-            this.lblTipodePago.Text = "Tipo de pago";
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(218, 80);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(89, 19);
+            this.metroLabel3.TabIndex = 34;
+            this.metroLabel3.Text = "Tipo de pago";
             // 
             // btnAgregar
             // 
@@ -202,10 +139,10 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(115, 280);
+            this.btnAgregar.Location = new System.Drawing.Point(104, 224);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(81, 29);
-            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.TabIndex = 31;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -216,66 +153,123 @@
             this.cbTipoDePago.FormattingEnabled = true;
             this.cbTipoDePago.ItemHeight = 19;
             this.cbTipoDePago.Items.AddRange(new object[] {
-            "Efectivo",
+            "Efecto",
             "Tarjeta"});
-            this.cbTipoDePago.Location = new System.Drawing.Point(218, 228);
+            this.cbTipoDePago.Location = new System.Drawing.Point(218, 102);
             this.cbTipoDePago.Name = "cbTipoDePago";
-            this.cbTipoDePago.Size = new System.Drawing.Size(196, 25);
-            this.cbTipoDePago.TabIndex = 5;
+            this.cbTipoDePago.Size = new System.Drawing.Size(193, 25);
+            this.cbTipoDePago.TabIndex = 33;
             this.cbTipoDePago.UseSelectable = true;
             // 
             // dtFecha
             // 
             this.dtFecha.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.dtFecha.Location = new System.Drawing.Point(4, 166);
+            this.dtFecha.Location = new System.Drawing.Point(3, 102);
             this.dtFecha.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(203, 25);
-            this.dtFecha.TabIndex = 3;
+            this.dtFecha.TabIndex = 32;
             // 
-            // lblCliente
+            // tbMaximo
             // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(0, 19);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(125, 19);
-            this.lblCliente.TabIndex = 18;
-            this.lblCliente.Text = "Nombre del cliente:";
+            this.tbMaximo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaximo.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.tbMaximo.Location = new System.Drawing.Point(290, 167);
+            this.tbMaximo.Name = "tbMaximo";
+            this.tbMaximo.ReadOnly = true;
+            this.tbMaximo.Size = new System.Drawing.Size(124, 25);
+            this.tbMaximo.TabIndex = 26;
+            this.tbMaximo.Text = "Ej. 50";
             // 
-            // lblFechaRecibido
+            // metroLabel7
             // 
-            this.lblFechaRecibido.AutoSize = true;
-            this.lblFechaRecibido.Location = new System.Drawing.Point(3, 144);
-            this.lblFechaRecibido.Name = "lblFechaRecibido";
-            this.lblFechaRecibido.Size = new System.Drawing.Size(117, 19);
-            this.lblFechaRecibido.TabIndex = 17;
-            this.lblFechaRecibido.Text = "Fecha de recibido:";
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(290, 145);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(60, 19);
+            this.metroLabel7.TabIndex = 25;
+            this.metroLabel7.Text = "Importe:";
             // 
-            // tbCliente
+            // metroLabel6
             // 
-            this.tbCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCliente.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.tbCliente.Location = new System.Drawing.Point(4, 41);
-            this.tbCliente.Name = "tbCliente";
-            this.tbCliente.Size = new System.Drawing.Size(410, 25);
-            this.tbCliente.TabIndex = 1;
-            this.tbCliente.Text = "Ej. Juan";
-            this.tbCliente.Enter += new System.EventHandler(this.tbCliente_Enter);
-            this.tbCliente.Leave += new System.EventHandler(this.tbCliente_Leave);
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(147, 145);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(65, 19);
+            this.metroLabel6.TabIndex = 24;
+            this.metroLabel6.Text = "Cantidad:";
             // 
-            // PopUpLavanderiaModificacion
+            // tbMinimo
+            // 
+            this.tbMinimo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMinimo.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.tbMinimo.Location = new System.Drawing.Point(147, 167);
+            this.tbMinimo.Name = "tbMinimo";
+            this.tbMinimo.Size = new System.Drawing.Size(128, 25);
+            this.tbMinimo.TabIndex = 23;
+            this.tbMinimo.Text = "Ej. 5";
+            this.tbMinimo.TextChanged += new System.EventHandler(this.tbMinimo_TextChanged);
+            // 
+            // tbPrecio
+            // 
+            this.tbPrecio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrecio.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.tbPrecio.Location = new System.Drawing.Point(4, 167);
+            this.tbPrecio.Name = "tbPrecio";
+            this.tbPrecio.Size = new System.Drawing.Size(128, 25);
+            this.tbPrecio.TabIndex = 22;
+            this.tbPrecio.Text = "Ej. 50";
+            this.tbPrecio.TextChanged += new System.EventHandler(this.tbPrecio_TextChanged);
+            this.tbPrecio.Enter += new System.EventHandler(this.tbPrecio_Enter);
+            this.tbPrecio.Leave += new System.EventHandler(this.tbPrecio_Leave);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(0, 145);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(49, 19);
+            this.metroLabel5.TabIndex = 21;
+            this.metroLabel5.Text = "Precio:";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(0, 19);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(66, 19);
+            this.metroLabel2.TabIndex = 18;
+            this.metroLabel2.Text = "Producto:";
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(-1, 80);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(46, 19);
+            this.metroLabel1.TabIndex = 17;
+            this.metroLabel1.Text = "Fecha:";
+            // 
+            // tbBarras
+            // 
+            this.tbBarras.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBarras.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.tbBarras.Location = new System.Drawing.Point(4, 41);
+            this.tbBarras.Name = "tbBarras";
+            this.tbBarras.Size = new System.Drawing.Size(410, 25);
+            this.tbBarras.TabIndex = 12;
+            this.tbBarras.Text = "Ej. Doritos";
+            // 
+            // PopUpVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 461);
+            this.ClientSize = new System.Drawing.Size(541, 400);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.Name = "PopUpLavanderiaModificacion";
-            this.Resizable = false;
-            this.Text = "   Pedido";
-            this.Load += new System.EventHandler(this.PopUpAgregarFondo_Load);
+            this.Name = "PopUpVenta";
+            this.Text = "   Venta";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
@@ -289,19 +283,19 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private MetroFramework.Controls.MetroLabel lblCliente;
-        private MetroFramework.Controls.MetroLabel lblFechaRecibido;
-        private System.Windows.Forms.TextBox tbCliente;
+        private System.Windows.Forms.TextBox tbMaximo;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private System.Windows.Forms.TextBox tbMinimo;
+        private System.Windows.Forms.TextBox tbPrecio;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.TextBox tbBarras;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
         private MetroFramework.Controls.MetroDateTime dtFecha;
-        private MetroFramework.Controls.MetroLabel lblTelefono;
-        private System.Windows.Forms.TextBox tbTelefono;
-        private MetroFramework.Controls.MetroLabel lblTipodePago;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroComboBox cbTipoDePago;
-        private MetroFramework.Controls.MetroDateTime dtFechaEntrega;
-        private MetroFramework.Controls.MetroLabel lblFechaEntrega;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroComboBox cbEstado;
     }
 }

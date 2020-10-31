@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EcoPuraLibreria;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,23 +11,25 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class InicioVentana2 : MetroFramework.Forms.MetroForm
+    public partial class InicioVentana : MetroFramework.Forms.MetroForm
     {
-        public InicioVentana2()
+        User _user;
+        public InicioVentana(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            var producto = new VentanaProducto1();
+            var producto = new VentanaProducto();
             producto.StartPosition = FormStartPosition.CenterParent;
             producto.ShowDialog();
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            var ventas = new VentaVentana1();
+            var ventas = new VentaVentana();
             ventas.StartPosition = FormStartPosition.CenterParent;
             ventas.ShowDialog();
         }
@@ -40,7 +43,7 @@ namespace EcoPura
 
         private void btnPuntoVenta_Click(object sender, EventArgs e)
         {
-            var puntoVenta = new PuntoVentaVentana2();
+            var puntoVenta = new PuntoVentaVentana();
             puntoVenta.StartPosition = FormStartPosition.CenterParent;
             puntoVenta.ShowDialog();
         }
@@ -62,6 +65,21 @@ namespace EcoPura
             var configuracion = new ConfiguracionVentana();
             configuracion.StartPosition = FormStartPosition.CenterParent;
             configuracion.ShowDialog();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            if (!Shared.Autorizacion(_user))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "No estás autorizado para entrar a esta ventana", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void InicioVentana_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas salir de la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

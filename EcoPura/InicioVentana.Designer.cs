@@ -1,6 +1,6 @@
 ﻿namespace EcoPura
 {
-    partial class InicioVentana2
+    partial class InicioVentana
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioVentana2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioVentana));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnAlertas = new MetroFramework.Controls.MetroTile();
+            this.btnUsuarios = new MetroFramework.Controls.MetroTile();
             this.btnLavanderia = new MetroFramework.Controls.MetroTile();
             this.btnPuntoVenta = new MetroFramework.Controls.MetroTile();
             this.btnSalir = new MetroFramework.Controls.MetroTile();
@@ -47,6 +49,8 @@
             this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroPanel1.Controls.Add(this.btnAlertas);
+            this.metroPanel1.Controls.Add(this.btnUsuarios);
             this.metroPanel1.Controls.Add(this.btnLavanderia);
             this.metroPanel1.Controls.Add(this.btnPuntoVenta);
             this.metroPanel1.Controls.Add(this.btnSalir);
@@ -59,18 +63,55 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(26, 64);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(837, 424);
+            this.metroPanel1.Size = new System.Drawing.Size(1015, 424);
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // btnAlertas
+            // 
+            this.btnAlertas.ActiveControl = null;
+            this.btnAlertas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAlertas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlertas.Location = new System.Drawing.Point(28, 216);
+            this.btnAlertas.Name = "btnAlertas";
+            this.btnAlertas.Size = new System.Drawing.Size(155, 155);
+            this.btnAlertas.TabIndex = 9;
+            this.btnAlertas.Text = "Alertas";
+            this.btnAlertas.TileImage = global::EcoPura.Properties.Resources.alarma;
+            this.btnAlertas.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAlertas.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnAlertas.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnAlertas.UseCustomBackColor = true;
+            this.btnAlertas.UseSelectable = true;
+            this.btnAlertas.UseTileImage = true;
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.ActiveControl = null;
+            this.btnUsuarios.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuarios.Location = new System.Drawing.Point(28, 55);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(155, 155);
+            this.btnUsuarios.TabIndex = 8;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TileImage = global::EcoPura.Properties.Resources.usuarios;
+            this.btnUsuarios.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnUsuarios.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnUsuarios.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnUsuarios.UseCustomBackColor = true;
+            this.btnUsuarios.UseSelectable = true;
+            this.btnUsuarios.UseTileImage = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnLavanderia
             // 
             this.btnLavanderia.ActiveControl = null;
             this.btnLavanderia.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnLavanderia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLavanderia.Location = new System.Drawing.Point(19, 62);
+            this.btnLavanderia.Location = new System.Drawing.Point(189, 55);
             this.btnLavanderia.Name = "btnLavanderia";
             this.btnLavanderia.Size = new System.Drawing.Size(155, 316);
             this.btnLavanderia.TabIndex = 7;
@@ -89,7 +130,7 @@
             this.btnPuntoVenta.ActiveControl = null;
             this.btnPuntoVenta.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnPuntoVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPuntoVenta.Location = new System.Drawing.Point(502, 62);
+            this.btnPuntoVenta.Location = new System.Drawing.Point(672, 55);
             this.btnPuntoVenta.Name = "btnPuntoVenta";
             this.btnPuntoVenta.Size = new System.Drawing.Size(155, 316);
             this.btnPuntoVenta.TabIndex = 4;
@@ -108,7 +149,7 @@
             this.btnSalir.ActiveControl = null;
             this.btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.Location = new System.Drawing.Point(663, 62);
+            this.btnSalir.Location = new System.Drawing.Point(833, 55);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(155, 121);
             this.btnSalir.TabIndex = 6;
@@ -127,7 +168,7 @@
             this.btnCaja.ActiveControl = null;
             this.btnCaja.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCaja.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCaja.Location = new System.Drawing.Point(180, 223);
+            this.btnCaja.Location = new System.Drawing.Point(350, 216);
             this.btnCaja.Name = "btnCaja";
             this.btnCaja.Size = new System.Drawing.Size(316, 155);
             this.btnCaja.TabIndex = 2;
@@ -146,7 +187,7 @@
             this.btnCotizaciones.ActiveControl = null;
             this.btnCotizaciones.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCotizaciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCotizaciones.Location = new System.Drawing.Point(663, 189);
+            this.btnCotizaciones.Location = new System.Drawing.Point(833, 182);
             this.btnCotizaciones.Name = "btnCotizaciones";
             this.btnCotizaciones.Size = new System.Drawing.Size(155, 189);
             this.btnCotizaciones.TabIndex = 5;
@@ -165,7 +206,7 @@
             this.btnVentas.ActiveControl = null;
             this.btnVentas.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVentas.Location = new System.Drawing.Point(341, 62);
+            this.btnVentas.Location = new System.Drawing.Point(511, 55);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(155, 155);
             this.btnVentas.TabIndex = 3;
@@ -184,7 +225,7 @@
             this.btnProductos.ActiveControl = null;
             this.btnProductos.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductos.Location = new System.Drawing.Point(180, 62);
+            this.btnProductos.Location = new System.Drawing.Point(350, 55);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(155, 155);
             this.btnProductos.TabIndex = 1;
@@ -209,18 +250,19 @@
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // InicioVentana2
+            // InicioVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 511);
+            this.ClientSize = new System.Drawing.Size(1062, 511);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.metroPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "InicioVentana2";
+            this.Name = "InicioVentana";
             this.Resizable = false;
-            this.Text = "                                                Menú principal";
+            this.Text = "                                                              Menú principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InicioVentana_FormClosing);
             this.metroPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -238,5 +280,7 @@
         private MetroFramework.Controls.MetroTile btnPuntoVenta;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MetroFramework.Controls.MetroTile btnLavanderia;
+        private MetroFramework.Controls.MetroTile btnUsuarios;
+        private MetroFramework.Controls.MetroTile btnAlertas;
     }
 }

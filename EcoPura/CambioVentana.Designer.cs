@@ -1,6 +1,6 @@
 ﻿namespace EcoPura
 {
-    partial class CambioVentana1
+    partial class CambioVentana
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CambioVentana1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CambioVentana));
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.btnRetroceso = new System.Windows.Forms.Button();
@@ -309,6 +309,7 @@
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(47, 88);
+            this.txtCodigo.MaxLength = 15;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(311, 31);
             this.txtCodigo.TabIndex = 0;
@@ -320,11 +321,11 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTotal.Font = new System.Drawing.Font("Bahnschrift Condensed", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Black;
-            this.lblTotal.Location = new System.Drawing.Point(400, 275);
+            this.lblTotal.Location = new System.Drawing.Point(419, 289);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(156, 81);
+            this.lblTotal.Size = new System.Drawing.Size(111, 58);
             this.lblTotal.TabIndex = 50;
             this.lblTotal.Text = "0.00";
             // 
@@ -332,34 +333,32 @@
             // 
             this.RbTarjeta.AutoSize = true;
             this.RbTarjeta.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.RbTarjeta.Location = new System.Drawing.Point(641, 88);
+            this.RbTarjeta.Location = new System.Drawing.Point(654, 88);
             this.RbTarjeta.Name = "RbTarjeta";
             this.RbTarjeta.Size = new System.Drawing.Size(78, 25);
             this.RbTarjeta.TabIndex = 53;
             this.RbTarjeta.Text = "Tarjeta";
             this.RbTarjeta.UseSelectable = true;
-            this.RbTarjeta.CheckedChanged += new System.EventHandler(this.RbTarjeta_CheckedChanged);
             // 
             // RbEfectivo
             // 
             this.RbEfectivo.AutoSize = true;
             this.RbEfectivo.Checked = true;
             this.RbEfectivo.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.RbEfectivo.Location = new System.Drawing.Point(416, 88);
+            this.RbEfectivo.Location = new System.Drawing.Point(433, 88);
             this.RbEfectivo.Name = "RbEfectivo";
             this.RbEfectivo.Size = new System.Drawing.Size(90, 25);
             this.RbEfectivo.TabIndex = 54;
             this.RbEfectivo.TabStop = true;
             this.RbEfectivo.Text = "Efectivo";
             this.RbEfectivo.UseSelectable = true;
-            this.RbEfectivo.CheckedChanged += new System.EventHandler(this.RbEfectivo_CheckedChanged);
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(416, 254);
+            this.metroLabel1.Location = new System.Drawing.Point(425, 254);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(122, 25);
             this.metroLabel1.TabIndex = 55;
@@ -395,7 +394,7 @@
             this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizar.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnFinalizar.Location = new System.Drawing.Point(457, 368);
+            this.btnFinalizar.Location = new System.Drawing.Point(478, 374);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(240, 86);
             this.btnFinalizar.TabIndex = 13;
@@ -409,11 +408,11 @@
             this.lblDolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDolar.AutoSize = true;
             this.lblDolar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblDolar.Font = new System.Drawing.Font("Bahnschrift Condensed", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDolar.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDolar.ForeColor = System.Drawing.Color.Green;
-            this.lblDolar.Location = new System.Drawing.Point(604, 275);
+            this.lblDolar.Location = new System.Drawing.Point(644, 289);
             this.lblDolar.Name = "lblDolar";
-            this.lblDolar.Size = new System.Drawing.Size(156, 81);
+            this.lblDolar.Size = new System.Drawing.Size(111, 58);
             this.lblDolar.TabIndex = 47;
             this.lblDolar.Text = "0.00";
             // 
@@ -422,19 +421,18 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(618, 254);
+            this.metroLabel2.Location = new System.Drawing.Point(649, 254);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(83, 25);
             this.metroLabel2.TabIndex = 59;
             this.metroLabel2.Text = "En Dólar:";
-            this.metroLabel2.Click += new System.EventHandler(this.metroLabel2_Click);
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(505, 131);
+            this.metroLabel3.Location = new System.Drawing.Point(524, 131);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(130, 25);
             this.metroLabel3.TabIndex = 61;
@@ -446,11 +444,11 @@
             this.lblMonto.AutoSize = true;
             this.lblMonto.BackColor = System.Drawing.Color.Transparent;
             this.lblMonto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblMonto.Font = new System.Drawing.Font("Bahnschrift Condensed", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonto.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonto.ForeColor = System.Drawing.Color.Black;
-            this.lblMonto.Location = new System.Drawing.Point(402, 160);
+            this.lblMonto.Location = new System.Drawing.Point(419, 169);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(156, 81);
+            this.lblMonto.Size = new System.Drawing.Size(111, 58);
             this.lblMonto.TabIndex = 60;
             this.lblMonto.Text = "0.00";
             // 
@@ -459,19 +457,19 @@
             this.lblDolarTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDolarTotal.AutoSize = true;
             this.lblDolarTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblDolarTotal.Font = new System.Drawing.Font("Bahnschrift Condensed", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDolarTotal.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDolarTotal.ForeColor = System.Drawing.Color.Green;
-            this.lblDolarTotal.Location = new System.Drawing.Point(604, 160);
+            this.lblDolarTotal.Location = new System.Drawing.Point(644, 169);
             this.lblDolarTotal.Name = "lblDolarTotal";
-            this.lblDolarTotal.Size = new System.Drawing.Size(156, 81);
+            this.lblDolarTotal.Size = new System.Drawing.Size(111, 58);
             this.lblDolarTotal.TabIndex = 62;
             this.lblDolarTotal.Text = "0.00";
             // 
-            // CambioVentana1
+            // CambioVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 544);
+            this.ClientSize = new System.Drawing.Size(859, 544);
             this.Controls.Add(this.lblDolarTotal);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.lblMonto);
@@ -488,11 +486,10 @@
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "CambioVentana1";
+            this.Name = "CambioVentana";
             this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "    Cambio";
-            this.Load += new System.EventHandler(this.CambioVentana1_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

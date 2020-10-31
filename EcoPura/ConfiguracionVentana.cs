@@ -18,7 +18,7 @@ namespace EcoPura
             InitializeComponent();
         }
 
-       
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -26,19 +26,22 @@ namespace EcoPura
             {
                 float tipoCambio = float.Parse(tbTipoCambio.Text);
 
+                if (tipoCambio <= 0)
+                    throw new Exception();
+
                 string query1 = $@"update configuracion set impresora = '{cbImpresora.SelectedItem.ToString()}',
-               tipoCambio = {tbTipoCambio.Text} where id = 1";
+                tipoCambio = {tbTipoCambio.Text} where id = 1";
                 DatabaseAccess.EjecutarConsulta(query1);
                 MessageBox.Show("Configuración guardada");
                 this.Close();
-                
+
             }
-            catch(Exception es)
+            catch (Exception es)
             {
                 MessageBox.Show("Error en el tipo de cambio");
                 tbTipoCambio.Focus();
             }
-            
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -59,7 +62,7 @@ namespace EcoPura
             float tipoDeCambio = DatabaseAccess.PrecioTotal("Select tipocambio from configuracion where id = 1");
             tbTipoCambio.Text = tipoDeCambio.ToString();
 
-            
+
 
         }
     }

@@ -102,7 +102,7 @@
             this.tbMotivo.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbMotivo.Lines = new string[0];
             this.tbMotivo.Location = new System.Drawing.Point(54, 112);
-            this.tbMotivo.MaxLength = 32767;
+            this.tbMotivo.MaxLength = 30;
             this.tbMotivo.Name = "tbMotivo";
             this.tbMotivo.PasswordChar = '\0';
             this.tbMotivo.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -143,7 +143,7 @@
             this.tbRetirado.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbRetirado.Lines = new string[0];
             this.tbRetirado.Location = new System.Drawing.Point(54, 190);
-            this.tbRetirado.MaxLength = 32767;
+            this.tbRetirado.MaxLength = 15;
             this.tbRetirado.Name = "tbRetirado";
             this.tbRetirado.PasswordChar = '\0';
             this.tbRetirado.ScrollBars = System.Windows.Forms.ScrollBars.None;

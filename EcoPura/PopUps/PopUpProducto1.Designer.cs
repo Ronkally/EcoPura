@@ -1,6 +1,6 @@
 ﻿namespace EcoPura
 {
-    partial class PopUpProducto1
+    public partial class PopUpProducto1
     {
         /// <summary>
         /// Required designer variable.
@@ -74,7 +74,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(64, 71);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(422, 363);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -117,6 +117,7 @@
             this.tbCosto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCosto.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbCosto.Location = new System.Drawing.Point(216, 288);
+            this.tbCosto.MaxLength = 15;
             this.tbCosto.Name = "tbCosto";
             this.tbCosto.Size = new System.Drawing.Size(198, 23);
             this.tbCosto.TabIndex = 31;
@@ -129,6 +130,7 @@
             this.tbPrecio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPrecio.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbPrecio.Location = new System.Drawing.Point(3, 288);
+            this.tbPrecio.MaxLength = 15;
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(198, 23);
             this.tbPrecio.TabIndex = 28;
@@ -159,6 +161,7 @@
             this.tbMaximo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMaximo.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbMaximo.Location = new System.Drawing.Point(290, 229);
+            this.tbMaximo.MaxLength = 15;
             this.tbMaximo.Name = "tbMaximo";
             this.tbMaximo.Size = new System.Drawing.Size(124, 23);
             this.tbMaximo.TabIndex = 26;
@@ -189,6 +192,7 @@
             this.tbMinimo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMinimo.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbMinimo.Location = new System.Drawing.Point(147, 229);
+            this.tbMinimo.MaxLength = 15;
             this.tbMinimo.Name = "tbMinimo";
             this.tbMinimo.Size = new System.Drawing.Size(128, 23);
             this.tbMinimo.TabIndex = 23;
@@ -201,6 +205,7 @@
             this.tbExistencia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbExistencia.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbExistencia.Location = new System.Drawing.Point(4, 229);
+            this.tbExistencia.MaxLength = 15;
             this.tbExistencia.Name = "tbExistencia";
             this.tbExistencia.Size = new System.Drawing.Size(128, 23);
             this.tbExistencia.TabIndex = 22;
@@ -284,6 +289,7 @@
             this.tbBarras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbBarras.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbBarras.Location = new System.Drawing.Point(4, 105);
+            this.tbBarras.MaxLength = 20;
             this.tbBarras.Name = "tbBarras";
             this.tbBarras.Size = new System.Drawing.Size(410, 23);
             this.tbBarras.TabIndex = 12;
@@ -296,6 +302,7 @@
             this.tbDescripcioon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDescripcioon.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbDescripcioon.Location = new System.Drawing.Point(3, 47);
+            this.tbDescripcioon.MaxLength = 30;
             this.tbDescripcioon.Name = "tbDescripcioon";
             this.tbDescripcioon.Size = new System.Drawing.Size(411, 23);
             this.tbDescripcioon.TabIndex = 11;
@@ -331,6 +338,7 @@
             // 
             this.tbCantidadD.ForeColor = System.Drawing.SystemColors.Desktop;
             this.tbCantidadD.Location = new System.Drawing.Point(7, 226);
+            this.tbCantidadD.MaxLength = 15;
             this.tbCantidadD.Name = "tbCantidadD";
             this.tbCantidadD.Size = new System.Drawing.Size(404, 21);
             this.tbCantidadD.TabIndex = 13;
@@ -342,6 +350,7 @@
             // 
             this.tbPorcentajeD.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbPorcentajeD.Location = new System.Drawing.Point(7, 160);
+            this.tbPorcentajeD.MaxLength = 3;
             this.tbPorcentajeD.Name = "tbPorcentajeD";
             this.tbPorcentajeD.Size = new System.Drawing.Size(407, 21);
             this.tbPorcentajeD.TabIndex = 12;
@@ -554,7 +563,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private System.Windows.Forms.TextBox tbMinimo;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private System.Windows.Forms.TextBox tbMaximo;
+        public System.Windows.Forms.TextBox tbMaximo;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private System.Windows.Forms.TextBox tbPrecio;

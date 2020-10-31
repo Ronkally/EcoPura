@@ -64,5 +64,10 @@ namespace EcoPura
                 tbPrecio.ForeColor = Color.Gray;
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

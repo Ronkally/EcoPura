@@ -306,7 +306,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LavanderiaVentana";
-            this.Text = "    Lavandería";
+            this.Text = "    Limpiaduría";
             this.Load += new System.EventHandler(this.LavanderiaVentana_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelSide.ResumeLayout(false);

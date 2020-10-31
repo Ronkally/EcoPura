@@ -89,8 +89,8 @@ namespace EcoPura
             {
                 foreach (DataRow fila in Clasificacion.Rows)
                 {
-                          if(fila[1].ToString() != "Agua")
-                            cbClasificacion.Items.Add(fila["Clasificacion"].ToString());
+                    if (fila[1].ToString() != "Agua")
+                        cbClasificacion.Items.Add(fila["Clasificacion"].ToString());
 
                     if (cbClasificacion.Text.Equals(fila["Clasificacion"].ToString()))
                         cbClasificacion.SelectedIndex = cbClasificacion.FindStringExact(cbClasificacion.Text);
@@ -376,48 +376,48 @@ namespace EcoPura
         {
             bool bandera = true;
 
-            if (tbDescripcioon.Text.Equals("Ej. Doritos") || tbDescripcioon.Text.Equals("Ingresa una descripción"))
+            if (tbDescripcioon.Text.Equals("Ej. Doritos") || tbDescripcioon.Text.Equals("Ingresa una descripción") || Shared.InvalidString(tbDescripcioon.Text))
             {
                 tbDescripcioon.Text = "Ingresa una descripción";
                 tbDescripcioon.ForeColor = Color.Red;
                 bandera = false;
             }
 
-            if (tbBarras.Text.Equals("Ej. 5901234123") || !IsNumber(tbBarras.Text) || tbBarras.Text.Equals("Ingresa un código de barras, solo números"))
+            if (tbBarras.Text.Equals("Ej. 5901234123") || !IsNumber(tbBarras.Text) || tbBarras.Text.Equals("Ingresa un código de barras, solo números") || Shared.InvalidString(tbBarras.Text))
             {
                 tbBarras.Text = "Ingresa un código de barras, solo números";
                 tbBarras.ForeColor = Color.Red;
                 bandera = false;
             }
 
-            if (tbPrecio.Text.Equals("Ej. 15") || !IsNumber(tbPrecio.Text) || tbPrecio.Text.Equals("Ingresa un precio, solo números"))
+            if (tbPrecio.Text.Equals("Ej. 15") || !IsNumber(tbPrecio.Text) || tbPrecio.Text.Equals("Ingresa un precio, solo números") || Shared.InvalidString(tbPrecio.Text))
             {
                 tbPrecio.Text = "Ingresa un precio, solo números";
                 tbPrecio.ForeColor = Color.Red;
                 bandera = false;
             }
 
-            if (!IsNumber(tbCantidadD.Text) || tbCantidadD.Text.Equals("Ingresa solo números"))
+            if (!IsNumber(tbCantidadD.Text) || tbCantidadD.Text.Equals("Ingresa solo números") || Shared.InvalidString(tbCantidadD.Text))
             {
                 tbCantidadD.Text = "Ingresa solo números";
                 tbCantidadD.ForeColor = Color.Red;
                 bandera = false;
             }
 
-            if (!IsNumber(tbPorcentajeD.Text) || tbPorcentajeD.Text.Equals("Ingresa solo números"))
+            if (!IsNumber(tbPorcentajeD.Text) || tbPorcentajeD.Text.Equals("Ingresa solo números") || Shared.InvalidString(tbPorcentajeD.Text))
             {
                 tbPorcentajeD.Text = "Ingresa solo números";
                 tbPorcentajeD.ForeColor = Color.Red;
                 bandera = false;
             }
 
-            if (tbExistencia.Text.Equals("Ej. 50") || !IsNumber(tbExistencia.Text) || tbExistencia.Text.Equals("Ingresa una existencia, solo números"))
+            if (tbExistencia.Text.Equals("Ej. 50") || !IsNumber(tbExistencia.Text) || tbExistencia.Text.Equals("Ingresa una existencia, solo números") || Shared.InvalidString(tbExistencia.Text))
             {
                 tbExistencia.Text = "Ingresa una existencia, solo números";
                 tbExistencia.ForeColor = Color.Red;
                 bandera = false;
             }
-            if(!(cbClasificacion.SelectedIndex > -1))
+            if (!(cbClasificacion.SelectedIndex > -1))
             {
                 MessageBox.Show("Selecciona una clasificación");
                 bandera = false;
@@ -448,8 +448,8 @@ namespace EcoPura
 
             if (!float.TryParse(text, out parsedValue))
                 return false;
-
-            return true;
+            else
+                return parsedValue >= 0;
         }
 
         private void PopUpProducto1_Load(object sender, EventArgs e)
@@ -457,9 +457,6 @@ namespace EcoPura
             metroTabControl1.SelectedTab = metroTabPage1;
             CargarClasificacion();
             CargarProveedores();
-            //Para quitar el focus inicial
-
-
         }
 
 

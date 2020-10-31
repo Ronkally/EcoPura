@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class VentaVentana1 : MetroFramework.Forms.MetroForm
+    public partial class VentaVentana : MetroFramework.Forms.MetroForm
     {
-        public VentaVentana1()
+        public VentaVentana()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;

@@ -65,7 +65,7 @@ namespace EcoPura
         {
             bool bandera = true;
 
-            if (string.IsNullOrEmpty(tbAgregar.Text) || tbAgregar.Text.Equals("Agrega un proveedor") || tbAgregar.Text.Equals("Proveedor ya existe"))
+            if (Shared.InvalidString(tbAgregar.Text) || tbAgregar.Text.Equals("Agrega un proveedor") || tbAgregar.Text.Equals("Proveedor ya existe"))
             {
                 bandera = false;
                 tbAgregar.Text = "Agrega un proveedor";

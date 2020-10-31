@@ -72,7 +72,7 @@ namespace EcoPura
         {
             bool bandera = true;
 
-            if (string.IsNullOrEmpty(tbAgregar.Text) || tbAgregar.Text.Equals("Agrega una clasificación") || tbAgregar.Text.Equals("Clasificación ya existe"))
+            if (Shared.InvalidString(tbAgregar.Text) || tbAgregar.Text.Equals("Agrega una clasificación") || tbAgregar.Text.Equals("Clasificación ya existe"))
             {
                 bandera = false;
                 tbAgregar.Text = "Agrega una clasificación";

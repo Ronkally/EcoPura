@@ -68,7 +68,7 @@
             this.tbAgregado.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbAgregado.Lines = new string[0];
             this.tbAgregado.Location = new System.Drawing.Point(58, 194);
-            this.tbAgregado.MaxLength = 32767;
+            this.tbAgregado.MaxLength = 15;
             this.tbAgregado.Name = "tbAgregado";
             this.tbAgregado.PasswordChar = '\0';
             this.tbAgregado.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -109,7 +109,7 @@
             this.tbMotivo.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbMotivo.Lines = new string[0];
             this.tbMotivo.Location = new System.Drawing.Point(58, 116);
-            this.tbMotivo.MaxLength = 32767;
+            this.tbMotivo.MaxLength = 30;
             this.tbMotivo.Name = "tbMotivo";
             this.tbMotivo.PasswordChar = '\0';
             this.tbMotivo.ScrollBars = System.Windows.Forms.ScrollBars.None;

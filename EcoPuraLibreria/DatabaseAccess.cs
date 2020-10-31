@@ -18,15 +18,15 @@ namespace EcoPuraLibreria
         }
 
         public static DataTable CargarTabla(string query)
-         {
-            using(SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+        {
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 DataTable da = new DataTable();
                 var output = new SQLiteDataAdapter(query, cnn);
                 output.Fill(da);
                 return da;
             }
-         }
+        }
 
         public static bool Existe(string query)
         {
@@ -43,7 +43,7 @@ namespace EcoPuraLibreria
 
             using (var db = new SQLiteConnection(LoadConnectionString()))
             {
-                return db.ExecuteScalar<int>(query) ;
+                return db.ExecuteScalar<int>(query);
             }
 
         }
@@ -68,12 +68,9 @@ namespace EcoPuraLibreria
 
         }
 
-     
-
-
-        public static void EjecutarConsulta(string query )
+        public static void EjecutarConsulta(string query)
         {
-            using(SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            using (SQLiteConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Execute(query);
             }

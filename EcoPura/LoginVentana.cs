@@ -16,6 +16,7 @@ namespace EcoPura
         public LoginVentana()
         {
             InitializeComponent();
+            tbUsuario.Select();
         }
 
 
@@ -58,58 +59,73 @@ namespace EcoPura
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Validacion())
-            {
-                //select count(Id) from Project
-                string query = $"Select count(Usuario) FROM Usuarios WHERE Usuario = '{tbUsuario.Text}' AND Contrasena = '{tbContrasena.Text}' ";
-                bool DoesExist = DatabaseAccess.Existe(query);
-
-                if (DoesExist)
-                {
-                    var Ventana = new InicioVentana2();
-                    Ventana.StartPosition = FormStartPosition.CenterScreen;
-                    Ventana.Show();
-                    this.Close();
-                }
-                else
-                {
-                    tbUsuario.Text = "Ingresa un usuario válido";
-                    tbUsuario.ForeColor = Color.Red;
-
-                    tbContrasena.Text = "Ingresa una contraseña válida";
-                    tbContrasena.ForeColor = Color.Red;
-                }
-                
-
-
-            }
-         
-
+            Login();
         }
 
         public bool Validacion()
         {
             bool bandera = true;
 
-
-            if (string.IsNullOrEmpty(tbUsuario.Text) || tbUsuario.Text.Equals("Ingresa un usuario válido"))
+            if (string.IsNullOrEmpty(tbUsuario.Text) || tbUsuario.Text.Equals("Usuario"))
             {
-                tbUsuario.Text = "Ingresa un usuario válido";
-                tbUsuario.ForeColor = Color.Red;
                 bandera = false;
             }
 
-
-            if (string.IsNullOrEmpty(tbContrasena.Text) || tbContrasena.Text.Equals("Ingresa una contraseña válida") )
+            if (string.IsNullOrEmpty(tbContrasena.Text) || tbContrasena.Text.Equals("Contraseña"))
             {
-                tbContrasena.Text = "Ingresa una contraseña válida";
-                tbContrasena.ForeColor = Color.Red;
                 bandera = false;
             }
 
+            if (!bandera)
+                MetroFramework.MetroMessageBox.Show(this, "Por favor verifique que los campos estén llenos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             return bandera;
+        }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void tbContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login();
+            }
+        }
+
+        private void Login()
+        {
+            if (Validacion())
+            {
+                //select count(Id) from Project
+                string query = $"Select * FROM Usuarios WHERE Usuario = '{tbUsuario.Text}' AND Contrasena = '{tbContrasena.Text}' ";
+                var user = DatabaseAccess.CargarTabla(query);
+
+                if (user.Rows.Count > 0)
+                {
+                    var currentUser = new User(user);
+
+                    var Ventana = new InicioVentana(currentUser);
+                    Ventana.StartPosition = FormStartPosition.CenterScreen;
+                    Hide();
+                    Ventana.ShowDialog();
+                    Close();
+                }
+                else
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "No se encontró el usuario", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void tbUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login();
+            }
         }
     }
 }

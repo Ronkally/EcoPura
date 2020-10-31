@@ -99,6 +99,7 @@
             this.tbAgregar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAgregar.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbAgregar.Location = new System.Drawing.Point(8, 9);
+            this.tbAgregar.MaxLength = 25;
             this.tbAgregar.Name = "tbAgregar";
             this.tbAgregar.Size = new System.Drawing.Size(183, 29);
             this.tbAgregar.TabIndex = 34;

@@ -13,20 +13,20 @@ using EcoPuraLibreria;
 
 namespace EcoPura
 {
-    public partial class CambioVentana1 : MetroFramework.Forms.MetroForm
+    public partial class CambioVentana : MetroFramework.Forms.MetroForm
     {
         float total = 0;
         float totalrecibido = 0;
         bool tieneDolar = false;
         float cambioT = 0;
-        public CambioVentana1()
+        public CambioVentana()
         {
             InitializeComponent();
         }
 
         DataGridView gridview;
 
-        public CambioVentana1(float total, DataGridView rows)
+        public CambioVentana(float total, DataGridView rows)
         {
             InitializeComponent();
             txtCodigo.Focus();
@@ -150,14 +150,18 @@ namespace EcoPura
 
             try
             {
-                 cantidadRecibida = float.Parse(txtCodigo.Text);
+                cantidadRecibida = float.Parse(txtCodigo.Text);
+
+                if (cantidadRecibida <= 0)
+                    throw new ArgumentException();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Monto recibido erróneo ");
+                return;
             }
-            
-            if(tieneDolar)
+
+            if (tieneDolar)
                 cantidadRecibida = cantidadRecibida * DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
 
             totalrecibido += cantidadRecibida;
@@ -182,7 +186,7 @@ namespace EcoPura
             {
                 if (tieneDolar)
                 {
-                   
+
                     total = total - cantidadRecibida;
                     float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
                     lblDolarTotal.Text = dolares.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
@@ -190,12 +194,12 @@ namespace EcoPura
                 }
                 else
                 {
-                    
+
                     total = total - cantidadRecibida;
                     float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
                     lblDolarTotal.Text = dolares.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
                     lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
-                    
+
                 }
 
 
@@ -218,7 +222,7 @@ namespace EcoPura
             {
 
                 string clasificacion = DatabaseAccess.GetInfo($@"SELECT IdClasificacion FROM Productos WHERE Descripcion = '{fila.Cells[1].Value.ToString()}'");
-                if(String.IsNullOrEmpty(clasificacion))
+                if (String.IsNullOrEmpty(clasificacion))
                 {
                     clasificacion = "3";
                 }
@@ -255,7 +259,7 @@ namespace EcoPura
                 DatabaseAccess.EjecutarConsulta(query1);
                 DatabaseAccess.EjecutarConsulta(query);
 
-                
+
 
             }
             Caja(total, fechaHora);
@@ -264,14 +268,14 @@ namespace EcoPura
 
             ControlarInventarios();
             bool acepta = MetroFramework.MetroMessageBox.Show(this, "¿Desea imprimir el Ticket de la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
-            
+
 
             Ticket ticket = new Ticket();
             int noTicket = DatabaseAccess.Cantidad("select max(id) from caja");
 
             //Cabecera
             ticket.TextoCentro("EcoPura");
-            ticket.TextoIzquierda("No. Ticket: "+ noTicket.ToString());
+            ticket.TextoIzquierda("No. Ticket: " + noTicket.ToString());
             ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
             ticket.TextoIzquierda("DIREC: Salvador Alvarado, Misión #4480, Soler, 22530 Tijuana, B.C.  ");
             ticket.TextoIzquierda("TEL: 664 975 4148");
@@ -302,12 +306,12 @@ namespace EcoPura
             ticket.AgregarTotales("         TOTAL.........$", (decimal)total);
             ticket.AgregarTotales("         RECIBIDO......$", (decimal)totalrecibido);
             ticket.AgregarTotales("         CAMBIO........$", (decimal)cambioT);
-           // ticket.TextoIzquierda("");
+            // ticket.TextoIzquierda("");
 
             //Texto final del Ticket.
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + gridview.RowCount.ToString());
-           // ticket.TextoIzquierda("");
+            // ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
@@ -320,7 +324,7 @@ namespace EcoPura
                 ticket.ImprimirTicket("Microsoft XPS Document Writer", "No. Ticket: " + noTicket.ToString());
 
                 if (acepta)
-                  ticket.ImprimirTicket(DatabaseAccess.GetInfo("select impresora from configuracion where id = 1"), "No. Ticket: " + noTicket.ToString());
+                    ticket.ImprimirTicket(DatabaseAccess.GetInfo("select impresora from configuracion where id = 1"), "No. Ticket: " + noTicket.ToString());
 
                 ticket.ClearMethod();
             }
@@ -328,27 +332,6 @@ namespace EcoPura
 
             this.Close();
         }
-
-        private void metroLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CambioVentana1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RbTarjeta_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RbEfectivo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ControlarInventarios()
         {
             foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
@@ -357,20 +340,19 @@ namespace EcoPura
                 if (!fila.Cells[0].Value.ToString().Equals(""))
                 {
                     int cantidad = DatabaseAccess.Cantidad("SELECT existencia FROM PRODUCTOS WHERE Codigo = '" + fila.Cells[0].Value.ToString() + "'");
-             
+
                     if (cantidad < Int32.Parse(fila.Cells[3].Value.ToString()))
                         cantidad = 0;
                     else
                         cantidad -= Int32.Parse(fila.Cells[3].Value.ToString());
 
 
-                    DatabaseAccess.EjecutarConsulta("UPDATE PRODUCTOS SET existencia = " + cantidad.ToString() + " WHERE Codigo ='" + fila.Cells[0].Value.ToString()+"'");
+                    DatabaseAccess.EjecutarConsulta("UPDATE PRODUCTOS SET existencia = " + cantidad.ToString() + " WHERE Codigo ='" + fila.Cells[0].Value.ToString() + "'");
 
                 }
             }
-            
-        }
 
+        }
         private void Caja(float total, string fechaHora)
         {
             int tipoPago = 2;

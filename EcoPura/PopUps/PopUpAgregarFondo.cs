@@ -37,6 +37,10 @@ namespace EcoPura
 
                 string fechaHora = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
                 float montoAgregado = float.Parse(tbAgregado.Text);
+
+                if (montoAgregado <= 0)
+                    throw new ArgumentException();
+
                 string descripcion = tbMotivo.Text;
                 int tipoPago = 1;
 
@@ -48,11 +52,11 @@ namespace EcoPura
                 string query = $@"Insert into caja (Ingreso, motivo, Fecha, idpago, tipo) values({montoAgregado}, '{descripcion}', '{fechaHora}', {tipoPago},'Ingreso')";
                 DatabaseAccess.EjecutarConsulta(query);
                 this.Close();
-            
+
             }
             catch (Exception es)
             {
-                MessageBox.Show("Error en el monto a ingresar y/o no hay motivo especifícado");
+                MetroFramework.MetroMessageBox.Show(this, "Error en el monto a ingresar y/o no hay motivo especificado", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class PuntoVentaVentana2 : MetroFramework.Forms.MetroForm
+    public partial class PuntoVentaVentana : MetroFramework.Forms.MetroForm
     {
 
         DataTable Productos;
         bool Alcaline = false;
         int contadorGarrafones = 0;
-        
-        public PuntoVentaVentana2()
+
+        public PuntoVentaVentana()
         {
             InitializeComponent();
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -143,7 +143,7 @@ namespace EcoPura
             {
                 AgregarProducto();
             }
-          
+
 
         }
 
@@ -235,7 +235,7 @@ namespace EcoPura
 
         private void btnGarrafon20L_Click(object sender, EventArgs e)
         {
-            if(cbTipo.SelectedIndex == 0)
+            if (cbTipo.SelectedIndex == 0)
             {
                 if (!DoesRowExist("1 Litro Purificada"))
                 {
@@ -249,7 +249,7 @@ namespace EcoPura
                     AddRowGarrafon("1 Litro Alcalina", 4, 1, 4);
                 }
             }
-           // contadorGarrafones++;
+            // contadorGarrafones++;
             Total();
             gridview.ClearSelection();
             SelectTextBox();
@@ -309,7 +309,7 @@ namespace EcoPura
                 float total = float.Parse(converter.Replace("$", ""));
 
 
-                var cambio = new CambioVentana1(total, gridview);
+                var cambio = new CambioVentana(total, gridview);
                 cambio.StartPosition = FormStartPosition.CenterParent;
                 cambio.ShowDialog();
                 gridview.Rows.Clear();
@@ -407,7 +407,7 @@ namespace EcoPura
             Total();
         }
 
- 
+
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -487,7 +487,7 @@ namespace EcoPura
                 }
             }
 
-           // contadorGarrafones++;
+            // contadorGarrafones++;
             Total();
             gridview.ClearSelection();
             SelectTextBox();
@@ -502,10 +502,10 @@ namespace EcoPura
                 row.Cells[gridview.Columns["Código"].Index].Value = "";
                 row.Cells[gridview.Columns["Descripción"].Index].Value = descripcion;
                 row.Cells[gridview.Columns["Precio"].Index].Value = precio;
-                row.Cells[gridview.Columns["Cantidad"].Index].Value = cantidad; 
+                row.Cells[gridview.Columns["Cantidad"].Index].Value = cantidad;
                 row.Cells[gridview.Columns["Importe"].Index].Value = importe;
                 gridview.Rows.Add(row);
-                
+
             }
         }
 
@@ -531,18 +531,18 @@ namespace EcoPura
 
         private void DescuentoGarrafon()
         {
-            if (contadorGarrafones >= 4 && contadorGarrafones <= 6 )
+            if (contadorGarrafones >= 4 && contadorGarrafones <= 6)
             {
                 for (int j = 0; j < gridview.Rows.Count; j++)
                 {
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("5 Galones Purificada"))
                     {
 
-                    
+
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
-                        if(precio == 13.50)
-                            precio =  precio -1;
+                        if (precio == 13.50)
+                            precio = precio - 1;
 
                         gridview.Rows[j].Cells["Precio"].Value = precio;
                         int cantidad = int.Parse(gridview.Rows[j].Cells["Cantidad"].Value.ToString());
@@ -575,7 +575,7 @@ namespace EcoPura
                 }
             }
 
-            if (contadorGarrafones >= 7 )
+            if (contadorGarrafones >= 7)
             {
                 for (int j = 0; j < gridview.Rows.Count; j++)
                 {
@@ -603,7 +603,7 @@ namespace EcoPura
                     if (gridview.Rows[j].Cells["Descripción"].Value.ToString().Contains("20 Litros Purificada"))
                     {
 
-      
+
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
                         if (precio == 13.00)
@@ -623,8 +623,8 @@ namespace EcoPura
             }
         }
         private void QuitarDescuento()
-{
-            if (contadorGarrafones < 4 )
+        {
+            if (contadorGarrafones < 4)
             {
                 for (int j = 0; j < gridview.Rows.Count; j++)
                 {
@@ -647,12 +647,12 @@ namespace EcoPura
 
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
-                        
+
                         precio = 14.00F;
 
                         gridview.Rows[j].Cells["Precio"].Value = precio;
 
-                        
+
                     }
                 }
             }
@@ -667,7 +667,7 @@ namespace EcoPura
 
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
-                        if(precio == 11.50F)
+                        if (precio == 11.50F)
                             precio = 12.50F;
 
                         gridview.Rows[j].Cells["Precio"].Value = precio;
@@ -686,7 +686,7 @@ namespace EcoPura
 
                         gridview.Rows[j].Cells["Precio"].Value = precio;
 
-                  
+
                     }
                 }
             }
@@ -764,9 +764,9 @@ namespace EcoPura
                     AddRowGarrafon("3 Galones Alcalina", 25, 1, 25);
                 }
             }
-            
+
             DescuentoGarrafon();
-            
+
             Total();
             gridview.ClearSelection();
             SelectTextBox();
@@ -794,7 +794,7 @@ namespace EcoPura
                 }
             }
             DescuentoGarrafon();
-            
+
             Total();
             gridview.ClearSelection();
             SelectTextBox();

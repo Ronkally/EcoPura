@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace EcoPura
 {
-    public partial class PopUpSacarMonto  : MetroFramework.Forms.MetroForm
+    public partial class PopUpSacarMonto : MetroFramework.Forms.MetroForm
     {
         public PopUpSacarMonto()
         {
@@ -32,15 +32,19 @@ namespace EcoPura
         {
             try
             {
-                if (String.IsNullOrEmpty(tbMotivo.Text))
+                if (Shared.InvalidString(tbMotivo.Text))
                     throw new ArgumentException();
 
                 string fechaHora = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
                 float montoRetirado = float.Parse(tbRetirado.Text);
+
+                if (montoRetirado <= 0)
+                    throw new ArgumentException();
+
                 string descripcion = tbMotivo.Text;
 
                 float totalCaja = DatabaseAccess.PrecioTotal("SELECT SUM(INGRESO) FROM CAJA WHERE TIPO != 'Retiro' AND IdPago = 1");
-                
+
                 if (totalCaja >= montoRetirado)
                 {
                     string query = $@"Insert into caja (Ingreso, motivo, Fecha, idpago, tipo) values({montoRetirado}, '{descripcion}', '{fechaHora}', {1},'Retiro')";
