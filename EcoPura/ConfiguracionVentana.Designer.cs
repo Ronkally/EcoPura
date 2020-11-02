@@ -36,6 +36,8 @@
             this.cbImpresora = new MetroFramework.Controls.MetroComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.tbCorreo = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +67,7 @@
             // 
             // 
             this.tbTipoCambio.CustomButton.Image = null;
-            this.tbTipoCambio.CustomButton.Location = new System.Drawing.Point(221, 1);
+            this.tbTipoCambio.CustomButton.Location = new System.Drawing.Point(319, 1);
             this.tbTipoCambio.CustomButton.Name = "";
             this.tbTipoCambio.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.tbTipoCambio.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -76,7 +78,7 @@
             this.tbTipoCambio.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbTipoCambio.Lines = new string[0];
             this.tbTipoCambio.Location = new System.Drawing.Point(35, 117);
-            this.tbTipoCambio.MaxLength = 32767;
+            this.tbTipoCambio.MaxLength = 5;
             this.tbTipoCambio.Name = "tbTipoCambio";
             this.tbTipoCambio.PasswordChar = '\0';
             this.tbTipoCambio.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -121,7 +123,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(211, 275);
+            this.btnCancelar.Location = new System.Drawing.Point(211, 365);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(81, 29);
             this.btnCancelar.TabIndex = 33;
@@ -139,7 +141,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(115, 275);
+            this.btnAgregar.Location = new System.Drawing.Point(115, 365);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(81, 29);
             this.btnAgregar.TabIndex = 32;
@@ -147,11 +149,54 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.Location = new System.Drawing.Point(32, 268);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(149, 25);
+            this.metroLabel2.TabIndex = 34;
+            this.metroLabel2.Text = "Correo de Alertas:";
+            // 
+            // tbCorreo
+            // 
+            // 
+            // 
+            // 
+            this.tbCorreo.CustomButton.Image = null;
+            this.tbCorreo.CustomButton.Location = new System.Drawing.Point(319, 1);
+            this.tbCorreo.CustomButton.Name = "";
+            this.tbCorreo.CustomButton.Size = new System.Drawing.Size(33, 33);
+            this.tbCorreo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbCorreo.CustomButton.TabIndex = 1;
+            this.tbCorreo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbCorreo.CustomButton.UseSelectable = true;
+            this.tbCorreo.CustomButton.Visible = false;
+            this.tbCorreo.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.tbCorreo.Lines = new string[0];
+            this.tbCorreo.Location = new System.Drawing.Point(35, 296);
+            this.tbCorreo.MaxLength = 25;
+            this.tbCorreo.Name = "tbCorreo";
+            this.tbCorreo.PasswordChar = '\0';
+            this.tbCorreo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbCorreo.SelectedText = "";
+            this.tbCorreo.SelectionLength = 0;
+            this.tbCorreo.SelectionStart = 0;
+            this.tbCorreo.ShortcutsEnabled = true;
+            this.tbCorreo.Size = new System.Drawing.Size(353, 35);
+            this.tbCorreo.TabIndex = 35;
+            this.tbCorreo.UseSelectable = true;
+            this.tbCorreo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbCorreo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // ConfiguracionVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 343);
+            this.ClientSize = new System.Drawing.Size(426, 433);
+            this.Controls.Add(this.tbCorreo);
+            this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cbImpresora);
@@ -180,5 +225,7 @@
         private MetroFramework.Controls.MetroComboBox cbImpresora;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroTextBox tbCorreo;
     }
 }

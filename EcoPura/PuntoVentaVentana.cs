@@ -14,10 +14,12 @@ namespace EcoPura
         DataTable Productos;
         bool Alcaline = false;
         int contadorGarrafones = 0;
+        User _user;
 
-        public PuntoVentaVentana()
+        public PuntoVentaVentana(User user)
         {
             InitializeComponent();
+            _user = user;
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             WindowState = FormWindowState.Maximized;
             this.ActiveControl = labelP;
@@ -294,7 +296,7 @@ namespace EcoPura
             {
                 string converter = labelP.Text;
                 float total = float.Parse(converter.Replace("$", ""));
-                var cambio = new CambioVentana(total, gridview);
+                var cambio = new CambioVentana(total, gridview, _user);
                 cambio.StartPosition = FormStartPosition.CenterParent;
                 cambio.ShowDialog();
                 gridview.Rows.Clear();
@@ -630,7 +632,7 @@ namespace EcoPura
                         float precio = float.Parse(gridview.Rows[j].Cells["Precio"].Value.ToString());
 
                         if (precio == 12.00F)
-                            precio = 14.00F;
+                            precio = 13.00F;
 
                         gridview.Rows[j].Cells["Precio"].Value = precio;
                     }
@@ -739,6 +741,13 @@ namespace EcoPura
             Total();
             gridview.ClearSelection();
             SelectTextBox();
+        }
+
+        private void btnLimpiaduria_Click(object sender, EventArgs e)
+        {
+            var ventanaPedidos = new PopUpVentaLavanderia(_user);
+            ventanaPedidos.StartPosition = FormStartPosition.CenterParent;
+            ventanaPedidos.ShowDialog();
         }
     }
 }

@@ -100,7 +100,7 @@ namespace EcoPura
             if (Validacion())
             {
                 //select count(Id) from Project
-                string query = $"Select * FROM Usuarios WHERE Usuario = '{tbUsuario.Text}' AND Contrasena = '{tbContrasena.Text}' ";
+                string query = $"Select * FROM Usuarios WHERE Usuario = '{tbUsuario.Text}' AND Contrasena = '{tbContrasena.Text}' AND Estado = 'Habilitado'";
                 var user = DatabaseAccess.CargarTabla(query);
 
                 if (user.Rows.Count > 0)

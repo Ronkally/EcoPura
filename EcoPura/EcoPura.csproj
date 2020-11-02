@@ -141,6 +141,18 @@
     <Compile Include="LoginVentana.Designer.cs">
       <DependentUpon>LoginVentana.cs</DependentUpon>
     </Compile>
+    <Compile Include="PopUps\PopUpAbonar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUps\PopUpAbonar.Designer.cs">
+      <DependentUpon>PopUpAbonar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUps\PopUpUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUps\PopUpUsuario.Designer.cs">
+      <DependentUpon>PopUpUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="PopUps\PopUpAgregarFondo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +209,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Alertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas.Designer.cs">
+      <DependentUpon>Alertas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaUsuarios.Designer.cs">
+      <DependentUpon>VentanaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +250,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginVentana.resx">
       <DependentUpon>LoginVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUps\PopUpAbonar.resx">
+      <DependentUpon>PopUpAbonar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUps\PopUpUsuario.resx">
+      <DependentUpon>PopUpUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopUps\PopUpAgregarFondo.resx">
       <DependentUpon>PopUpAgregarFondo.cs</DependentUpon>
@@ -264,6 +294,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Alertas.resx">
+      <DependentUpon>Alertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaUsuarios.resx">
+      <DependentUpon>VentanaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentanaProducto.resx">
       <DependentUpon>VentanaProducto.cs</DependentUpon>
     </EmbeddedResource>

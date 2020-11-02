@@ -32,6 +32,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.tbAbono = new System.Windows.Forms.TextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.lblTelefono = new MetroFramework.Controls.MetroLabel();
             this.tbTelefono = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -71,6 +73,8 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.tbAbono);
+            this.metroTabPage1.Controls.Add(this.metroLabel1);
             this.metroTabPage1.Controls.Add(this.lblTelefono);
             this.metroTabPage1.Controls.Add(this.tbTelefono);
             this.metroTabPage1.Controls.Add(this.btnCancelar);
@@ -96,6 +100,28 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // tbAbono
+            // 
+            this.tbAbono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAbono.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.tbAbono.Location = new System.Drawing.Point(230, 227);
+            this.tbAbono.MaxLength = 8;
+            this.tbAbono.Name = "tbAbono";
+            this.tbAbono.Size = new System.Drawing.Size(184, 25);
+            this.tbAbono.TabIndex = 38;
+            this.tbAbono.Text = "Ej. 50";
+            this.tbAbono.Enter += new System.EventHandler(this.tbAbono_Enter);
+            this.tbAbono.Leave += new System.EventHandler(this.tbAbono_Leave);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(227, 205);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(52, 19);
+            this.metroLabel1.TabIndex = 37;
+            this.metroLabel1.Text = "Abono:";
+            // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
@@ -110,6 +136,7 @@
             this.tbTelefono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTelefono.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbTelefono.Location = new System.Drawing.Point(4, 104);
+            this.tbTelefono.MaxLength = 15;
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(410, 25);
             this.tbTelefono.TabIndex = 2;
@@ -192,6 +219,7 @@
             this.tbPrecio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPrecio.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbPrecio.Location = new System.Drawing.Point(230, 166);
+            this.tbPrecio.MaxLength = 8;
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(184, 25);
             this.tbPrecio.TabIndex = 4;
@@ -231,6 +259,7 @@
             this.tbCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCliente.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbCliente.Location = new System.Drawing.Point(4, 41);
+            this.tbCliente.MaxLength = 40;
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.Size = new System.Drawing.Size(410, 25);
             this.tbCliente.TabIndex = 1;
@@ -276,5 +305,7 @@
         private MetroFramework.Controls.MetroComboBox cbTipoDePago;
         private MetroFramework.Controls.MetroLabel lblTelefono;
         private System.Windows.Forms.TextBox tbTelefono;
+        private System.Windows.Forms.TextBox tbAbono;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }

@@ -14,8 +14,10 @@ namespace EcoPura
 {
     public partial class VentanaProducto : MetroFramework.Forms.MetroForm
     {
-        public VentanaProducto()
+        User _user;
+        public VentanaProducto(User user)
         {
+            _user = user;
             InitializeComponent();
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             WindowState = FormWindowState.Maximized;
@@ -74,6 +76,12 @@ namespace EcoPura
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (!Shared.Autorizacion(_user))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "No estás autorizado para entrar a esta ventana", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (gridview.SelectedRows.Count > 0)
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas borrar este producto?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
@@ -150,7 +158,7 @@ namespace EcoPura
 
         private void btnProveedor_Click(object sender, EventArgs e)
         {
-            PopUpProveedores proveedores = new PopUpProveedores();
+            PopUpProveedores proveedores = new PopUpProveedores(_user);
             proveedores.StartPosition = FormStartPosition.CenterParent;
             proveedores.ShowDialog();
             gridview.ClearSelection();
@@ -159,7 +167,7 @@ namespace EcoPura
 
         private void btnClasificación_Click(object sender, EventArgs e)
         {
-            PopUpClasificacion clasificacion = new PopUpClasificacion();
+            PopUpClasificacion clasificacion = new PopUpClasificacion(_user);
             clasificacion.StartPosition = FormStartPosition.CenterParent;
             clasificacion.ShowDialog();
             gridview.ClearSelection();

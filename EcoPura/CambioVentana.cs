@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,22 +20,23 @@ namespace EcoPura
         float totalrecibido = 0;
         bool tieneDolar = false;
         float cambioT = 0;
+        User _user;
         public CambioVentana()
         {
             InitializeComponent();
+
         }
 
         DataGridView gridview;
 
-        public CambioVentana(float total, DataGridView rows)
+        public CambioVentana(float total, DataGridView rows, User user)
         {
             InitializeComponent();
             txtCodigo.Focus();
-
+            _user = user;
             float settup = 0;
             this.total = total;
             float dolares = total / DatabaseAccess.PrecioTotal("select tipocambio from configuracion where id = 1");
-
             this.gridview = rows;
             lblTotal.Text = settup.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
             lblMonto.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
@@ -177,6 +179,8 @@ namespace EcoPura
                 lblDolarTotal.Text = "0.00";
                 lblMonto.Text = "0.00";
                 btnFinalizar.Visible = true;
+                txtCodigo.Enabled = false;
+                btnRetroceso.Enabled = false;
             }
             else
             {
@@ -209,6 +213,7 @@ namespace EcoPura
         {
             float total = 0;
             string fechaHora = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+            int cantidad = 0;
             foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
             {
 
@@ -223,18 +228,16 @@ namespace EcoPura
                     clasificacion = "5";
                 }
 
-
                 int tipoPago = 2;
                 if (RbEfectivo.Checked)
                     tipoPago = 1;
 
-
-                string query = $@"Insert into Ventas (fechahora, producto, precio, cantidad, importe, idPago, IdClasificacion) values (
+                string query = $@"Insert into Ventas (fechahora, producto, precio, cantidad, importe, idPago, IdClasificacion, IdUsuario) values (
                 '{fechaHora}','{fila.Cells[1].Value.ToString()}',
                 {Decimal.Parse(fila.Cells[2].Value.ToString())},
                 {Int32.Parse(fila.Cells[3].Value.ToString())},
                 {Decimal.Parse(fila.Cells[4].Value.ToString())},
-                {tipoPago}, {clasificacion}
+                {tipoPago}, {clasificacion}, '{_user.Id}'
                 )";
 
                 string query1 = $@"Insert into VentasCorte (fechahora, producto, precio, cantidad, importe, idPago, IdClasificacion) values (
@@ -249,17 +252,10 @@ namespace EcoPura
 
                 DatabaseAccess.EjecutarConsulta(query1);
                 DatabaseAccess.EjecutarConsulta(query);
-
-
-
             }
             Caja(total, fechaHora);
 
-
-
             ControlarInventarios();
-            bool acepta = MetroFramework.MetroMessageBox.Show(this, "¿Desea imprimir el Ticket de la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
-
 
             Ticket ticket = new Ticket();
             int noTicket = DatabaseAccess.Cantidad("select max(id) from caja");
@@ -268,12 +264,13 @@ namespace EcoPura
             ticket.TextoCentro("EcoPura");
             ticket.TextoIzquierda("No. Ticket: " + noTicket.ToString());
             ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-            ticket.TextoIzquierda("DIREC: Salvador Alvarado, Misión #4480, Soler, 22530 Tijuana, B.C.  ");
+            ticket.TextoIzquierda("DIREC: Salvador Alvarado 4820 Local 26 Plaza Misión Col. Soler");
             ticket.TextoIzquierda("TEL: 664 975 4148");
             ticket.lineasAsteriscos();
 
             //Sub cabecera.
             ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("Empleado: " + _user.Name);
             ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
             ticket.TextoIzquierda("");
             ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
@@ -284,14 +281,10 @@ namespace EcoPura
 
             foreach (DataGridViewRow fila in gridview.Rows)//dgvLista es el nombre del datagridview
             {
-
-
                 ticket.AgregaArticulo(fila.Cells[1].Value.ToString(), Int32.Parse(fila.Cells[3].Value.ToString()), Decimal.Parse(fila.Cells[2].Value.ToString()), Decimal.Parse(fila.Cells[4].Value.ToString()));
-
-
+                cantidad += Int32.Parse(fila.Cells[3].Value.ToString());
             }
             ticket.lineasGuio();
-
 
             //Resumen de la venta
             ticket.AgregarTotales("         TOTAL.........$", (decimal)total);
@@ -301,7 +294,7 @@ namespace EcoPura
 
             //Texto final del Ticket.
             ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + gridview.RowCount.ToString());
+            ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: " + cantidad);
             // ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.TextoIzquierda("");
@@ -311,10 +304,12 @@ namespace EcoPura
             ticket.CortaTicket();
             try
             {
+                using (StreamWriter wr = new StreamWriter($"Tickets/NoTicket-{noTicket.ToString()}, {DateTime.Now.ToString("dddd, dd MMMM yyyy")}.txt"))
+                {
+                    wr.WriteLine(ticket.linea);
+                }
 
-                ticket.ImprimirTicket("Microsoft XPS Document Writer", "No. Ticket: " + noTicket.ToString());
-
-                if (acepta)
+                if (RbImprimirTicket.Checked)
                     ticket.ImprimirTicket(DatabaseAccess.GetInfo("select impresora from configuracion where id = 1"), "No. Ticket: " + noTicket.ToString());
 
                 ticket.ClearMethod();
@@ -337,12 +332,14 @@ namespace EcoPura
                     else
                         cantidad -= Int32.Parse(fila.Cells[3].Value.ToString());
 
+                    int minimo = DatabaseAccess.Cantidad("SELECT Minimo FROM PRODUCTOS WHERE Codigo = '" + fila.Cells[0].Value.ToString() + "'");
+
+                    if (minimo >= cantidad)
+                        Alerta(fila);
 
                     DatabaseAccess.EjecutarConsulta("UPDATE PRODUCTOS SET existencia = " + cantidad.ToString() + " WHERE Codigo ='" + fila.Cells[0].Value.ToString() + "'");
-
                 }
             }
-
         }
         private void Caja(float total, string fechaHora)
         {
@@ -352,6 +349,20 @@ namespace EcoPura
 
             string query = $@"Insert into caja (Ingreso, motivo, Fecha, idpago, tipo) values({total}, 'Venta', '{fechaHora}', {tipoPago},'Ingreso')";
             DatabaseAccess.EjecutarConsulta(query);
+        }
+
+        private void Alerta(DataGridViewRow fila)
+        {
+            string query = $@"SELECT COUNT(1)
+                              FROM Alertas
+                              WHERE Alerta = 'Baja existencia en el producto {fila.Cells[1].Value.ToString()}'";
+
+            if (!DatabaseAccess.Existe(query))
+            {
+                string insert = $@"Insert into Alertas (Alerta) values('Baja existencia en el producto {fila.Cells[1].Value.ToString()}')";
+                DatabaseAccess.EjecutarConsulta(insert);
+                Shared.Email($"Baja existencia en el producto {fila.Cells[1].Value.ToString()}");
+            }
         }
     }
 }

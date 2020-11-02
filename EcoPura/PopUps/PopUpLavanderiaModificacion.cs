@@ -13,11 +13,12 @@ namespace EcoPura
 {
     public partial class PopUpLavanderiaModificacion : MetroFramework.Forms.MetroForm
     {
-        string _id = "";
+        string _id;
         public PopUpLavanderiaModificacion(string id)
         {
             InitializeComponent();
             _id = id;
+            LlenarCampos(id);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -27,7 +28,6 @@ namespace EcoPura
 
         private void PopUpAgregarFondo_Load(object sender, EventArgs e)
         {
-            cbTipoDePago.SelectedIndex = 0;
             cbEstado.SelectedIndex = 1;
         }
 
@@ -35,11 +35,26 @@ namespace EcoPura
         {
             if (validacion())
             {
-                int pago = cbTipoDePago.SelectedIndex == 0 ? 1 : 2;
                 string query = $@"Update Limpiaduria Set Cliente='{tbCliente.Text}', telefono = '{tbTelefono.Text}', Estado = '{cbEstado.Text}', FechaInicial = '{dtFecha.Value.ToString("MM/dd/yyyy")}', FechaEntregado = '{dtFechaEntrega.Value.ToString("MM/dd/yyyy")}' where NumPedido = {_id}";
                 DatabaseAccess.EjecutarConsulta(query);
                 this.Close();
             }
+        }
+
+        private void LlenarCampos(string codigo)
+        {
+            string query = $@"Select Cliente, Telefono, FechaInicial, FechaEntregado, Estado FROM Limpiaduria WHERE NumPedido = {codigo}";
+
+            DataTable da = DatabaseAccess.CargarTabla(query);
+
+            tbCliente.Text = da.Rows[0][0].ToString();
+            tbTelefono.Text = da.Rows[0][1].ToString();
+            dtFecha.Value = DateTime.Parse(da.Rows[0][2].ToString());
+            if (!Shared.InvalidString(da.Rows[0][3].ToString()))
+            {
+                dtFechaEntrega.Value = DateTime.Parse(da.Rows[0][3].ToString());
+            }
+            cbEstado.SelectedIndex = cbEstado.FindStringExact(da.Rows[0][4].ToString());
         }
 
         #region validaciones
@@ -47,14 +62,14 @@ namespace EcoPura
         {
             bool bandera = true;
 
-            if (string.IsNullOrEmpty(tbCliente.Text) || tbCliente.Text.Equals("Ej. Juan") || tbCliente.Text.Equals("Ingresa un nombre valido"))
+            if (string.IsNullOrEmpty(tbCliente.Text) || tbCliente.Text.Equals("Ej. Juan") || tbCliente.Text.Equals("Ingresa un nombre valido") || Shared.InvalidString(tbTelefono.Text))
             {
                 bandera = false;
                 tbCliente.Text = "Ingresa un nombre valido";
                 tbCliente.ForeColor = Color.Red;
             }
 
-            if (!IsNumber(tbTelefono.Text) || tbTelefono.Text.Equals("Ej. 6647523659") || tbTelefono.Text.Equals("Ingresa un teléfono valido, solo números"))
+            if (!IsNumber(tbTelefono.Text) || tbTelefono.Text.Equals("Ej. 6647523659") || tbTelefono.Text.Equals("Ingresa un teléfono valido, solo números") || Shared.InvalidString(tbTelefono.Text))
             {
                 bandera = false;
                 tbTelefono.Text = "Ingresa un teléfono valido, solo números";
@@ -69,8 +84,8 @@ namespace EcoPura
 
             if (!float.TryParse(text, out parsedValue))
                 return false;
-
-            return true;
+            else
+                return parsedValue >= 0;
         }
         #endregion
 

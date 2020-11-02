@@ -16,7 +16,6 @@ namespace EcoPura
 
         Boolean Actualizar = false;
         string codigo;
-        ErrorProvider validacion = new ErrorProvider();
 
         public PopUpProducto1()
         {

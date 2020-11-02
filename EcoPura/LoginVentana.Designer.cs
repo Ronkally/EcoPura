@@ -47,7 +47,7 @@
             // 
             this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsuario.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.tbUsuario.Location = new System.Drawing.Point(185, 36);
+            this.tbUsuario.Location = new System.Drawing.Point(186, 39);
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(265, 26);
             this.tbUsuario.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             this.tbContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbContrasena.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.tbContrasena.Location = new System.Drawing.Point(185, 86);
+            this.tbContrasena.Location = new System.Drawing.Point(186, 89);
             this.tbContrasena.Name = "tbContrasena";
             this.tbContrasena.PasswordChar = '*';
             this.tbContrasena.Size = new System.Drawing.Size(265, 26);
@@ -125,7 +125,7 @@
             // pbUsuario
             // 
             this.pbUsuario.Image = global::EcoPura.Properties.Resources.boton_de_cuenta_redonda_con_usuario_dentro;
-            this.pbUsuario.Location = new System.Drawing.Point(153, 34);
+            this.pbUsuario.Location = new System.Drawing.Point(154, 37);
             this.pbUsuario.Name = "pbUsuario";
             this.pbUsuario.Size = new System.Drawing.Size(26, 27);
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +135,7 @@
             // pbContrasena
             // 
             this.pbContrasena.Image = global::EcoPura.Properties.Resources.bloquear;
-            this.pbContrasena.Location = new System.Drawing.Point(153, 83);
+            this.pbContrasena.Location = new System.Drawing.Point(154, 86);
             this.pbContrasena.Name = "pbContrasena";
             this.pbContrasena.Size = new System.Drawing.Size(26, 27);
             this.pbContrasena.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

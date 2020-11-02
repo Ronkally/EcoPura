@@ -21,6 +21,8 @@ namespace EcoPura
                 MessageBox.Show("Error, la aplicación ya está ejecutándose");
                 return;
             }
+            System.IO.Directory.CreateDirectory("Tickets");
+            System.IO.Directory.CreateDirectory("Cortes");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginVentana());

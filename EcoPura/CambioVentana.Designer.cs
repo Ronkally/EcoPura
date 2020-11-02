@@ -56,8 +56,12 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.lblMonto = new System.Windows.Forms.Label();
             this.lblDolarTotal = new System.Windows.Forms.Label();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.RbImprimirTicket = new MetroFramework.Controls.MetroRadioButton();
+            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -333,7 +337,7 @@
             // 
             this.RbTarjeta.AutoSize = true;
             this.RbTarjeta.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.RbTarjeta.Location = new System.Drawing.Point(654, 88);
+            this.RbTarjeta.Location = new System.Drawing.Point(649, 63);
             this.RbTarjeta.Name = "RbTarjeta";
             this.RbTarjeta.Size = new System.Drawing.Size(78, 25);
             this.RbTarjeta.TabIndex = 53;
@@ -345,7 +349,7 @@
             this.RbEfectivo.AutoSize = true;
             this.RbEfectivo.Checked = true;
             this.RbEfectivo.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.RbEfectivo.Location = new System.Drawing.Point(433, 88);
+            this.RbEfectivo.Location = new System.Drawing.Point(429, 63);
             this.RbEfectivo.Name = "RbEfectivo";
             this.RbEfectivo.Size = new System.Drawing.Size(90, 25);
             this.RbEfectivo.TabIndex = 54;
@@ -394,7 +398,7 @@
             this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizar.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnFinalizar.Location = new System.Drawing.Point(478, 374);
+            this.btnFinalizar.Location = new System.Drawing.Point(466, 373);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(240, 86);
             this.btnFinalizar.TabIndex = 13;
@@ -432,7 +436,7 @@
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(524, 131);
+            this.metroLabel3.Location = new System.Drawing.Point(515, 144);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(130, 25);
             this.metroLabel3.TabIndex = 61;
@@ -465,11 +469,51 @@
             this.lblDolarTotal.TabIndex = 62;
             this.lblDolarTotal.Text = "0.00";
             // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.metroRadioButton1);
+            this.metroPanel1.Controls.Add(this.RbImprimirTicket);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(415, 94);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(400, 47);
+            this.metroPanel1.TabIndex = 63;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // RbImprimirTicket
+            // 
+            this.RbImprimirTicket.AutoSize = true;
+            this.RbImprimirTicket.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.RbImprimirTicket.Location = new System.Drawing.Point(234, 11);
+            this.RbImprimirTicket.Name = "RbImprimirTicket";
+            this.RbImprimirTicket.Size = new System.Drawing.Size(146, 25);
+            this.RbImprimirTicket.TabIndex = 2;
+            this.RbImprimirTicket.Text = "Imprimir Ticket";
+            this.RbImprimirTicket.UseSelectable = true;
+            // 
+            // metroRadioButton1
+            // 
+            this.metroRadioButton1.AutoSize = true;
+            this.metroRadioButton1.Checked = true;
+            this.metroRadioButton1.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.metroRadioButton1.Location = new System.Drawing.Point(14, 11);
+            this.metroRadioButton1.Name = "metroRadioButton1";
+            this.metroRadioButton1.Size = new System.Drawing.Size(124, 25);
+            this.metroRadioButton1.TabIndex = 3;
+            this.metroRadioButton1.TabStop = true;
+            this.metroRadioButton1.Text = "No imprimir";
+            this.metroRadioButton1.UseSelectable = true;
+            // 
             // CambioVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 544);
+            this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.lblDolarTotal);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.lblMonto);
@@ -492,6 +536,8 @@
             this.Text = "    Cambio";
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,5 +572,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.Label lblDolarTotal;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
+        private MetroFramework.Controls.MetroRadioButton RbImprimirTicket;
     }
 }

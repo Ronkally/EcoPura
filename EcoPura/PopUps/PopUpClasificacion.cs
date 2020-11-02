@@ -15,12 +15,11 @@ namespace EcoPura
     {
 
         string proveedor;
-        public PopUpClasificacion()
+        User _user;
+        public PopUpClasificacion(User user)
         {
             InitializeComponent();
-
-            //GridProveedores.Rows.Add("Pepsico");
-
+            _user = user;
         }
 
         private void tbAgregar_Enter(object sender, EventArgs e)
@@ -96,6 +95,12 @@ namespace EcoPura
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (!Shared.Autorizacion(_user))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "No estás autorizado para entrar a esta ventana", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (GridClasificacion.SelectedRows.Count > 0)
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas borrar esta Clasificación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)

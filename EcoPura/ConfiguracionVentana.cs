@@ -26,19 +26,19 @@ namespace EcoPura
             {
                 float tipoCambio = float.Parse(tbTipoCambio.Text);
 
-                if (tipoCambio <= 0)
+                if (tipoCambio <= 0 || Shared.InvalidString(tbCorreo.Text))
                     throw new Exception();
 
-                string query1 = $@"update configuracion set impresora = '{cbImpresora.SelectedItem.ToString()}',
+                string query1 = $@"update configuracion  set Correo = '{tbCorreo.Text}', impresora = '{cbImpresora.SelectedItem.ToString()}',
                 tipoCambio = {tbTipoCambio.Text} where id = 1";
                 DatabaseAccess.EjecutarConsulta(query1);
-                MessageBox.Show("Configuración guardada");
+                MetroFramework.MetroMessageBox.Show(this, "Configuración guardada", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 this.Close();
 
             }
             catch (Exception es)
             {
-                MessageBox.Show("Error en el tipo de cambio");
+                MetroFramework.MetroMessageBox.Show(this, "Error al establecer el tipo de cambio o el correo", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tbTipoCambio.Focus();
             }
 
@@ -61,6 +61,9 @@ namespace EcoPura
 
             float tipoDeCambio = DatabaseAccess.PrecioTotal("Select tipocambio from configuracion where id = 1");
             tbTipoCambio.Text = tipoDeCambio.ToString();
+
+            string correo = DatabaseAccess.GetInfo("Select correo from configuracion where id = 1");
+            tbCorreo.Text = correo;
         }
     }
 }

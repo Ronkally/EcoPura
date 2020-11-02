@@ -47,11 +47,11 @@ namespace EcoPura
                     this.Close();
                 }
                 else
-                    MessageBox.Show("No hay suficiente dinero en caja");
+                    MetroFramework.MetroMessageBox.Show(this, "No hay suficiente dinero en caja", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception es)
             {
-                MessageBox.Show("Error en el monto a retirar y/o no hay motivo especifícado");
+                MetroFramework.MetroMessageBox.Show(this, "Error en el monto a retiro y/o no hay motivo especificado", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

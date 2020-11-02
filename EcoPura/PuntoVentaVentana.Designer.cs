@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuntoVentaVentana));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PuntoVentaVentana));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelSide = new MetroFramework.Controls.MetroPanel();
@@ -71,6 +71,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.labelP = new System.Windows.Forms.Label();
             this.lblDolar = new System.Windows.Forms.Label();
+            this.btnLimpiaduria = new MetroFramework.Controls.MetroTile();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSide.SuspendLayout();
@@ -121,6 +123,8 @@
             // panelSide
             // 
             this.panelSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelSide.Controls.Add(this.metroLabel3);
+            this.panelSide.Controls.Add(this.btnLimpiaduria);
             this.panelSide.Controls.Add(this.metroLabel1);
             this.panelSide.Controls.Add(this.cbTipo);
             this.panelSide.Controls.Add(this.btn20Litros);
@@ -377,8 +381,8 @@
             // 
             this.gridview.AllowUserToAddRows = false;
             this.gridview.AllowUserToResizeRows = false;
-            this.gridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.gridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridview.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -428,7 +432,6 @@
             this.gridview.UseStyleColors = true;
             this.gridview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_CellDoubleClick);
             this.gridview.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_CellEndEdit);
-            this.gridview.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.gridview_RowsAdded);
             // 
             // Código
             // 
@@ -650,7 +653,7 @@
             // 
             // splitContainer2
             // 
-            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
@@ -690,6 +693,38 @@
             this.lblDolar.TabIndex = 4;
             this.lblDolar.Text = "0.00";
             // 
+            // btnLimpiaduria
+            // 
+            this.btnLimpiaduria.ActiveControl = null;
+            this.btnLimpiaduria.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLimpiaduria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiaduria.Location = new System.Drawing.Point(13, 414);
+            this.btnLimpiaduria.Name = "btnLimpiaduria";
+            this.btnLimpiaduria.Size = new System.Drawing.Size(86, 102);
+            this.btnLimpiaduria.TabIndex = 57;
+            this.btnLimpiaduria.Text = "Pedido";
+            this.btnLimpiaduria.TileImage = ((System.Drawing.Image)(resources.GetObject("btnLimpiaduria.TileImage")));
+            this.btnLimpiaduria.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnLimpiaduria.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.btnLimpiaduria.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnLimpiaduria.UseCustomBackColor = true;
+            this.btnLimpiaduria.UseSelectable = true;
+            this.btnLimpiaduria.UseTileImage = true;
+            this.btnLimpiaduria.Click += new System.EventHandler(this.btnLimpiaduria_Click);
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.Location = new System.Drawing.Point(100, 380);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(101, 25);
+            this.metroLabel3.TabIndex = 58;
+            this.metroLabel3.Text = "Limpiaduría";
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseCustomForeColor = true;
+            // 
             // PuntoVentaVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -704,7 +739,6 @@
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PuntoVentaVentana2_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PuntoVentaVentana2_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PuntoVentaVentana2_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -773,5 +807,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private MetroFramework.Controls.MetroTile btnLimpiaduria;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }

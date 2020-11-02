@@ -534,7 +534,7 @@
             this.Name = "PopUpProducto1";
             this.Resizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "    Alta producto";
+            this.Text = "9";
             this.Load += new System.EventHandler(this.PopUpProducto1_Load);
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);

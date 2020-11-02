@@ -14,8 +14,10 @@ namespace EcoPura
 {
     public partial class VentaVentana : MetroFramework.Forms.MetroForm
     {
-        public VentaVentana()
+        User _user;
+        public VentaVentana(User user)
         {
+            _user = user;
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -23,7 +25,11 @@ namespace EcoPura
 
         private void VentaVentana1_Load(object sender, EventArgs e)
         {
-            CargarGridView(0);
+            if (_user.Rol == 1)
+                CargarGridView(0);
+            else
+                CargarGridViewEmpleado(0);
+
             cbCategoria.SelectedIndex = 0;
         }
 
@@ -36,17 +42,64 @@ namespace EcoPura
             if (i == 0)
             {
                 query = @"SELECT  Producto, SUM(Precio) AS Precio , sum(Cantidad) As Cantidad, sum(Importe) As Importe
-                             FROM Ventas
+                             FROM Ventas                  
                              WHERE FechaHora like '%" + fecha + "%' group by Producto, cantidad " +
                             "Order By cantidad desc";
             }
             else
             {
-                query = @"SELECT FechaHora as 'Fecha', Producto, Precio, Cantidad, Importe, Pago.Pago
+                query = @"SELECT FechaHora as 'Fecha', Producto, Precio, Cantidad, Importe, Pago.Pago, Usuarios.Nombre
                                FROM Ventas
                                LEFT JOIN Pago
                                ON Ventas.IdPago = Pago.IdPago
+                               LEFT JOIN Usuarios
+                               ON Ventas.IdUsuario = Usuarios.IdUsuario
                                WHERE FechaHora like '%" + fecha + "%'";
+            }
+
+
+            gridview.DataSource = null;
+            this.gridview.DataSource = DatabaseAccess.CargarTabla(query);
+            if (i != 0)
+            {
+                gridview.Columns["Producto"].Width = 230;
+                gridview.Columns["Fecha"].Width = 200;
+
+            }
+
+            gridview.Columns["Precio"].DefaultCellStyle.Format = "c";
+            gridview.Columns["Precio"].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("es-MX");
+
+            gridview.Columns["Importe"].DefaultCellStyle.Format = "c";
+            gridview.Columns["Importe"].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("es-MX");
+
+            gridview.ClearSelection();
+        }
+
+        private void CargarGridViewEmpleado(int i)
+        {
+
+            string fecha = dtFecha.Value.ToString("MM/dd/yyyy");
+            string query = "";
+
+            if (i == 0)
+            {
+                query = @"SELECT  Producto, SUM(Precio) AS Precio , sum(Cantidad) As Cantidad, sum(Importe) As Importe
+                             FROM Ventas
+                             LEFT JOIN Usuarios
+                             ON Ventas.IdUsuario = Usuarios.IdUsuario
+                             WHERE FechaHora like '%" + fecha + "%' AND Usuarios.IdUsuario = " + _user.Id + " group by Producto, cantidad " +
+                            "Order By cantidad desc";
+            }
+            else
+            {
+                query = @"SELECT FechaHora as 'Fecha', Producto, Precio, Cantidad, Importe, Pago.Pago, Usuarios.Nombre
+                               FROM Ventas
+                               LEFT JOIN Pago
+                               ON Ventas.IdPago = Pago.IdPago
+                               LEFT JOIN Usuarios
+                               ON Ventas.IdUsuario = Usuarios.IdUsuario
+                               WHERE FechaHora like '%" + fecha + "%' AND Usuarios.IdUsuario = " + _user.Id + "";
             }
 
 
@@ -93,18 +146,38 @@ namespace EcoPura
 
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbCategoria.SelectedIndex == 1)
-                CargarGridView(1);
+            if (_user.Rol == 1)
+            {
+                if (cbCategoria.SelectedIndex == 1)
+                    CargarGridView(1);
+                else
+                    CargarGridView(0);
+            }
             else
-                CargarGridView(0);
+            {
+                if (cbCategoria.SelectedIndex == 1)
+                    CargarGridViewEmpleado(1);
+                else
+                    CargarGridViewEmpleado(0);
+            }
         }
 
         private void dtFecha_ValueChanged(object sender, EventArgs e)
         {
-            if (cbCategoria.SelectedIndex == 1)
-                CargarGridView(1);
+            if (_user.Rol == 1)
+            {
+                if (cbCategoria.SelectedIndex == 1)
+                    CargarGridView(1);
+                else
+                    CargarGridView(0);
+            }
             else
-                CargarGridView(0);
+            {
+                if (cbCategoria.SelectedIndex == 1)
+                    CargarGridViewEmpleado(1);
+                else
+                    CargarGridViewEmpleado(0);
+            }
         }
 
         private void btnGenerarVenta_Click(object sender, EventArgs e)
@@ -115,6 +188,11 @@ namespace EcoPura
             venta.ShowDialog();
             gridview.ClearSelection();
             CargarGridView(i);
+        }
+
+        private void btnProveedor_Click(object sender, EventArgs e)
+        {
+            MetroFramework.MetroMessageBox.Show(this, "En Construcción", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
     }
 }

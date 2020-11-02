@@ -13,10 +13,11 @@ namespace EcoPura
 {
     public partial class LavanderiaVentana : MetroFramework.Forms.MetroForm
     {
-        public LavanderiaVentana()
+        User _user;
+        public LavanderiaVentana(User user)
         {
             InitializeComponent();
-
+            _user = user;
             WindowState = FormWindowState.Maximized;
         }
 
@@ -28,7 +29,7 @@ namespace EcoPura
         private void CargarGridView()
         {
             string fecha = dtFecha.Value.ToString("MM/dd/yyyy");
-            string query = $@"SELECT NUMPEDIDO AS NoPedido, Cliente, Telefono as Teléfono, Estado, FechaInicial, FechaEntregado
+            string query = $@"SELECT NUMPEDIDO AS NoPedido, Cliente, Telefono as Teléfono, Estado, FechaInicial, FechaEntregado, Costo, Recibido
                              From limpiaduria
                              WHERE FechaInicial like '%{ fecha }%' AND Estado = '{cbCategoria.Text}'";
 
@@ -44,7 +45,7 @@ namespace EcoPura
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            var ventanaPedidos = new PopUpVentaLavanderia();
+            var ventanaPedidos = new PopUpVentaLavanderia(_user);
             ventanaPedidos.StartPosition = FormStartPosition.CenterParent;
             ventanaPedidos.ShowDialog();
             CargarGridView();
@@ -57,6 +58,12 @@ namespace EcoPura
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (!Shared.Autorizacion(_user))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "No estás autorizado para entrar a esta ventana", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (gridview.SelectedRows.Count > 0)
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas borrar este pedido?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
@@ -71,7 +78,7 @@ namespace EcoPura
                 }
             }
             else
-                MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto de la tabla para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un pedido de la tabla para eliminar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -88,7 +95,24 @@ namespace EcoPura
                 CargarGridView();
             }
             else
-                MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto de la tabla para modificar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un pedido de la tabla para modificar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
+        private void btnAbonar_Click(object sender, EventArgs e)
+        {
+            if (gridview.SelectedRows.Count > 0)
+            {
+                int selectedRowIndex = gridview.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = gridview.Rows[selectedRowIndex];
+                string codigo = selectedRow.Cells["NoPedido"].Value.ToString();
+                var popup = new PopUpAbonar(codigo, _user);
+                popup.StartPosition = FormStartPosition.CenterParent;
+                popup.ShowDialog();
+                gridview.ClearSelection();
+                CargarGridView();
+            }
+            else
+                MetroFramework.MetroMessageBox.Show(this, "Por favor selecciona un producto de la tabla para abonar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
     }
 }

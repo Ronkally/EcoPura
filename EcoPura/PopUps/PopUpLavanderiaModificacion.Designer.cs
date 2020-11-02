@@ -39,9 +39,7 @@
             this.lblTelefono = new MetroFramework.Controls.MetroLabel();
             this.tbTelefono = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblTipodePago = new MetroFramework.Controls.MetroLabel();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.cbTipoDePago = new MetroFramework.Controls.MetroComboBox();
             this.dtFecha = new MetroFramework.Controls.MetroDateTime();
             this.lblCliente = new MetroFramework.Controls.MetroLabel();
             this.lblFechaRecibido = new MetroFramework.Controls.MetroLabel();
@@ -80,9 +78,7 @@
             this.metroTabPage1.Controls.Add(this.lblTelefono);
             this.metroTabPage1.Controls.Add(this.tbTelefono);
             this.metroTabPage1.Controls.Add(this.btnCancelar);
-            this.metroTabPage1.Controls.Add(this.lblTipodePago);
             this.metroTabPage1.Controls.Add(this.btnAgregar);
-            this.metroTabPage1.Controls.Add(this.cbTipoDePago);
             this.metroTabPage1.Controls.Add(this.dtFecha);
             this.metroTabPage1.Controls.Add(this.lblCliente);
             this.metroTabPage1.Controls.Add(this.lblFechaRecibido);
@@ -120,7 +116,7 @@
             "Entregado"});
             this.cbEstado.Location = new System.Drawing.Point(4, 228);
             this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(203, 25);
+            this.cbEstado.Size = new System.Drawing.Size(410, 25);
             this.cbEstado.TabIndex = 39;
             this.cbEstado.UseSelectable = true;
             // 
@@ -183,15 +179,6 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // lblTipodePago
-            // 
-            this.lblTipodePago.AutoSize = true;
-            this.lblTipodePago.Location = new System.Drawing.Point(218, 206);
-            this.lblTipodePago.Name = "lblTipodePago";
-            this.lblTipodePago.Size = new System.Drawing.Size(89, 19);
-            this.lblTipodePago.TabIndex = 34;
-            this.lblTipodePago.Text = "Tipo de pago";
-            // 
             // btnAgregar
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -210,20 +197,6 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // cbTipoDePago
-            // 
-            this.cbTipoDePago.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.cbTipoDePago.FormattingEnabled = true;
-            this.cbTipoDePago.ItemHeight = 19;
-            this.cbTipoDePago.Items.AddRange(new object[] {
-            "Efectivo",
-            "Tarjeta"});
-            this.cbTipoDePago.Location = new System.Drawing.Point(218, 228);
-            this.cbTipoDePago.Name = "cbTipoDePago";
-            this.cbTipoDePago.Size = new System.Drawing.Size(196, 25);
-            this.cbTipoDePago.TabIndex = 5;
-            this.cbTipoDePago.UseSelectable = true;
             // 
             // dtFecha
             // 
@@ -257,7 +230,7 @@
             this.tbCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCliente.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tbCliente.Location = new System.Drawing.Point(4, 41);
-            this.tbCliente.MaxLength = 35;
+            this.tbCliente.MaxLength = 40;
             this.tbCliente.Name = "tbCliente";
             this.tbCliente.Size = new System.Drawing.Size(410, 25);
             this.tbCliente.TabIndex = 1;
@@ -299,8 +272,6 @@
         private MetroFramework.Controls.MetroDateTime dtFecha;
         private MetroFramework.Controls.MetroLabel lblTelefono;
         private System.Windows.Forms.TextBox tbTelefono;
-        private MetroFramework.Controls.MetroLabel lblTipodePago;
-        private MetroFramework.Controls.MetroComboBox cbTipoDePago;
         private MetroFramework.Controls.MetroDateTime dtFechaEntrega;
         private MetroFramework.Controls.MetroLabel lblFechaEntrega;
         private MetroFramework.Controls.MetroLabel metroLabel1;

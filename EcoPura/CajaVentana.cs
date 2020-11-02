@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,11 @@ namespace EcoPura
 {
     public partial class CajaVentana : MetroFramework.Forms.MetroForm
     {
-        public CajaVentana()
+        User _user;
+        public CajaVentana(User user)
         {
             InitializeComponent();
+            _user = user;
             gridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             WindowState = FormWindowState.Maximized;
         }
@@ -30,14 +33,10 @@ namespace EcoPura
 
         private void CajaVentana_Load(object sender, EventArgs e)
         {
-
             CargarGridView();
             gridview.Columns["Flujo"].DefaultCellStyle.Format = "c";
             gridview.Columns["Flujo"].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("es-MX");
-
             gridview.Columns["NoTicket"].Width = 100;
-
-
         }
 
         private void CargarGridView()
@@ -58,7 +57,6 @@ namespace EcoPura
 
             SumaIngresos();
 
-
             gridview.ClearSelection();
         }
 
@@ -72,13 +70,16 @@ namespace EcoPura
 
             lblTotal.Text = total.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
 
-
             lblTotalTarjeta.Text = totalTarjeta.ToString("C2", CultureInfo.CreateSpecificCulture("es-MX"));
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (!Shared.Autorizacion(_user))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "No estás autorizado para entrar a esta ventana", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (gridview.SelectedRows.Count > 0)
             {
@@ -111,6 +112,12 @@ namespace EcoPura
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (!Shared.Autorizacion(_user))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "No estás autorizado para entrar a esta ventana", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             var sacarMonto = new PopUpSacarMonto();
             sacarMonto.StartPosition = FormStartPosition.CenterParent;
             sacarMonto.ShowDialog();
@@ -134,15 +141,16 @@ namespace EcoPura
 
                 //Cabecera
                 ticket.TextoCentro("EcoPura");
-                ticket.TextoIzquierda("Corte de caja");
+                ticket.TextoIzquierda("CORTE DE CAJA");
+                ticket.TextoIzquierda("Empleado: " + _user.Name);
                 ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                ticket.TextoIzquierda("DIREC: Salvador Alvarado, Misión #4480, Soler, 22530 Tijuana, B.C.  ");
+                ticket.TextoIzquierda("DIREC: Salvador Alvarado 4820 Local 26 Plaza Misión Col. Soler");
                 ticket.TextoIzquierda("TEL: 664 975 4148");
                 ticket.lineasAsteriscos();
 
                 //Totales
                 ticket.TextoIzquierda("");
-                ticket.TextoIzquierda("FECHA: " + DateTime.Now.ToShortDateString());
+                ticket.TextoIzquierda("FECHA: " + DateTime.Now.ToString("MM/dd/yyyy hh:mm tt"));
 
                 float VeinteL = DatabaseAccess.PrecioTotal("select sum(Importe) FROM VentasCorte WHERE Producto = '20 Litros Purificada'");
                 float CincoGal = DatabaseAccess.PrecioTotal("select sum(Importe) FROM VentasCorte WHERE Producto = '5 Galones Purificada'");
@@ -150,8 +158,6 @@ namespace EcoPura
                 float totalGarrafones = VeinteL + CincoGal + TresGal;
 
                 DataTable clasificaciones = DatabaseAccess.CargarTabla("SELECT sum(importe) as Total, Clasificacion.Clasificacion FROM VentasCorte  LEFT JOIN Clasificacion on VentasCorte.IdClasificacion = Clasificacion.IdClasificacion WHERE VentasCorte.IdClasificacion != 3 GROUP By VentasCorte.IdClasificacion");
-
-
 
                 int totalVeinte = DatabaseAccess.Cantidad("select sum(Cantidad) FROM VentasCorte WHERE Producto = '20 Litros Purificada'");
                 int totalCinco = DatabaseAccess.Cantidad("select sum(Cantidad) FROM VentasCorte WHERE Producto = '5 Galones Purificada'");
@@ -178,7 +184,6 @@ namespace EcoPura
 
                 float totalt = totalTarjeta + (totalIngresosE - totalRetiros);
 
-
                 ticket.TextoIzquierda("Total Venta Corte.....$" + totalt.ToString());
                 // ticket.TextoIzquierda("");
                 ticket.TextoCentro("¡Fin corte de caja!");
@@ -190,6 +195,10 @@ namespace EcoPura
                 ticket.CortaTicket();
                 try
                 {
+                    using (StreamWriter wr = new StreamWriter($"Cortes/Corte De Caja, {DateTime.Now.ToString("dddd, dd MMMM yyyy HH-mm-ss")}.txt"))
+                    {
+                        wr.WriteLine(ticket.linea);
+                    }
 
                     ticket.ImprimirTicket("Microsoft XPS Document Writer", "Corte de caja " + DateTime.Now.ToShortDateString());
                     ticket.ImprimirTicket(DatabaseAccess.GetInfo("select impresora from configuracion where id = 1"), "Corte de caja " + DateTime.Now.ToShortDateString());

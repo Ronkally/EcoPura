@@ -13,11 +13,12 @@ namespace EcoPura
 {
     public partial class PopUpProveedores : MetroFramework.Forms.MetroForm
     {
-
+        User _user;
         string proveedor;
-        public PopUpProveedores()
+        public PopUpProveedores(User user)
         {
             InitializeComponent();
+            _user = user;
         }
         private void tbAgregar_Enter(object sender, EventArgs e)
         {
@@ -93,6 +94,12 @@ namespace EcoPura
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (!Shared.Autorizacion(_user))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "No estás autorizado para entrar a esta ventana", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (GridProveedores.SelectedRows.Count > 0)
             {
                 if (MetroFramework.MetroMessageBox.Show(this, "¿Estás seguro que deseas borrar este proveedor?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)

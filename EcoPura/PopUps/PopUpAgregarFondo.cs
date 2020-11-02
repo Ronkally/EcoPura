@@ -32,7 +32,7 @@ namespace EcoPura
         {
             try
             {
-                if (String.IsNullOrEmpty(tbMotivo.Text))
+                if (Shared.InvalidString(tbMotivo.Text))
                     throw new ArgumentException();
 
                 string fechaHora = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
